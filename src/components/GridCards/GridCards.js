@@ -20,7 +20,7 @@ console.log('response', response)
 
 
   return (
-    <Row xs={1} md={2} className="g-4">
+    <Row xs={2} md={5} className="g-4">
       {/* 'products &&' is a condition meaning: do if products  != null */}
       {products && products.map((product, i) => (
         <Col key={product.id} >
@@ -28,12 +28,12 @@ console.log('response', response)
             <Card.Img variant="top" src={product.image} />
             <Card.Body>
               <Card.Title>{product.title}</Card.Title>
-              <Card.Text>
+              {/* <Card.Text>
               {product.description}
-              </Card.Text>
+              </Card.Text> */}
             </Card.Body>
           </Card>
-        </Col>
+         </Col>
       ))}
     </Row>
   );

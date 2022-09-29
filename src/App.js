@@ -2,7 +2,8 @@ import React from 'react'
 import './App.css';
 import GridCards from './components/GridCards/GridCards.js';
 import NavBar from './components/NavBar/Navbar.js';
-//import TabFun from './components/TabBar/TabFun.js';
+import TabFun from './components/TabBar/TabFun.js';
+import Footer from './components/Footer/Footer.js';
 
 
 
@@ -18,12 +19,13 @@ const App = () => {
   return (
     <div className='App'>
       <NavBar/>
-      {/* <TabFun/> */}
       <h1>Greatest selection of fake stuff</h1>
         <p>Fake it til you make it</p>
       <div className="container">
+      <TabFun/> 
       <GridCards/>  
       </div>
+      <Footer/>  
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
-import Sonnet from '../../components/Sonnet';
+
 
 function TabFun() {
   return (
@@ -12,16 +12,16 @@ function TabFun() {
       justify
     >
       <Tab eventKey="women" title="Women's clothing">
-        <Sonnet />
+       
       </Tab>
       <Tab eventKey="profile" title="Men's clothing">
-        <Sonnet />
+      
       </Tab>
       <Tab eventKey="longer-tab" title="Jewelery">
-        <Sonnet />
+       
       </Tab>
-      <Tab eventKey="contact" title="Electronics" disabled>
-        <Sonnet />
+      <Tab eventKey="contact" title="Electronics">
+       
       </Tab>
     </Tabs>
   );
