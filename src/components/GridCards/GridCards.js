@@ -2,11 +2,12 @@ import {useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { Link } from 'react-router-dom';
 
 
 function GridCards() {
 
-  let api = `https://fakestoreapi.com/products/category/women's clothing`;
+  let api = `https://fakestoreapi.com/products`;
 
   const [products, setProducts] = useState(null)
   useEffect(() => {
@@ -28,6 +29,7 @@ console.log('response', response)
             <Card.Img variant="top" src={product.image} />
             <Card.Body>
               <Card.Title>{product.title}</Card.Title>
+              {/* <Link to={"/women/:womenId"}>click here</Link> */}
               {/* <Card.Text>
               {product.description}
               </Card.Text> */}

@@ -2,6 +2,7 @@ import {useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import {Route} from "react-router-dom";
 
 
 function WomenCat() {
@@ -35,7 +36,9 @@ console.log('response', response)
           </Card>
          </Col>
       ))}
+      {/* <Route path='/women'></Route> */}
     </Row>
+    
   );
 }
 

@@ -5,10 +5,12 @@ import './App.css';
 import TabFun from './components/TabBar/TabFun.js';
 import Footer from './components/Footer/Footer.js';
 import NavOffCanvas from './components/NavBar/NavOffCanvas';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import WomenCat from './pages/WomenCategory';
 import MenCat from './pages/MenCategory';
 import JeweleryCat from './pages/JeweleryCategory';
+import GridCards from './components/GridCards/GridCards';
+import ProductDetails from './pages/ProductDetails';
 
 
 
@@ -22,11 +24,13 @@ const App = () => {
         <p>Fake it til you make it</p>
       <div className="container mb-3">
       <TabFun/> 
-      <Switch>
-        <Route path='/women' component={WomenCat}/>
-        <Route path='/men' component={MenCat}/>
-        <Route path='/jewelery' component={JeweleryCat}/>
-      </Switch>
+      <Routes>
+        <Route path='/' element={<GridCards/>}/>
+        <Route path='/women' element={<WomenCat/>}/>
+        {/* <Route path='/women/:womenId' element={<ProductDetails/>}/> */}
+        <Route path='/men' element={<MenCat/>}/>
+        <Route path='/jewelery' element={<JeweleryCat/>}/>
+      </Routes>
       </div>
       <Footer/>  
     </div>
