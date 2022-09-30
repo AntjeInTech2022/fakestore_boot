@@ -1,5 +1,6 @@
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import {Link} from 'react-router-dom';
 
 
 
@@ -12,13 +13,13 @@ function TabFun() {
       justify
     >
       <Tab eventKey="women" title="Women's clothing">
-       
+       <Link to='/women'></Link>
       </Tab>
-      <Tab eventKey="profile" title="Men's clothing">
-      
+      <Tab  eventKey="men" title="Men's clothing">
+      <Link to='/men'></Link>
       </Tab>
-      <Tab eventKey="longer-tab" title="Jewelery">
-       
+      <Tab eventKey="jewelery" title="Jewelery">
+      <Link to='/jewelery'></Link>
       </Tab>
       {/* <Tab eventKey="contact" title="Electronics">
        
