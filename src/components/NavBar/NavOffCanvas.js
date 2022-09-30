@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { BsChat, BsCart, BsGithub, BsFillCollectionFill} from "react-icons/bs";
-
+import { Link } from 'react-router-dom';
 
 function NavOffCanvas() {
   return (
@@ -14,7 +14,9 @@ function NavOffCanvas() {
       {[false].map((expand) => (
         <Navbar key={expand} bg="light" expand={expand} className="mb-3">
           <Container fluid>
-            <Navbar.Brand href="#">Fake Store</Navbar.Brand>
+            <Link to='/'>
+            <Navbar.Brand className='fs-3'>Fake Store</Navbar.Brand>
+            </Link>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
