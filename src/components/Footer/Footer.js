@@ -9,9 +9,9 @@ function Footer() {
         <Container>
           <Navbar.Brand href="#home">Fake Store</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Delivery</Nav.Link>
-            <Nav.Link href="#features">Payment Options</Nav.Link>
-            <Nav.Link href="#pricing">Terms and Conditions</Nav.Link>
+            <Nav.Link href="#home">Github</Nav.Link>
+            <Nav.Link href="#features">API</Nav.Link>
+            <Nav.Link href="#pricing">About</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

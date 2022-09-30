@@ -20,9 +20,9 @@ function TabFun() {
       <Tab eventKey="longer-tab" title="Jewelery">
        
       </Tab>
-      <Tab eventKey="contact" title="Electronics">
+      {/* <Tab eventKey="contact" title="Electronics">
        
-      </Tab>
+      </Tab> */}
     </Tabs>
   );
 }

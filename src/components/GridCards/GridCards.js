@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 
 function GridCards() {
 
-  let api = `https://fakestoreapi.com/products`;
+  let api = `https://fakestoreapi.com/products/category/women's clothing`;
 
   const [products, setProducts] = useState(null)
   useEffect(() => {
