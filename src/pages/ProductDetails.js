@@ -3,11 +3,30 @@ import { useParams } from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
+
+
 function Pdp() {
-    let productId=useParams()
+
+    let id=useParams();
     console.log('productId', productId)
+
+    let api = `https://fakestoreapi.com/products/${id}`;
+
+  
+
+    useEffect(() => {
+      (async function () {
+    let data = await fetch(api);
+    let response = await data.json()
+    setProducts(response)
+    console.log('response', response)
+      })();
+    },[]);
+
+
   return (
-    <Card style={{ width: '18rem' }}>
+    products && products.map((product, i) => (
+    <Card key={product.id} style={{ width: '18rem' }}>
     <Card.Img variant="top" src="holder.js/100px180" />
     <Card.Body>
       <Card.Title>Card Title</Card.Title>
@@ -18,8 +37,8 @@ function Pdp() {
       <Button variant="primary">Go somewhere</Button>
     </Card.Body>
   </Card>
-  );
-}
+    ))
+
 
 export default Pdp
 
