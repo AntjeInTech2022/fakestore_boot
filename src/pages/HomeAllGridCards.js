@@ -2,10 +2,13 @@ import {useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { Link } from 'react-router-dom';
+//import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import Pdp from './ProductDetails';
 
 
-function GridCards() {
+function HomeAllGridCards() {
 
   let api = `https://fakestoreapi.com/products`;
 
@@ -19,6 +22,8 @@ console.log('response', response)
     })();
   },[]);
 
+  // let navigate = useNavigate();
+
 
   return (
     <Row xs={2} md={5} className="g-4">
@@ -29,16 +34,22 @@ console.log('response', response)
             <Card.Img variant="top" src={product.image} />
             <Card.Body>
               <Card.Title>{product.title}</Card.Title>
-              {/* <Link to={"/women/:womenId"}>click here</Link> */}
-              {/* <Card.Text>
-              {product.description}
-              </Card.Text> */}
+              {/*  <Button onClick={()=>{
+                navigate("/pdp")
+              }}> 
+                 Show more</Button> */}
+              <Link to={"/pdp:id"}>Show more</Link> 
             </Card.Body>
+
+      
+
           </Card>
+
          </Col>
       ))}
     </Row>
+
   );
 }
 
-export default GridCards;
+export default HomeAllGridCards;
