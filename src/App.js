@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css';
 import TabFun from './components/TabBar/Tabs.js';
 import Footer from './components/Footer/Footer.js';
-import NavOffCanvas from './components/NavOffCanvas';
+import NavOffCanvas from './components/NavBar/NavOffCanvas';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 // nested routes OR pages?
 import WomenCat from './pages/WomenCategory';
