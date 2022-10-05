@@ -2,10 +2,10 @@ import {useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-//import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom'
-import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import Pdp from './ProductDetails';
+import { Button } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom'
+
+
 
 
 function HomeAllGridCards() {
@@ -22,7 +22,7 @@ console.log('response', response)
     })();
   },[]);
 
-  // let navigate = useNavigate();
+
 
 
   return (
@@ -34,17 +34,11 @@ console.log('response', response)
             <Card.Img variant="top" src={product.image} />
             <Card.Body>
               <Card.Title>{product.title}</Card.Title>
-              {/*  <Button onClick={()=>{
-                navigate("/pdp")
-              }}> 
-                 Show more</Button> */}
+              <p className='text-truncate'>{product.description}</p>
+              {/* <Button onClick={()=> setSearchParams({pdp:'1'})}>Show more</Button>  */}
               <Link to={"/pdp:id"}>Show more</Link> 
             </Card.Body>
-
-      
-
           </Card>
-
          </Col>
       ))}
     </Row>

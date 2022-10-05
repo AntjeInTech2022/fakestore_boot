@@ -1,7 +1,7 @@
 
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import {useNavigate } from 'react-router-dom';
+import {useNavigate, NavLink } from 'react-router-dom';
 import {useState } from 'react'
 import { Button } from 'react-bootstrap';
 //import WomenCat from '../../pages/WomenCategory';
@@ -25,15 +25,15 @@ function TabFun() {
       justify
     >
       
-      <Tab eventKey="women" title="Women's clothing">
+      <Tab eventKey="women" title="Women's clothing" className="mb-3">
         <Button onClick={()=>navigate("/women")}>Show women's clothing only</Button>
-
       </Tab>
       
       <Tab eventKey="men" title="Men's clothing">
-      <Button onClick={()=>navigate("/men")}>Show men's clothing only</Button>
+      {/* <NavLink to="/men"></NavLink> */}
+      <Button onClick={()=>navigate("/men")} className="mb-3" >Show men's clothing only</Button> 
       </Tab>
-      <Tab eventKey="jewelery" title="Jewelery">
+      <Tab eventKey="jewelery" title="Jewelery" className="mb-3">
       <Button onClick={()=>navigate("/jewelery")}>Show jewerlery only</Button>
       </Tab>
     </Tabs>

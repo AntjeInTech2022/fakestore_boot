@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { BsChat, BsCart, BsGithub, BsFillCollectionFill} from "react-icons/bs";
-//import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function NavOffCanvas() {
   return (
@@ -15,7 +15,8 @@ function NavOffCanvas() {
         <Navbar key={expand} bg="light" expand={expand} className="mb-3">
           <Container fluid>
          
-            <Navbar.Brand className='fs-3'>Fake Store</Navbar.Brand>
+            <Navbar.Brand href="/"className='fs-3'>Fake Store</Navbar.Brand>
+           
     
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
@@ -48,15 +49,7 @@ function NavOffCanvas() {
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
-                <Form className="d-flex">
-                  <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-success">Search</Button>
-                </Form>
+                
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>

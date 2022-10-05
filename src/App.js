@@ -27,14 +27,17 @@ const App = () => {
       
       <Routes>
          <Route path='/' element={<HomeAllGridCards/>}/> 
-        <Route path='/women' element={<WomenCat/>}/> 
-         <Route path='/pdp:id' element={<Pdp/>}/> 
-        
+        <Route path='/pdp:id' element={<Pdp/>}/> 
+
+         <Route path='/women' element={<WomenCat/>}/> 
          <Route path='/women/:id' element={<Pdp/>}/> 
+
         <Route path='/men' element={<MenCat/>}/>
          <Route path='/men/pdp/:id' element={<Pdp/>}/>
+
         <Route path='/jewelery' element={<JeweleryCat/>}/>
          <Route path='/jewelery/pdp:id' element={<Pdp/>}/> 
+         
         <Route path="*" element={<ErrorPage/>}/>
       </Routes>
 
