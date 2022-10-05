@@ -8,7 +8,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 
 
-function HomeAllGridCards() {
+function AllProducts() {
 
   let api = `https://fakestoreapi.com/products`;
 
@@ -35,15 +35,20 @@ console.log('response', response)
             <Card.Body>
               <Card.Title>{product.title}</Card.Title>
               <p className='text-truncate'>{product.description}</p>
-              {/* <Button onClick={()=> setSearchParams({pdp:'1'})}>Show more</Button>  */}
-              <Link to={"/pdp:id"}>Show more</Link> 
+              {/* <Button component={Link} to={`/products/${product.id}`}>
+                Show More
+            </Button> */}
+              <Link to={"/pdp"}>Show more</Link> 
+              {/* <Link to={"/pdp:id"}>Show more</Link>  */}
             </Card.Body>
           </Card>
          </Col>
+         
       ))}
     </Row>
+    
 
   );
 }
 
-export default HomeAllGridCards;
+export default AllProducts;

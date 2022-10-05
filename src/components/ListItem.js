@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 const ListItem = (props) => {
     const product = props.product
