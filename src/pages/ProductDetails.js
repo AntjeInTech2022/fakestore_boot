@@ -1,29 +1,30 @@
-// import React, { useEffect, useState } from 'react'
-// import Button from 'react-bootstrap/Button';
-// import Card from 'react-bootstrap/Card';
-// import {useParams} from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import {useParams} from 'react-router-dom'
 
 
 
-// function ProductDetails() {
+function ProductDetails() {
 
-//   let api = `https://fakestoreapi.com/products/§{id}`;
-//   let {id} = useParams();
+  let api = `https://fakestoreapi.com/products/§{id}`;
+  let {id} = useParams();
 
-//   const [products, setProducts] = useState()
+  const [products, setProducts] = useState()
 
-//   useEffect(() => {
-//     (async function () {
-//     let data = await fetch(api);
-//     let response = await data.json()
-//     setProducts(response)
-//     console.log('response', response)
-//     })();
-//   },[]);
+  useEffect(() => {
+    (async function () {
+    let data = await fetch(api);
+    let response = await data.json()
+    setProducts(response)
+    console.log('response', response)
+    })();
+  },[]);
 
   
 
-//   return (
+  return (
+    <p>product details</p>) }
 //     <Card key={product.id} style={{ width: '18rem' }} className="text-center">
 //     <Card.Img variant="top" src={response.image} />
 //     <Card.Body>
@@ -36,4 +37,4 @@
 //   </Card>);
 // }
 
-// export default ProductDetails;
+export default ProductDetails;

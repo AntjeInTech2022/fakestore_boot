@@ -38,8 +38,7 @@ console.log('response', response)
               {/* <Button component={Link} to={`/products/${product.id}`}>
                 Show More
             </Button> */}
-              <Link to={"/pdp"}>Show more</Link> 
-              {/* <Link to={"/pdp:id"}>Show more</Link>  */}
+              <Link to={"/pdp/:id"}>Show /pdp/:id</Link> 
             </Card.Body>
           </Card>
          </Col>

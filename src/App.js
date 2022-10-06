@@ -10,7 +10,7 @@ import MenCat from './pages/MenCategory';
 import JeweleryCat from './pages/JeweleryCategory';
 import ErrorPage from './pages/ErrorPage';
 import AllProducts from './pages/AllProducts';
-//import ProductDetails from './pages/ProductDetails';
+import ProductDetails from './pages/ProductDetails';
 import ProductDetails2 from './pages/ProductDetails';
 
 
@@ -28,10 +28,7 @@ const App = () => {
     
       <Routes>
          <Route path='/' element={<AllProducts/>}/> 
-           {/* <Route path='/:id' element={<ProductDetails2/>}/>  */}
-            {/* <Route path='/pdp' element={<ProductDetails2/>}/>   */}
-           <Route path='/pdp' element={<ProductDetails2/>}/>  
-            {/* <Route path='/pdp/:id' element={<ProductDetails2/>}/>  */}
+          <Route path='/pdp/:id' element={<ProductDetails/>}/> 
            
 
          <Route path='/women' element={<WomenCat/>}/> 
