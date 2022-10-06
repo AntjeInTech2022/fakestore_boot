@@ -26,6 +26,7 @@ console.log('response', response)
 
 
   return (
+
     <Row xs={2} md={5} className="g-4">
       {/* 'products &&' is a condition meaning: do if products  != null */}
       {products && products.map((product, i) => (

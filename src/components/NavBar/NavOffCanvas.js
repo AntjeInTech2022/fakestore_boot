@@ -12,11 +12,12 @@ function NavOffCanvas() {
   return (
     <>
       {[false].map((expand) => (
-        <Navbar key={expand} bg="light" expand={expand} className="mb-3">
+        <Navbar key={expand} variant="dark" bg="dark" expand={expand} className="mb-3">
           <Container fluid>
          
             <Navbar.Brand href="/"className='fs-3'>Fake Store</Navbar.Brand>
            
+      
     
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas

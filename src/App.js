@@ -1,9 +1,11 @@
 import React from 'react'
 import './App.css';
-import TabFun from './components/TabBar/Tabs.js';
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+//import TabFun from './components/TabBar/Tabs.js';
 import Footer from './components/Footer/Footer.js';
 import NavOffCanvas from './components/NavBar/NavOffCanvas';
-import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import ContainerFluid from './components/FluidContainer';
+
 // nested routes OR pages?
 import WomenCat from './pages/WomenCategory';
 import MenCat from './pages/MenCategory';
@@ -20,11 +22,8 @@ const App = () => {
   return (
     <Router>
     <div className='App'>
-      <div className='NavTxt'>
       <NavOffCanvas/>
-      <h1>Greatest selection of fake stuff</h1>
-        <p>Fake it till you make it</p>
-        </div>
+      <ContainerFluid/>
       <div className="container mb-3">
       {/* <TabFun/>  */}
     
