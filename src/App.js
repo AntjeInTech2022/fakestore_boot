@@ -11,7 +11,7 @@ import JeweleryCat from './pages/JeweleryCategory';
 import ErrorPage from './pages/ErrorPage';
 import AllProducts from './pages/AllProducts';
 import ProductDetails from './pages/ProductDetails';
-import ProductDetails2 from './pages/ProductDetails';
+import Login from './pages/Login';
 
 
 
@@ -38,6 +38,10 @@ const App = () => {
 
         <Route path='/jewelery' element={<JeweleryCat/>}/>
          {/* <Route path='/jewelery/pdp:id' element={<Pdp/>}/>  */}
+
+         <Route path='/jewelery' element={<JeweleryCat/>}/>
+
+         <Route path='/login' element={<Login/>}/>
          
         <Route path="*" element={<ErrorPage/>}/>
       </Routes>

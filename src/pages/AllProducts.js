@@ -34,6 +34,7 @@ console.log('response', response)
             <Card.Img variant="top" src={product.image} />
             <Card.Body>
               <Card.Title>{product.title}</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">109.95 €</Card.Subtitle>
               <p className='text-truncate'>{product.description}</p>
               {/* <Button component={Link} to={`/product/${product.id}`}>
               /product/${product.id}
