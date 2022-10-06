@@ -20,9 +20,11 @@ const App = () => {
   return (
     <Router>
     <div className='App'>
+      <div className='NavTxt'>
       <NavOffCanvas/>
       <h1>Greatest selection of fake stuff</h1>
         <p>Fake it till you make it</p>
+        </div>
       <div className="container mb-3">
       {/* <TabFun/>  */}
     
