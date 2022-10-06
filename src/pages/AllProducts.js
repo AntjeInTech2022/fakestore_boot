@@ -2,7 +2,7 @@ import {useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { Button, Badge, Stack } from 'react-bootstrap';
+import { Button, Badge, Stack, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import { BsHeart, BsBookmark } from "react-icons/bs";
 //import './App.css';
@@ -47,6 +47,9 @@ console.log('response', response)
               {/* <BsBookmark className='position-absolute bookmark'/> */}
             {/* <Link to={`/product/${product.id}`}>Show /product/${product.id}</Link>  */}
             </Card.Body>
+            {/* <Card.Footer>
+          <small className="text-muted"> Rating: {product.rating.rate}</small>
+        </Card.Footer> */}
           </Card>
           </Link>
          </Col>
