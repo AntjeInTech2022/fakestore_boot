@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { BsChat, BsCart, BsGithub, BsFillCollectionFill} from "react-icons/bs";
-import { NavLink } from 'react-router-dom';
+
 
 function NavOffCanvas() {
   return (

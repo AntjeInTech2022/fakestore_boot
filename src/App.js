@@ -24,7 +24,7 @@ const App = () => {
       <h1>Greatest selection of fake stuff</h1>
         <p>Fake it till you make it</p>
       <div className="container mb-3">
-      <TabFun/> 
+      {/* <TabFun/>  */}
     
       <Routes>
          <Route path='/' element={<AllProducts/>}/> 
