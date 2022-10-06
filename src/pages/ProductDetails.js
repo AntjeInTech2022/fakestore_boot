@@ -25,8 +25,8 @@ function ProductDetails() {
   return (
 
      product ?
-    <Card key={product.id} style={{ width: '18rem' }} className="text-center">
-    <Card.Img variant="top" src={product.image} />
+    <Card key={product.id} style={{ width: '18rem' }}>
+    <Card.Img top width="100%" variant="top" src={product.image} />
     <Card.Body>
       <Card.Title>{product.title}</Card.Title>
       <Card.Subtitle className="mb-2 text-muted">{product.price} €</Card.Subtitle>
