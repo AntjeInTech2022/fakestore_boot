@@ -37,7 +37,7 @@ console.log('response', response)
               <Card.Title className='text-truncate'>{product.title}</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">{product.price} €</Card.Subtitle>
               <Card.Text className='text-truncate'>{product.description}</Card.Text>
-              <Button to={`/product/${product.id}`} variant="primary">Show more</Button>
+              <Button to={`/product/${product.id}`} variant="danger">Show more</Button>
             {/* <Link to={`/product/${product.id}`}>Show /product/${product.id}</Link>  */}
             </Card.Body>
           </Card>
