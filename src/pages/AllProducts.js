@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { Button } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 
@@ -34,13 +34,11 @@ console.log('response', response)
           <Card>
             <Card.Img variant="top" src={product.image} />
             <Card.Body>
-              <Card.Title>{product.title}</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">109.95 €</Card.Subtitle>
-              <p className='text-truncate'>{product.description}</p>
-              {/* <Button> Show more 
-            </Button> */}
-            {/* <p></p>
-            <Link to={`/product/${product.id}`}>Show /product/${product.id}</Link>  */}
+              <Card.Title className='text-truncate'>{product.title}</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">{product.price} €</Card.Subtitle>
+              <Card.Text className='text-truncate'>{product.description}</Card.Text>
+              <Button to={`/product/${product.id}`} variant="primary">Show more</Button>
+            {/* <Link to={`/product/${product.id}`}>Show /product/${product.id}</Link>  */}
             </Card.Body>
           </Card>
           </Link>
