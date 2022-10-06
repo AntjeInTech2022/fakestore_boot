@@ -35,11 +35,11 @@ console.log('response', response)
             <Card.Body>
               <Card.Title>{product.title}</Card.Title>
               <p className='text-truncate'>{product.description}</p>
-              <Button component={Link} to={`/product/${product.id}`}>
-                Show More
+              {/* <Button component={Link} to={`/product/${product.id}`}>
+              /product/${product.id}
             </Button>
-            <p></p>
-              <Link to={"/product/:id"}>Show /product/:id</Link> 
+            <p></p> */}
+            <Link to={"/product/${product.id}"}>Show /product/${product.id}</Link> 
             </Card.Body>
           </Card>
          </Col>
