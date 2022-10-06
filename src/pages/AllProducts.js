@@ -40,7 +40,7 @@ console.log('response', response)
               /product/${product.id}
             </Button>
             <p></p> */}
-            <Link to={"/product/${product.id}"}>Show /product/${product.id}</Link> 
+            <Link to={`/product/${product.id}`}>Show /product/${product.id}</Link> 
             </Card.Body>
           </Card>
          </Col>
