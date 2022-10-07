@@ -14,6 +14,7 @@ import ErrorPage from './pages/ErrorPage';
 import AllProducts from './pages/AllProducts';
 import ProductDetails from './pages/ProductDetails';
 import Login from './pages/Login';
+import Register from './pages/Register';
 
 // testing
 import BannerMen from './components/BannerMen';

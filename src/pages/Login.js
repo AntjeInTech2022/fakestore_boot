@@ -1,18 +1,23 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Placeholder from 'react-bootstrap/Placeholder';
+import {useNavigate} from 'react-router-dom';
+import {useState } from 'react'
 
 
 function Login() {
+  const [key, setKey] = useState(true);
+  let navigate = useNavigate();
+
   return (
     
-    <Form>
+    <Form onSelect={(k) => setKey(k)}>
       <h3>Welcome back ✌️</h3>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" />
         <Form.Text className="text-muted">
-        Remember use a fake e-mail but with a valid LTD (.com, .net, .org, etc).
+        Demo email: fake@fakestore.com
+        
         </Form.Text>
       </Form.Group>
 
@@ -20,7 +25,8 @@ function Login() {
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" placeholder="Password" />
         <Form.Text className="text-muted">
-        The password should be at least 6 characters.
+        Demo pw: 123456
+        
         </Form.Text>
       </Form.Group>
       {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -34,12 +40,13 @@ function Login() {
       <Form.Text className="text-muted">
        Forgot password?
         </Form.Text>
-        <p aria-hidden="true">
+        {/* <p aria-hidden="true">
         <Placeholder xs={12} bg="light" />
-      </p>
+      </p> */}
+      <hr></hr>
         <h6>New here?</h6>
         <div className="d-grid gap-2">  
-        <Button variant="outline-primary" type="submit">
+        <Button onClick={()=>navigate("/register")} variant="outline-primary" type="submit">
         Register
       </Button>
       </div>

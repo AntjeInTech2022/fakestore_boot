@@ -37,6 +37,7 @@ function NavOffCanvas() {
                   <Nav.Link href="#action2"> Warenkorb <BsCart/></Nav.Link>
                   <Nav.Link href="#action2"> Saved items <BsBookmark/></Nav.Link> */}
                   <Nav.Link href="#action2"> Github <BsGithub/></Nav.Link>
+                  <Nav.Link href="#action2"> About</Nav.Link>
                   <Nav.Link href="https://fakestoreapi.com/docs">API <BsFillCollectionFill/></Nav.Link>
                   <NavDropdown
                     title="Contact"
