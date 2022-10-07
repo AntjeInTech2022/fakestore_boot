@@ -2,6 +2,11 @@ import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useParams } from "react-router-dom";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Stack from 'react-bootstrap/Stack';
+import Figure from 'react-bootstrap/Figure';
 
 function ProductDetails() {
   
@@ -25,16 +30,64 @@ function ProductDetails() {
   return (
 
      product ?
-    <Card key={product.id} style={{ width: '18rem' }}>
-    {/* <Card.Img top width="100%" variant="top" src={product.image} /> */}
+<Container fluid="md">
+<Stack gap={3}>
+  <div>
+    
+  </div>
+      <div>
+      <Figure key={product.id}>
+      <Figure.Image
+        // width={171}
+        // height={180}
+        alt="171x180"
+        src={product.image} 
+      />
+    </Figure>
+      </div>
+      <div>
+      <Card key={product.id}>
     <Card.Body>
-      <Card.Title>{product.title}</Card.Title>
-      <Card.Subtitle className="mb-2 text-muted">{product.price} €</Card.Subtitle>
-      <Card.Text>{product.description}</Card.Text>
-      <Button variant="primary">Add to cart</Button>
+       <Card.Title>{product.title}</Card.Title>
+       <Card.Subtitle className="mb-2 text-muted">{product.price} €</Card.Subtitle>
+       <Card.Text>{product.description}</Card.Text>
+       <Button variant="primary">Add to cart</Button>
     </Card.Body>
-    <Card.Footer className="text-muted">Rating: {product.rating.rate}</Card.Footer>
-  </Card>:
+     <Card.Footer className="text-muted">Product rating: {product.rating.rate}</Card.Footer>
+  </Card>
+      </div>
+    </Stack>
+</Container>:
+
+  //    <Container fluid="md">
+  //    <Row>
+  //      <Col key={product.id}> 
+  //      <Card.Body>
+  //      <Card.Img src={product.image} />
+  //   </Card.Body>
+  //   </Col>
+  //      <Col><Card key={product.id}>
+  //   <Card.Body>
+  //     <Card.Title>{product.title}</Card.Title>
+  //     <Card.Subtitle className="mb-2 text-muted">{product.price} €</Card.Subtitle>
+  //     <Card.Text>{product.description}</Card.Text>
+  //     <Button variant="primary">Add to cart</Button>
+  //   </Card.Body>
+  //   <Card.Footer className="text-muted">Product rating: {product.rating.rate}</Card.Footer>
+  // </Card></Col>
+  //    </Row>
+  //  </Container>:
+
+  //   <Card key={product.id} style={{ width: '18rem' }}>
+  //   {/* <Card.Img top width="100%" variant="top" src={product.image} /> */}
+  //   <Card.Body>
+  //     <Card.Title>{product.title}</Card.Title>
+  //     <Card.Subtitle className="mb-2 text-muted">{product.price} €</Card.Subtitle>
+  //     <Card.Text>{product.description}</Card.Text>
+  //     <Button variant="primary">Add to cart</Button>
+  //   </Card.Body>
+  //   <Card.Footer className="text-muted">Product rating: {product.rating.rate}</Card.Footer>
+  // </Card>:
   <p>not found</p>
   );
 }
