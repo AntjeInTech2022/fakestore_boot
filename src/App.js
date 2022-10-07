@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 //import TabFun from './components/TabBar/Tabs.js';
 import Footer from './components/Footer/Footer.js';
 import NavOffCanvas from './components/NavBar/NavOffCanvas';
-import ContainerFluid from './components/FluidContainer';
+import ContainerFluid from './components/Banner';
 
 // nested routes OR pages?
 import WomenCat from './pages/WomenCategory';
@@ -23,12 +23,12 @@ const App = () => {
     <Router>
     <div className='App'>
       <NavOffCanvas/>
-      <ContainerFluid/>
+      {/* <ContainerFluid/> */}
       <div className="container mb-3">
       {/* <TabFun/>  */}
     
       <Routes>
-         <Route path='/' element={<AllProducts/>}/> 
+         <Route path='/' element={<><ContainerFluid/><AllProducts/></>}/> 
           <Route path='/product/:id' element={<ProductDetails/>}/> 
          
          <Route path='/women' element={<WomenCat/>}/> 

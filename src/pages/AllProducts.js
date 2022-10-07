@@ -2,10 +2,12 @@ import {useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { Button, Badge, Stack, Image } from 'react-bootstrap';
+import { Button, Badge, Stack, Image, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import { BsBookmark, BsCartPlus  } from "react-icons/bs";
 import '../App.css';
+import Banner from '../components/Banner';
+//import Container from 'react-bootstrap/Container';
 
 
 
@@ -28,6 +30,7 @@ console.log('response', response)
 
 
   return (
+  
     <Row xs={2} md={5} className="g-4">
       {/* 'products &&' is a condition meaning: do if products  != null */}
       {products && products.map((product, i) => (
@@ -55,7 +58,6 @@ console.log('response', response)
          
       ))}
     </Row>
-    
 
   );
 }
