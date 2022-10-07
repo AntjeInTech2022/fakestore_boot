@@ -58,7 +58,7 @@ function ProductDetails() {
        <Button variant="danger">Add to cart</Button><BsBookmark className='bookmark'/>
               <BsCartPlus className="BsCartPlus"/> 
     </Card.Body>
-     <Card.Footer className="text-muted">Product rating: {product.rating.rate} / 5</Card.Footer>
+     {/* <Card.Footer className="text-muted">Product rating: {product.rating.rate} / 5</Card.Footer> */}
   </Card>
       </div>
     </Stack>

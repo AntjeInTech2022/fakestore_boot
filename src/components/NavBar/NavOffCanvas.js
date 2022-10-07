@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { BsChat, BsCart, BsGithub, BsFillCollectionFill} from "react-icons/bs";
+import { BsChat, BsCart, BsGithub, BsFillCollectionFill, BsBookmark} from "react-icons/bs";
 
 
 function NavOffCanvas() {
@@ -35,6 +35,7 @@ function NavOffCanvas() {
                   <Nav.Link href="/login">Login</Nav.Link>
                   <Nav.Link href="#action2">Your Account</Nav.Link>
                   <Nav.Link href="#action2"> Warenkorb <BsCart/></Nav.Link>
+                  <Nav.Link href="#action2"> Saved items <BsBookmark/></Nav.Link>
                   <Nav.Link href="#action2"> Github <BsGithub/></Nav.Link>
                   <Nav.Link href="https://fakestoreapi.com/docs">API <BsFillCollectionFill/></Nav.Link>
                   <NavDropdown
