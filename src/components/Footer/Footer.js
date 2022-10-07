@@ -10,7 +10,7 @@ function Footer() {
           <Navbar.Brand href="#home">Fake Store</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="#home">Github</Nav.Link>
-            <Nav.Link href="#features">API</Nav.Link>
+            <Nav.Link href="https://fakestoreapi.com/docs" target="_blank">API</Nav.Link>
             <Nav.Link href="#pricing">About</Nav.Link>
           </Nav>
         </Container>
