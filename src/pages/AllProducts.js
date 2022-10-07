@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import { Button, Badge, Stack, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import { BsBookmark, BsCartPlus  } from "react-icons/bs";
-//import './App.css';
+import '../App.css';
 
 
 
@@ -36,7 +36,7 @@ console.log('response', response)
           <Card className='position-relative'>
          <Card.Header as="h6" >
           </Card.Header> 
-            <Card.Img variant="top" src={product.image} />
+            <Card.Img className="Image" variant="top" src={product.image} />
             <Card.Body>
               <Card.Title>{product.title}</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">{product.price} €</Card.Subtitle>
