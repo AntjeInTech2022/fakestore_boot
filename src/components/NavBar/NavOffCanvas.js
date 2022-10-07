@@ -33,9 +33,9 @@ function NavOffCanvas() {
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Nav.Link href="/login">Login</Nav.Link>
-                  <Nav.Link href="#action2">Your Account</Nav.Link>
+                  {/* <Nav.Link href="#action2">Your Account</Nav.Link>
                   <Nav.Link href="#action2"> Warenkorb <BsCart/></Nav.Link>
-                  <Nav.Link href="#action2"> Saved items <BsBookmark/></Nav.Link>
+                  <Nav.Link href="#action2"> Saved items <BsBookmark/></Nav.Link> */}
                   <Nav.Link href="#action2"> Github <BsGithub/></Nav.Link>
                   <Nav.Link href="https://fakestoreapi.com/docs">API <BsFillCollectionFill/></Nav.Link>
                   <NavDropdown

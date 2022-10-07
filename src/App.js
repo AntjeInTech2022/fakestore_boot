@@ -32,13 +32,13 @@ const App = () => {
           <Route path='/product/:id' element={<ProductDetails/>}/> 
          
          <Route path='/women' element={<WomenCat/>}/> 
-         {/* <Route path='/women/:id' element={<Pdp/>}/>  */}
+       
 
         <Route path='/men' element={<MenCat/>}/>
-         {/* <Route path='/men/pdp/:id' element={<Pdp/>}/> */}
+       
 
         <Route path='/jewelery' element={<JeweleryCat/>}/>
-         {/* <Route path='/jewelery/pdp:id' element={<Pdp/>}/>  */}
+        
 
          <Route path='/jewelery' element={<JeweleryCat/>}/>
 
