@@ -55,7 +55,8 @@ function ProductDetails() {
        <Card.Title>{product.title}</Card.Title>
        <Card.Subtitle className="mb-2 text-muted">{product.price} €</Card.Subtitle>
        <Card.Text>{product.description}</Card.Text>
-       <BsCartPlus className="BsCartPlus"/> <Placeholder style={{ width: '0.5%' }} /> <Button variant="danger">Add to cart</Button> 
+       <Button variant="danger">Add to cart</Button><BsBookmark className='bookmark'/>
+              <BsCartPlus className="BsCartPlus"/> 
     </Card.Body>
      <Card.Footer className="text-muted">Product rating: {product.rating.rate} / 5</Card.Footer>
   </Card>
