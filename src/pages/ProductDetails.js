@@ -7,6 +7,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Stack from 'react-bootstrap/Stack';
 import Figure from 'react-bootstrap/Figure';
+import { BsBookmark, BsCartPlus } from "react-icons/bs";
+import Placeholder from 'react-bootstrap/Placeholder';
+import '../App.css';
 
 function ProductDetails() {
   
@@ -30,30 +33,31 @@ function ProductDetails() {
   return (
 
      product ?
-<Container fluid="md">
+<Container fluid>
 <Stack gap={3}>
-  <div>
-    
-  </div>
       <div>
       <Figure key={product.id}>
       <Figure.Image
-        // width={171}
-        // height={180}
+        width={342}
+        height={489.03}
         alt="171x180"
         src={product.image} 
       />
     </Figure>
+    {/* <Figure.Caption>
+    <BsBookmark className='bookmark'/>
+      </Figure.Caption> */}
       </div>
+
       <div>
       <Card key={product.id}>
     <Card.Body>
        <Card.Title>{product.title}</Card.Title>
        <Card.Subtitle className="mb-2 text-muted">{product.price} €</Card.Subtitle>
        <Card.Text>{product.description}</Card.Text>
-       <Button variant="primary">Add to cart</Button>
+       <BsCartPlus className="BsCartPlus"/> <Placeholder style={{ width: '0.5%' }} /> <Button variant="danger">Add to cart</Button> 
     </Card.Body>
-     <Card.Footer className="text-muted">Product rating: {product.rating.rate}</Card.Footer>
+     <Card.Footer className="text-muted">Product rating: {product.rating.rate} / 5</Card.Footer>
   </Card>
       </div>
     </Stack>
