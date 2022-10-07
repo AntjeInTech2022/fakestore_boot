@@ -39,8 +39,8 @@ function ProductDetails() {
       <div>
       <Figure key={product.id}>
       <Figure.Image
-        width={342}
-        height={489.03}
+        width={250}
+        height={250}
         alt="171x180"
         src={product.image} 
       />

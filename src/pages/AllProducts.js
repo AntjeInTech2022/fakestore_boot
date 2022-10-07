@@ -51,9 +51,9 @@ console.log('response', response)
       {products && products.map((product, i) => (
         <Col key={product.id} >
           {/* <Link className='text-link' to={`/product/${product.id}`}> */}
-          <Card className='position-relative'>
-         <Card.Header as="h6" >
-          </Card.Header> 
+          <Card>
+         {/* <Card.Header as="h6" > */}
+          {/* </Card.Header>  */}
             <Card.Img className="Image" variant="top" src={product.image} />
             <Card.Body>
               <Card.Title>{product.title}</Card.Title>
