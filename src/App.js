@@ -15,6 +15,9 @@ import AllProducts from './pages/AllProducts';
 import ProductDetails from './pages/ProductDetails';
 import Login from './pages/Login';
 
+// testing
+import BannerMen from './components/BannerMen';
+
 
 
 const App = () => {
@@ -34,7 +37,7 @@ const App = () => {
          <Route path='/women' element={<WomenCat/>}/> 
        
 
-        <Route path='/men' element={<MenCat/>}/>
+        <Route path='/men' element={<><BannerMen/><MenCat/></>}/>
        
 
         <Route path='/jewelery' element={<JeweleryCat/>}/>

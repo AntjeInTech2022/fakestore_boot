@@ -57,7 +57,7 @@ function ProductDetails() {
        <Card.Subtitle className="mb-2 text-muted">{product.price} €</Card.Subtitle>
        <Card.Text>{product.description}</Card.Text>
        <>
-       <Form.Select className="SelectSize" aria-label="Choose Size">
+       <Form.Select className="SelectSize" aria-label="Choose Size" disabled>
       <option>Choose Size</option>
       <option value="1">Small</option>
       <option value="2">Medium</option>

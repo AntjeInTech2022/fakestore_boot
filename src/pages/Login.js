@@ -21,16 +21,25 @@ function Login() {
         The password should be at least 6 characters.
         </Form.Text>
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
+      {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Check me out" disabled/>
+      </Form.Group> */}
+      <div className="d-grid gap-2">
       <Button variant="primary" type="submit">
         Login
-      </Button>
+      </Button>{' '}
+      </div>
       <Form.Text className="text-muted">
        Forgot password?
         </Form.Text>
+        <h5>New here?</h5>
+        <div className="d-grid gap-2">  
+        <Button variant="outline-primary" type="submit">
+        Register
+      </Button>
+      </div>
     </Form>
+     
   );
 }
 
