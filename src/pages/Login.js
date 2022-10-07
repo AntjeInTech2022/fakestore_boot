@@ -1,5 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Placeholder from 'react-bootstrap/Placeholder';
+
 
 function Login() {
   return (
@@ -32,7 +34,10 @@ function Login() {
       <Form.Text className="text-muted">
        Forgot password?
         </Form.Text>
-        <h5>New here?</h5>
+        <p aria-hidden="true">
+        <Placeholder xs={12} bg="light" />
+      </p>
+        <h6>New here?</h6>
         <div className="d-grid gap-2">  
         <Button variant="outline-primary" type="submit">
         Register
