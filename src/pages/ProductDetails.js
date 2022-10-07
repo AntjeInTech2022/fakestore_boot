@@ -3,8 +3,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useParams } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import CloseButton from 'react-bootstrap/CloseButton';
 import Stack from 'react-bootstrap/Stack';
 import Figure from 'react-bootstrap/Figure';
 import { BsBookmark, BsCartPlus } from "react-icons/bs";
@@ -35,7 +34,11 @@ function ProductDetails() {
 
      product ?
 <Container fluid>
-<Stack gap={3}>
+
+<Stack gap={3}> 
+
+<CloseButton className="justify-content-end"/>
+
       <div>
       <Figure key={product.id}>
       <Figure.Image
