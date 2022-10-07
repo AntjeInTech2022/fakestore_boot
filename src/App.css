@@ -21,6 +21,10 @@
   margin: 10px; 
 }
 
+.SelectSize {
+  margin-bottom: 10px; 
+}
+
 
 .badge {
     /* display: flex;

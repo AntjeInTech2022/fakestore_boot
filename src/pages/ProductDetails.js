@@ -8,7 +8,8 @@ import Col from 'react-bootstrap/Col';
 import Stack from 'react-bootstrap/Stack';
 import Figure from 'react-bootstrap/Figure';
 import { BsBookmark, BsCartPlus } from "react-icons/bs";
-import Placeholder from 'react-bootstrap/Placeholder';
+import Form from 'react-bootstrap/Form';
+
 import '../App.css';
 
 function ProductDetails() {
@@ -55,12 +56,25 @@ function ProductDetails() {
        <Card.Title>{product.title}</Card.Title>
        <Card.Subtitle className="mb-2 text-muted">{product.price} €</Card.Subtitle>
        <Card.Text>{product.description}</Card.Text>
+       <>
+       <Form.Select className="SelectSize" aria-label="Choose Size">
+      <option>Choose Size</option>
+      <option value="1">Small</option>
+      <option value="2">Medium</option>
+      <option value="3">Large</option>
+    </Form.Select>
+    </>
        <Button variant="danger">Add to cart</Button><BsBookmark className='bookmark'/>
               <BsCartPlus className="BsCartPlus"/> 
     </Card.Body>
      {/* <Card.Footer className="text-muted">Product rating: {product.rating.rate} / 5</Card.Footer> */}
   </Card>
       </div>
+
+      <div>
+      </div>
+   
+    
     </Stack>
 </Container>:
 
