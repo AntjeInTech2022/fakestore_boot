@@ -1,9 +1,9 @@
-import {useEffect, useState } from 'react'
+import {useEffect, useState, useRef } from 'react'
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { Button, Badge, Stack, Image, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom'
+import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom'
 import { BsBookmark, BsCartPlus  } from "react-icons/bs";
 import '../App.css';
 import Banner from '../components/Banner';
@@ -14,6 +14,7 @@ import Banner from '../components/Banner';
 
 function AllProducts() {
 
+  // Fetch data
   let api = `https://fakestoreapi.com/products`;
 
   const [products, setProducts] = useState(null)
@@ -26,7 +27,14 @@ console.log('response', response)
     })();
   },[]);
 
+  // Tooltip
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Simple tooltip
+    </Tooltip>
+      );
 
+    let navigate = useNavigate();
 
 
   return (
@@ -35,7 +43,7 @@ console.log('response', response)
       {/* 'products &&' is a condition meaning: do if products  != null */}
       {products && products.map((product, i) => (
         <Col key={product.id} >
-          <Link className='text-link' to={`/product/${product.id}`}>
+          {/* <Link className='text-link' to={`/product/${product.id}`}> */}
           <Card className='position-relative'>
          <Card.Header as="h6" >
           </Card.Header> 
@@ -44,16 +52,23 @@ console.log('response', response)
               <Card.Title>{product.title}</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">{product.price} €</Card.Subtitle>
               <Card.Text className="text-truncate">{product.description}</Card.Text>
-              <Button to={`/product/${product.id}`} variant="danger">Show more</Button><BsBookmark className='bookmark'/>
+              <Button onClick={()=>navigate(`/product/${product.id}`)} variant="danger">Show more</Button>
+              
+              <OverlayTrigger
+                placement="right"
+                delay={{ show: 250, hide: 400 }}
+                 overlay={renderTooltip}>
+                  <BsBookmark className='bookmark'/>    
+              </OverlayTrigger>
+              
               <BsCartPlus className="BsCartPlus"/>
-              {/* <BsBookmark className='position-absolute bookmark'/> */}
             {/* <Link to={`/product/${product.id}`}>Show /product/${product.id}</Link>  */}
             </Card.Body>
             {/* <Card.Footer>
           <small className="text-muted"> Rating: {product.rating.rate}</small>
         </Card.Footer> */}
           </Card>
-          </Link>
+          {/* </Link> */}
          </Col>
          
       ))}
