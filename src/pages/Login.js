@@ -2,6 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {useNavigate} from 'react-router-dom';
 import {useState } from 'react'
+import Placeholder from 'react-bootstrap/Placeholder';
 
 
 function Login() {
@@ -40,16 +41,28 @@ function Login() {
       <Form.Text className="text-muted">
        Forgot password?
         </Form.Text>
-        {/* <p aria-hidden="true">
-        <Placeholder xs={12} bg="light" />
-      </p> */}
       <hr></hr>
+      <Placeholder xs={12} bg="white" />
         <h6>New here?</h6>
         <div className="d-grid gap-2">  
         <Button onClick={()=>navigate("/register")} variant="outline-primary" type="submit">
         Register
       </Button>
       </div>
+       <p aria-hidden="true">
+        <Placeholder xs={12} bg="white" />
+        <Placeholder xs={12} bg="white" />
+        <Placeholder xs={12} bg="white" />
+        <Placeholder xs={12} bg="white" />
+        <Placeholder xs={12} bg="white" />
+        <Placeholder xs={12} bg="white" />
+        <Placeholder xs={12} bg="white" />
+        <Placeholder xs={12} bg="white" />
+        <Placeholder xs={12} bg="white" />
+        <Placeholder xs={12} bg="white" />
+        <Placeholder xs={12} bg="white" />
+        <Placeholder xs={12} bg="white" />
+      </p>
     </Form>
      
   );
