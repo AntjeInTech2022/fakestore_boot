@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import React from 'react'
 import './App.css';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
@@ -7,7 +8,7 @@ import Footer from './components/Footer/Footer.js';
 import NavOffCanvas from './components/NavBar/NavOffCanvas';
 import ContainerFluid from './components/Banner';
 
-// nested routes OR pages?
+// pages
 import WomenCat from './pages/WomenCategory';
 import MenCat from './pages/MenCategory';
 import JeweleryCat from './pages/JeweleryCategory';
@@ -22,17 +23,17 @@ import Register from './pages/Register';
 import BannerMen from './components/BannerMen';
 import NavContext from './components/NavBar/NavBarContext';
 
-// Context / global var user.name
-export const UserNameContext = React.createContext();
+
 
 
 const App = () => {
+  
 
   return (
     <Router>
     
     <div className='App'>
-    <UserNameContext.Provider value="TestUser">
+
 
       <NavOffCanvas/>
       <NavContext/>
@@ -62,7 +63,6 @@ const App = () => {
       </Routes>
       </div>
 
-      </UserNameContext.Provider >
 
       <Footer/>  
     </div>

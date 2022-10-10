@@ -7,13 +7,20 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { BsChat, BsCart, BsGithub, BsFillCollectionFill, BsBookmark} from "react-icons/bs";
 
-import {useContext} from "react";
-import { UserNameContext } from '../../App';
+// user name context
+// import {useContext} from "react";
+// import {UserNameContext} from './components/NavBar/UserNameContext';
+// import {UserNameContext} from './NavBar/UserNameContext';
+// import {UserNameContext} from './UserNameContext';
+// import {UserNameContext} from '../UserNameContext';
+// import {NameProvider} from '../UserNameContext.js';
+
 
 
 function NavOffCanvas() {
 
-  const userName = useContext(UserNameContext);
+  // const {names} = useContext(NameProvider);
+  
 
   return (
     <>
@@ -36,12 +43,13 @@ function NavOffCanvas() {
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                 <Navbar.Text>
-            Signed in as: <a href="/login">{userName}</a>
+            {/* Signed in as: <a href="/login">{names.userName}</a> */}
+            {/* Signed in as: <a href="/login">{names.userName}</a> */}
           </Navbar.Text>
                   <Nav.Link href="/login">Login / Register</Nav.Link>
-                  {/* <Nav.Link href="#action2">Your Account</Nav.Link>
+                  <Nav.Link href="#action2">Your Account</Nav.Link>
                   <Nav.Link href="#action2"> Warenkorb <BsCart/></Nav.Link>
-                  <Nav.Link href="#action2"> Saved items <BsBookmark/></Nav.Link> */}
+                  <Nav.Link href="#action2"> Saved items <BsBookmark/></Nav.Link> 
                   <Nav.Link href="#action2">Chat </Nav.Link>
                   <Nav.Link href="#action2"> About</Nav.Link>
                   <Nav.Link href="#action2"><BsGithub/> Github </Nav.Link>
