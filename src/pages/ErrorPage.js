@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import {useNavigate} from 'react-router-dom';
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 
 function ErrorPage() {
   const [show, setShow] = useState(true);
+  const [key, setKey] = useState(true);
+  let navigate = useNavigate();
 
   return (
     <Alert variant="danger">
@@ -15,7 +18,7 @@ function ErrorPage() {
     </p>
     <hr />
         <div className="d-flex justify-content-end">
-          <Button onClick={() => setShow(false)} variant="outline-danger">
+          <Button onClick={() => navigate("/")} variant="outline-danger">
             Go back to main menue
           </Button>
         </div>
