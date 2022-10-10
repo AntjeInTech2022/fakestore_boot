@@ -20,19 +20,24 @@ import Register from './pages/Register';
 import BannerMen from './components/BannerMen';
 import NavContext from './components/NavBar/NavBarContext';
 
+// Context / global var user.name
+export const UserNameContext = React.createContext();
+
 
 
 const App = () => {
 
   return (
     <Router>
+    
     <div className='App'>
+    <UserNameContext.Provider value="TestUser">
+
       <NavOffCanvas/>
       <NavContext/>
       {/* <ContainerFluid/> */}
       <div className="container mb-3">
       {/* <TabFun/>  */}
-    
       <Routes>
          <Route path='/' element={<><ContainerFluid/><AllProducts/></>}/> 
           <Route path='/product/:id' element={<ProductDetails/>}/> 
@@ -53,8 +58,10 @@ const App = () => {
          
         <Route path="*" element={<ErrorPage/>}/>
       </Routes>
-
       </div>
+
+      </UserNameContext.Provider>
+      
       <Footer/>  
     </div>
     </Router>

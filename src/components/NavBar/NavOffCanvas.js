@@ -16,13 +16,6 @@ function NavOffCanvas() {
           <Container fluid>
          
             <Navbar.Brand href="/"className='fs-3'>Fake Store</Navbar.Brand>
-
-          
-        
-       
-           
-      
-    
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -37,27 +30,16 @@ function NavOffCanvas() {
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                 <Navbar.Text>
-            Signed in as: <a href="#login">Mark Otto</a>
+            Signed in as: <a href="/login">Mark Otto</a>
           </Navbar.Text>
-                  <Nav.Link href="/login">Login</Nav.Link>
+                  <Nav.Link href="/login">Login / Register</Nav.Link>
                   {/* <Nav.Link href="#action2">Your Account</Nav.Link>
                   <Nav.Link href="#action2"> Warenkorb <BsCart/></Nav.Link>
                   <Nav.Link href="#action2"> Saved items <BsBookmark/></Nav.Link> */}
-                  <Nav.Link href="#action2"> Github <BsGithub/></Nav.Link>
+                  <Nav.Link href="#action2">Chat </Nav.Link>
                   <Nav.Link href="#action2"> About</Nav.Link>
-                  <Nav.Link href="https://fakestoreapi.com/docs" target="_blank">API <BsFillCollectionFill/></Nav.Link>
-                  <NavDropdown
-                    title="Contact"
-                    id={`offcanvasNavbarDropdown-expand-${expand}`}>
-                    <NavDropdown.Item href="#action3">Chat <BsChat/></NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      E-Mail
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">
-                      Phone
-                    </NavDropdown.Item>
-                  </NavDropdown>
+                  <Nav.Link href="#action2"><BsGithub/> Github </Nav.Link>
+                  <Nav.Link href="https://fakestoreapi.com/docs" target="_blank">API</Nav.Link>
                 </Nav>
                 
               </Offcanvas.Body>
