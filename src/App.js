@@ -23,6 +23,9 @@ import Register from './pages/Register';
 import BannerMen from './components/BannerMen';
 import NavContext from './components/NavBar/NavBarContext';
 
+//context
+import {ProductsContextProvider} from './context/dataContext'
+
 
 
 
@@ -31,10 +34,8 @@ const App = () => {
 
   return (
     <Router>
-    
+    <ProductsContextProvider>
     <div className='App'>
-
-
       <NavOffCanvas/>
       <NavContext/>
       {/* <ContainerFluid/> */}
@@ -66,6 +67,7 @@ const App = () => {
 
       <Footer/>  
     </div>
+ </ProductsContextProvider>
     </Router>
   );
 }
