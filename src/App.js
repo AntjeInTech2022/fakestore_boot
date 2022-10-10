@@ -18,6 +18,7 @@ import Register from './pages/Register';
 
 // testing
 import BannerMen from './components/BannerMen';
+import NavContext from './components/NavBar/NavBarContext';
 
 
 
@@ -27,6 +28,7 @@ const App = () => {
     <Router>
     <div className='App'>
       <NavOffCanvas/>
+      <NavContext/>
       {/* <ContainerFluid/> */}
       <div className="container mb-3">
       {/* <TabFun/>  */}

@@ -16,6 +16,10 @@ function NavOffCanvas() {
           <Container fluid>
          
             <Navbar.Brand href="/"className='fs-3'>Fake Store</Navbar.Brand>
+
+          
+        
+       
            
       
     
@@ -32,6 +36,9 @@ function NavOffCanvas() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
+                <Navbar.Text>
+            Signed in as: <a href="#login">Mark Otto</a>
+          </Navbar.Text>
                   <Nav.Link href="/login">Login</Nav.Link>
                   {/* <Nav.Link href="#action2">Your Account</Nav.Link>
                   <Nav.Link href="#action2"> Warenkorb <BsCart/></Nav.Link>
