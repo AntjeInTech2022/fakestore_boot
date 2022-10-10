@@ -1,20 +1,26 @@
 import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
+import { Button, Navbar } from 'react-bootstrap';
+
+
+// name context
 import {useContext} from "react";
-//import { UserNameContext } from '../../App';
+import { UserNameContext } from '../../App';
+
+
 
 function NavContext() {
 
-  //const userName = useContext(UserNameContext);
+  const userName = useContext(UserNameContext);
+  //console.log('username', userName)
 
   return (
     <Navbar>
       <Container>
-        {/* <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
-        <Navbar.Toggle /> */}
+      <Button variant="outline-primary">Test Modus on</Button>
+        <Navbar.Toggle /> 
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            {/* Signed in as: <a href="/login">{userName}</a> */}
+            Signed in as: <a href="/login">{userName}</a>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>

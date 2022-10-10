@@ -25,9 +25,7 @@ import NavContext from './components/NavBar/NavBarContext';
 
 //context
 import {ProductsContextProvider} from './context/dataContext'
-
-
-
+export const UserNameContext = React.createContext();
 
 const App = () => {
   
@@ -36,8 +34,10 @@ const App = () => {
     <Router>
     <ProductsContextProvider>
     <div className='App'>
+    <UserNameContext.Provider value="Test User">
       <NavOffCanvas/>
       <NavContext/>
+      </UserNameContext.Provider>
       {/* <ContainerFluid/> */}
       <div className="container mb-3">
       {/* <TabFun/>  */}

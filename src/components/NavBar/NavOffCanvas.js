@@ -7,20 +7,15 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { BsChat, BsCart, BsGithub, BsFillCollectionFill, BsBookmark} from "react-icons/bs";
 
-// user name context
-// import {useContext} from "react";
-// import {UserNameContext} from './components/NavBar/UserNameContext';
-// import {UserNameContext} from './NavBar/UserNameContext';
-// import {UserNameContext} from './UserNameContext';
-// import {UserNameContext} from '../UserNameContext';
-// import {NameProvider} from '../UserNameContext.js';
-
+//Context
+import {useContext} from "react";
+import { UserNameContext } from '../../App';
 
 
 function NavOffCanvas() {
 
-  // const {names} = useContext(NameProvider);
-  
+  const userName = useContext(UserNameContext);
+  //console.log('username', userName)
 
   return (
     <>
@@ -43,8 +38,7 @@ function NavOffCanvas() {
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                 <Navbar.Text>
-            {/* Signed in as: <a href="/login">{names.userName}</a> */}
-            {/* Signed in as: <a href="/login">{names.userName}</a> */}
+            Signed in as: <a href="/login">{userName}</a> 
           </Navbar.Text>
                   <Nav.Link href="/login">Login / Register</Nav.Link>
                   <Nav.Link href="#action2">Your Account</Nav.Link>

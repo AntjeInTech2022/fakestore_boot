@@ -16,7 +16,7 @@ function ProductDetails() {
     let { id } = useParams();
     let api = `https://fakestoreapi.com/products/${id}`;
   
-  console.log(id)
+  // console.log(id)
   
 
   const [product, setProduct] = useState();
