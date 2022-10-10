@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 //import TabFun from './components/TabBar/Tabs.js';
 import Footer from './components/Footer/Footer.js';
 import NavOffCanvas from './components/NavBar/NavOffCanvas';
-import ContainerFluid from './components/Banner';
+import ContainerFluid from './components/Banner/Banner';
 
 // pages
 import WomenCat from './pages/WomenCategory';
@@ -20,7 +20,7 @@ import Register from './pages/Register';
 //import UserProfile from './pages/UserProfile';
 
 // testing
-import BannerMen from './components/BannerMen';
+import BannerMen from './components/Banner/BannerMen';
 import NavContext from './components/NavBar/NavBarContext';
 
 //context
