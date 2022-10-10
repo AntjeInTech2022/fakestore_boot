@@ -7,7 +7,7 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider = (props) => {
   // 3.  state and function
-  const [user, setUser] = useState({ name: "Tester" })
+  const [user, setUser] = useState("Tester")
   const [isLoggedIn, setIsLoggedIn] = useState(true)
 
   // 4. return the provider with its value and inject children component

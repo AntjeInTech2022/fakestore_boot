@@ -25,19 +25,20 @@ import NavContext from './components/NavBar/NavBarContext';
 
 //context
 import {ProductsContextProvider} from './context/dataContext'
-export const UserNameContext = React.createContext();
+import { AuthContextProvider } from './context/authContext';
 
 const App = () => {
-  
+   
 
   return (
     <Router>
     <ProductsContextProvider>
+    <AuthContextProvider> 
     <div className='App'>
-    <UserNameContext.Provider value="Test User">
+    {/* <UserNameContext.Provider value="Test User"> */}
       <NavOffCanvas/>
       <NavContext/>
-      </UserNameContext.Provider>
+      {/* </UserNameContext.Provider> */}
       {/* <ContainerFluid/> */}
       <div className="container mb-3">
       {/* <TabFun/>  */}
@@ -67,6 +68,7 @@ const App = () => {
 
       <Footer/>  
     </div>
+    </AuthContextProvider>
  </ProductsContextProvider>
     </Router>
   );

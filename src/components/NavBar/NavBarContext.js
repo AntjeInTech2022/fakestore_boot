@@ -4,23 +4,29 @@ import { Button, Navbar } from 'react-bootstrap';
 
 // name context
 import {useContext} from "react";
-import { UserNameContext } from '../../App';
+// import { AuthContext } from '../../context/authContext';
+// import { AuthContext } from '.../context/authContext';
+// import { AuthContext } from '../context/authContext';
+// import { AuthContext } from './context/authContext';
+// import { AuthContext } from '/context/authContext';
+// import { AuthContext } from 'context/authContext';
+import {AuthContext} from authContext.js;
 
 
 
 function NavContext() {
 
-  const userName = useContext(UserNameContext);
-  //console.log('username', userName)
+  const { user } = useContext(AuthContext)
+
 
   return (
     <Navbar>
       <Container>
-      <Button variant="outline-primary">Test Modus on</Button>
+      {/* <Button onClick={() => setValue('Tester')} variant="outline-primary">Activate Tester</Button> */}
         <Navbar.Toggle /> 
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            Signed in as: <a href="/login">{userName}</a>
+            Signed in as: <a href="/login">{user}</a>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>

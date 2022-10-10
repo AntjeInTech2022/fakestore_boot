@@ -8,14 +8,17 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { BsChat, BsCart, BsGithub, BsFillCollectionFill, BsBookmark} from "react-icons/bs";
 
 //Context
-import {useContext} from "react";
-import { UserNameContext } from '../../App';
+import { AuthContext } from './context/authContext';
+import {useContext } from 'react';
+
+
 
 
 function NavOffCanvas() {
 
-  const userName = useContext(UserNameContext);
-  //console.log('username', userName)
+  const { user } = useContext(AuthContext)
+
+
 
   return (
     <>
@@ -38,7 +41,7 @@ function NavOffCanvas() {
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                 <Navbar.Text>
-            Signed in as: <a href="/login">{userName}</a> 
+            Signed in as: <a href="/login">{user}</a> 
           </Navbar.Text>
                   <Nav.Link href="/login">Login / Register</Nav.Link>
                   <Nav.Link href="#action2">Your Account</Nav.Link>

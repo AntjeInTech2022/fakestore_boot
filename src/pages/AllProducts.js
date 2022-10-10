@@ -6,7 +6,7 @@ import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'
 import { BsBookmark, BsCartPlus  } from "react-icons/bs";
 import '../App.css';
-import Banner from '../components/Banner/Banner';
+
 //context
 import { ProductsContext } from '../context/dataContext';
 
