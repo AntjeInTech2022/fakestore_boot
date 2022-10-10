@@ -1,4 +1,4 @@
-import {useEffect, useState, useRef } from 'react'
+import {useEffect, useState, useContext } from 'react'
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -7,25 +7,26 @@ import { useNavigate } from 'react-router-dom'
 import { BsBookmark, BsCartPlus  } from "react-icons/bs";
 import '../App.css';
 import Banner from '../components/Banner';
-
-
+//context
+import { ProductsContext } from '../context/dataContext';
 
 
 
 function AllProducts() {
+  const { products } = useContext(ProductsContext)
 
   // Fetch data
-  let api = `https://fakestoreapi.com/products`;
+//   let api = `https://fakestoreapi.com/products`;
 
-  const [products, setProducts] = useState(null)
-  useEffect(() => {
-    (async function () {
-let data = await fetch(api);
-let response = await data.json()
-setProducts(response)
-console.log('response', response)
-    })();
-  },[]);
+//   const [products, setProducts] = useState(null)
+//   useEffect(() => {
+//     (async function () {
+// let data = await fetch(api);
+// let response = await data.json()
+// setProducts(response)
+// console.log('response', response)
+//     })();
+//   },[]);
 
   // Button routing
     let navigate = useNavigate();
