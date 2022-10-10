@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import React from 'react'
 import './App.css';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
@@ -15,6 +16,7 @@ import AllProducts from './pages/AllProducts';
 import ProductDetails from './pages/ProductDetails';
 import Login from './pages/Login';
 import Register from './pages/Register';
+//import UserProfile from './pages/UserProfile';
 
 // testing
 import BannerMen from './components/BannerMen';
@@ -22,7 +24,6 @@ import NavContext from './components/NavBar/NavBarContext';
 
 // Context / global var user.name
 export const UserNameContext = React.createContext();
-
 
 
 const App = () => {
@@ -55,13 +56,14 @@ const App = () => {
 
          <Route path='/login' element={<Login/>}/>
          <Route path='/register' element={<Register/>}/>
+         {/* <Route path='/profile' element={<UserProfile/>}/> */}
          
         <Route path="*" element={<ErrorPage/>}/>
       </Routes>
       </div>
 
-      </UserNameContext.Provider>
-      
+      </UserNameContext.Provider >
+
       <Footer/>  
     </div>
     </Router>
