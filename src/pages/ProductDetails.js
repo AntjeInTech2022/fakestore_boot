@@ -37,7 +37,7 @@ function ProductDetails() {
 
 <Stack gap={3}> 
 
-<CloseButton className="justify-content-end"/>
+<CloseButton/>
 
       <div>
       <Figure key={product.id}>
