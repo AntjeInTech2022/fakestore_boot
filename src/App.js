@@ -17,6 +17,7 @@ import AllProducts from './pages/AllProducts';
 import ProductDetails from './pages/ProductDetails';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import LoginRequiredAlert from './pages/LoginRequired';
 //import UserProfile from './pages/UserProfile';
 
 // testing
@@ -60,7 +61,7 @@ const App = () => {
          <Route path='/login' element={<Login/>}/>
          <Route path='/register' element={<Register/>}/>
          {/* <Route path='/profile' element={<UserProfile/>}/> */}
-         
+         <Route path='/alert' element={<LoginRequiredAlert/>}/>
         <Route path="*" element={<ErrorPage/>}/>
       </Routes>
       </div>

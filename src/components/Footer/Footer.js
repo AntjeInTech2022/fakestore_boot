@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 function Footer() {
   return (
     <>
-      <Navbar bg="dark" variant="dark" sticky="bottom">
+      <Navbar bg="dark" variant="dark" fixed="bottom">
         <Container>
           <Navbar.Brand href="/">Fake Store</Navbar.Brand>
           <Nav className="me-auto">

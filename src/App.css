@@ -13,9 +13,10 @@
   margin-bottom: 5%;
   margin-left: 5%;
   height: auto;
-  width: 250px;
-
+  width: 250px; 
 }
+
+
 
 .NavTxt{
   text-align: center;
@@ -33,7 +34,7 @@
 
 .BsCartPlus{
   font-size: 25px;
-  margin: 10px; 
+  /* margin: 10px;  */
 }
 
 .SelectSize {
@@ -66,6 +67,3 @@
   padding: 0; */
 }
 
- /* .card {
-  height: 250px;
-}  */
