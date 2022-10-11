@@ -1,17 +1,8 @@
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+
+import {Container, Nav, Navbar,Button} from 'react-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { BsChat, BsCart, BsGithub, BsFillCollectionFill, BsBookmark} from "react-icons/bs";
-
-//Context
-// import { AuthContext } from './context/authContext';
-import {useContext } from 'react';
-
-
+import {BsCart, BsGithub, BsBookmark} from "react-icons/bs";
+// import "../../App.css";
 
 
 function NavOffCanvas() {
@@ -26,7 +17,9 @@ function NavOffCanvas() {
         <Navbar key={expand} variant="dark" bg="dark" expand={expand} className="mb-3">
           <Container fluid>
          
-            <Navbar.Brand href="/"className='fs-3'>Fake Store</Navbar.Brand>
+            <Navbar.Brand href="/" className='fs-3'>Fake Store</Navbar.Brand>
+            
+
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
