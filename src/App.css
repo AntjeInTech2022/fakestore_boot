@@ -16,7 +16,9 @@
   width: 250px; 
 }
 
-
+.imageDiv{
+  align-items: center;
+}
 
 .NavTxt{
   text-align: center;
@@ -36,6 +38,8 @@
   font-size: 25px;
   /* margin: 10px;  */
 }
+
+
 
 .SelectSize {
   margin-bottom: 10px; 
