@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Button from "react-bootstrap/Button";
+import {Button, Placeholder} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { useParams, useNavigate } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
@@ -77,6 +77,12 @@ function ProductDetails() {
     </Card.Body>
      {/* <Card.Footer className="text-muted">Product rating: {product.rating.rate} / 5</Card.Footer> */}
   </Card>
+
+  <p aria-hidden="true">
+        <Placeholder xs={12} bg="white" />
+        <Placeholder xs={12} bg="white" />
+        <Placeholder xs={12} bg="white" />
+      </p>
       </div>
 
       <div>
