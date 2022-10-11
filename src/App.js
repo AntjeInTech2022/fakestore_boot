@@ -13,7 +13,7 @@ import WomenCat from './pages/WomenCategory';
 import MenCat from './pages/MenCategory';
 import JeweleryCat from './pages/JeweleryCategory';
 import ErrorPage from './pages/ErrorPage';
-import AllProducts from './pages/AllProducts';
+import AllProducts from './pages/viewAllProducts';
 import ProductDetails from './pages/ProductDetails';
 import Login from './pages/Login';
 import Register from './pages/Register';
