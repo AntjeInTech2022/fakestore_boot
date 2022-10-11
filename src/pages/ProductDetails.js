@@ -41,7 +41,9 @@ function ProductDetails() {
 
 <Stack gap={3}> 
 
+<div className="closebtn_div">
 <CloseButton onClick={()=>navigate("/")}/>
+</div>
 
       <div>
       <Figure key={product.id}>
@@ -56,11 +58,10 @@ function ProductDetails() {
     <BsBookmark className='bookmark'/>
       </Figure.Caption> */}
       </div>
-
       <div>
       <Card key={product.id}>
     <Card.Body>
-       <Card.Title>{product.title}</Card.Title>
+       <Card.Title>{product.title}</Card.Title> 
        <Card.Subtitle className="mb-2 text-muted">{product.price} €</Card.Subtitle>
        <Card.Text>{product.description}</Card.Text>
        <>
