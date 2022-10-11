@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container';
 import { Form, Navbar } from 'react-bootstrap';
 
 
-// name context
+// user context
 import {useContext} from "react";
 import { AuthContext } from "../../context/authContext";
 

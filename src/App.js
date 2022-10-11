@@ -18,6 +18,7 @@ import ProductDetails from './pages/ProductDetails';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import LoginRequiredAlert from './pages/LoginRequired';
+import ViewChat from './pages/Chat';
 //import UserProfile from './pages/UserProfile';
 
 // testing
@@ -48,19 +49,13 @@ const App = () => {
           <Route path='/product/:id' element={<ProductDetails/>}/> 
          
          <Route path='/women' element={<WomenCat/>}/> 
-       
-
         <Route path='/men' element={<><BannerMen/><MenCat/></>}/>
-       
-
         <Route path='/jewelery' element={<JeweleryCat/>}/>
-        
-
-         <Route path='/jewelery' element={<JeweleryCat/>}/>
 
          <Route path='/login' element={<Login/>}/>
          <Route path='/register' element={<Register/>}/>
          {/* <Route path='/profile' element={<UserProfile/>}/> */}
+         <Route path='/chat' element={<ViewChat/>}/>
          <Route path='/alert' element={<LoginRequiredAlert/>}/>
         <Route path="*" element={<ErrorPage/>}/>
       </Routes>

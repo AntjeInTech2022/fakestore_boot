@@ -44,12 +44,12 @@ function NavOffCanvas() {
             {/* Signed in as: <a href="/login">{user}</a>  */}
           </Navbar.Text>
                   <Nav.Link href="/login">Login / Register</Nav.Link>
-                  <Nav.Link href="#action2">Your Account</Nav.Link>
-                  <Nav.Link href="#action2"> Warenkorb <BsCart/></Nav.Link>
-                  <Nav.Link href="#action2"> Saved items <BsBookmark/></Nav.Link> 
-                  <Nav.Link href="#action2">Chat </Nav.Link>
-                  <Nav.Link href="#action2"> About</Nav.Link>
-                  <Nav.Link href="#action2"><BsGithub/> Github </Nav.Link>
+                  <Nav.Link href="/alert">Your Account</Nav.Link>
+                  <Nav.Link href="/alert"> Warenkorb <BsCart/></Nav.Link>
+                  <Nav.Link href="/alert"> Saved items <BsBookmark/></Nav.Link> 
+                  <Nav.Link href="/chat">Chat </Nav.Link>
+                  <Nav.Link href="#action2">About</Nav.Link>
+                  <Nav.Link href="https://github.com/AntjeInTech2022/fakestore_boot" target="_blank"> Github <BsGithub/></Nav.Link>
                   <Nav.Link href="https://fakestoreapi.com/docs" target="_blank">API</Nav.Link>
                 </Nav>
                 
