@@ -15,7 +15,7 @@ function NavOffCanvas() {
     <>
       {['md'].map((expand) => (
         <Navbar key={expand} variant="dark" bg="dark" expand={expand} className="mb-3">
-          <Container fluid>
+          <Container fluid="md">
          
             <Navbar.Brand href="/" className='fs-3'>Fake Store</Navbar.Brand>
             
