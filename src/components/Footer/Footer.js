@@ -7,7 +7,7 @@ function Footer() {
   return (
     <>
       <Navbar bg="dark" variant="dark" fixed="bottom">
-        <Container>
+        <Container className='ContainerFooter'>
           <Navbar.Brand href="/">Fake Store</Navbar.Brand>
           <Nav className="me-auto">
             {/* <Nav.Link href="https://github.com/AntjeInTech2022/fakestore_boot" target="_blank"><BsGithub/></Nav.Link>

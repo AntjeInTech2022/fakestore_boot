@@ -1,8 +1,6 @@
 import {useEffect, useState, useContext } from 'react'
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
+
+import { Button, OverlayTrigger, Tooltip, Card, Col, Row, Placeholder } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'
 import { BsBookmark, BsCartPlus  } from "react-icons/bs";
 import '../App.css';
@@ -76,19 +74,23 @@ function AllProducts() {
                 <Button variant="white"><BsCartPlus className="BsCartPlus"/></Button>
               </OverlayTrigger>
               
-              
-              
             {/* <Link to={`/product/${product.id}`}>Show /product/${product.id}</Link>  */}
             </Card.Body>
             {/* <Card.Footer>
           <small className="text-muted"> Rating: {product.rating.rate}</small>
         </Card.Footer> */}
           </Card>
+         
           {/* </Link> */}
          </Col>
-         
+          
       ))}
+      <p aria-hidden="true">
+          <Placeholder xs={12} bg="white" />
+        </p>
     </Row>
+    
+   
 
   );
 }
