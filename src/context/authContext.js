@@ -1,7 +1,9 @@
 import { createContext, useState } from "react";
 
-const testUser = {name: "Tester1",
-email: "tester@test.com"}
+const testUser = {
+  fname: "Tester",
+  lname: "Faker",
+  email: "tester@test.com"}
 
 // 1. Create Context
 // const MyContext = React.createContext(defaultValue);

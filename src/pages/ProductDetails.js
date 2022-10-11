@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import CloseButton from 'react-bootstrap/CloseButton';
 import Stack from 'react-bootstrap/Stack';
 import Figure from 'react-bootstrap/Figure';
 import { BsBookmark, BsCartPlus } from "react-icons/bs";
 import Form from 'react-bootstrap/Form';
+
 
 import '../App.css';
 
@@ -30,6 +31,9 @@ function ProductDetails() {
     })();
   }, []);
 
+    // Button routing
+    let navigate = useNavigate();
+
   return (
 
      product ?
@@ -37,7 +41,7 @@ function ProductDetails() {
 
 <Stack gap={3}> 
 
-<CloseButton/>
+<CloseButton onClick={()=>navigate("/")}/>
 
       <div>
       <Figure key={product.id}>

@@ -28,12 +28,10 @@ function NavContext() {
         <Navbar.Toggle /> 
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-             {/* Signed in as: <a href="/login">Tester</a>  */}
-
 {/* && if */}
 {/* ?: if else */}
             {isLoggedIn&&
-             `Signed in as: ${user.name}`
+             `Signed in as: ${user.fname}`
             }
           </Navbar.Text>
         </Navbar.Collapse>
