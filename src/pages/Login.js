@@ -29,17 +29,16 @@ const {createUser} = UserAuth()
 		setPassword(e.target.value)
 	}
 
-	const handleSubmit =  async () => {
-		e.preventDefault()
-    setError('')
-    try{
-        await createUser(email, password)
-    }catch(e){
-      setError(e.message)
-      console.log(e.message)
-    }
-		// login(email, password)
-	}
+	// const handleSubmit =  async () => {
+	// 	e.preventDefault()
+  //   setError('')
+  //   try{
+  //       await createUser(email, password)
+  //   }catch(e){
+  //     setError(e.message)
+  //     console.log(e.message)
+  //   }
+	// }
 
   return (
     
@@ -80,9 +79,9 @@ const {createUser} = UserAuth()
         <Form.Check type="checkbox" label="Check me out" disabled/>
       </Form.Group> */}
       <div className="d-grid gap-2">
-      <Button variant="primary" type="submit" onChange={handleSubmit}>
+      {/* <Button variant="primary" type="submit" onChange={handleSubmit}>
         Login
-      </Button>
+      </Button> */}
       </div>
       <Form.Text className="text-muted">
        Forgot password?

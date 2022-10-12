@@ -6,27 +6,17 @@ import {useState, useContext} from 'react'
 // FIREBASE
 import {onSnapshot, collection, setDoc, doc} from "@firebase/firestore";
 import db from "../firebase";
+import {UserAuth} from '../context/authContext2'
 
 
 function Register() {
 
-  const { register } = useContext(AuthContext)
-	const [fname, setFName] = useState("")
-  // console.log(fname)
+const [email, setEmail] = useState('')
+const [password, setPassword] = useState('')
+const [error, setError] = useState('')
+const {createUser} = UserAuth()
 
-  const [lname, setLName] = useState("")
-  const [email, setEmail] = useState("")
-	const [password, setPassword] = useState("")
-
-  const handleFirstNameChange = (e) => {
-		setFName(e.target.value)
-	}
-
-  const handleLastNameChange = (e) => {
-		setLName(e.target.value)
-	}
-
-  const handleEmailChange = (e) => {
+	const handleEmailChange = (e) => {
 		setEmail(e.target.value)
 	}
 
@@ -35,18 +25,23 @@ function Register() {
 		setPassword(e.target.value)
 	}
 
-	const handleRegister = (e) => {
+	const handleRegister =  async (e) => {
 		e.preventDefault()
-		register(fname, lname, email, password)
-	}
+    setError('')
+    try{
+        await createUser(email, password);
+    }catch(e){
+      setError(e.message)
+      console.log(e.message)
+    }
 
-
+	};
 
 
   return (
     <Form>
         <h3>Welcome✌️</h3>
-      <Row>
+      {/* <Row>
         <Col>
           <Form.Control placeholder="First name"
           value={fname}
@@ -59,7 +54,7 @@ function Register() {
            onChange={handleLastNameChange} 
            />
         </Col>
-      </Row>
+      </Row> */}
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
 
@@ -67,7 +62,7 @@ function Register() {
         <Form.Control 
         type="email" 
         placeholder="Enter email" 
-        value={email}
+        // value={email}
         onChange={handleEmailChange}
         />
         
@@ -82,7 +77,7 @@ function Register() {
         <Form.Control 
         type="password" 
         placeholder="Password"
-        value={password}
+        // value={password}
         onChange={handlePasswordChange} 
         />
 
@@ -105,6 +100,6 @@ function Register() {
         </Form.Text>
     </Form>
   );
-}
+};
 
 export default Register;

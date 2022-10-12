@@ -37,15 +37,15 @@ import { AuthContextProvider2 } from './context/authContext2';
 const App = () => {
 
   // firestore
-  const [test,setTest] = useState([]);
-  console.log('firestore',test)
+  // const [test,setTest] = useState([]);
+  // console.log('firestore',test)
 
-  useEffect(
-    () => onSnapshot(collection (db,"test"), (snapshot) => 
-      // console.log(snapshot.docs.map(doc => doc.data()))
-      setTest(snapshot.docs.map(doc => ({...doc.data(), id:doc.id})
-      ))
-      ),[]);
+  // useEffect(
+  //   () => onSnapshot(collection (db,"test"), (snapshot) => 
+  //     // console.log(snapshot.docs.map(doc => doc.data()))
+  //     setTest(snapshot.docs.map(doc => ({...doc.data(), id:doc.id})
+  //     ))
+  //     ),[]);
   
 
   return (
