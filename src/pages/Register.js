@@ -3,10 +3,17 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/authContext';
 import {useState, useContext} from 'react'
 
+// FIREBASE
+import {onSnapshot, collection, setDoc, doc} from "@firebase/firestore";
+import db from "../firebase";
+
+
 function Register() {
 
   const { register } = useContext(AuthContext)
 	const [fname, setFName] = useState("")
+  // console.log(fname)
+
   const [lname, setLName] = useState("")
   const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
@@ -32,6 +39,8 @@ function Register() {
 		e.preventDefault()
 		register(fname, lname, email, password)
 	}
+
+
 
 
   return (
