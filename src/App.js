@@ -32,6 +32,7 @@ import { AuthContextProvider } from './context/authContext';
 // FIREBASE
 import {onSnapshot, collection} from "@firebase/firestore";
 import db from "./firebase";
+import { AuthContextProvider2 } from './context/authContext2';
 
 const App = () => {
 
@@ -51,6 +52,7 @@ const App = () => {
     <Router>
     <ProductsContextProvider>
     <AuthContextProvider> 
+    <AuthContextProvider2> 
     <div className='App'>
     {/* <UserNameContext.Provider value="Test User"> */}
       <NavOffCanvas/>
@@ -79,7 +81,9 @@ const App = () => {
 
       <Footer/>  
     </div>
+    </AuthContextProvider2> 
     </AuthContextProvider>
+    
  </ProductsContextProvider>
     </Router>
   );
