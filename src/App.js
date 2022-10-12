@@ -1,4 +1,4 @@
-import {React, useEffect} from 'react'
+import {React, useEffect, useState} from 'react'
 import './App.css';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
@@ -30,14 +30,21 @@ import {ProductsContextProvider} from './context/dataContext';
 import { AuthContextProvider } from './context/authContext';
 
 // FIREBASE
-import {onSnapshot} from "@firebase/firestore";
+import {onSnapshot, collection} from "@firebase/firestore";
 import db from "./firebase";
 
 const App = () => {
 
-  useEffect(() => {
-    onSnapshot();
-  })
+  // firestore
+  const [test,setTest] = useState([]);
+  console.log('firestore',test)
+
+  useEffect(
+    () => onSnapshot(collection (db,"test"), (snapshot) => 
+      // console.log(snapshot.docs.map(doc => doc.data()))
+      setTest(snapshot.docs.map(doc => doc.data()))
+      ),[]);
+  
 
   return (
     <Router>
