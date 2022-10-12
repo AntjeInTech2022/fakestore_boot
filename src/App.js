@@ -1,14 +1,14 @@
-import { useState } from 'react';
-
-import React from 'react'
+import {React, useEffect} from 'react'
 import './App.css';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+
+// COMPONENTS
 //import TabFun from './components/TabBar/Tabs.js';
 import Footer from './components/Footer/Footer.js';
 import NavOffCanvas from './components/NavBar/NavOffCanvas';
 import ContainerFluid from './components/Banner/Banner';
 
-// pages
+// PAGES
 import WomenCat from './pages/WomenCategory';
 import MenCat from './pages/MenCategory';
 import JeweleryCat from './pages/JeweleryCategory';
@@ -26,11 +26,18 @@ import BannerMen from './components/Banner/BannerMen';
 import NavContext from './components/NavBar/NavBarContext';
 
 //context
-import {ProductsContextProvider} from './context/dataContext'
+import {ProductsContextProvider} from './context/dataContext';
 import { AuthContextProvider } from './context/authContext';
 
+// FIREBASE
+import {onSnapshot} from "@firebase/firestore";
+import db from "./firebase";
+
 const App = () => {
-   
+
+  useEffect(() => {
+    onSnapshot();
+  })
 
   return (
     <Router>
