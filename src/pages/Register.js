@@ -1,29 +1,37 @@
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import Button from 'react-bootstrap/Button';
+import {Col, Form, Row, Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-// import { AuthContext } from '../context/authContext';
+import { AuthContext } from '../context/authContext';
+import {useState, useContext} from 'react'
 
 function Register() {
 
-  // const { register } = useContext(AuthContext)
-	// const [email, setEmail] = useState("")
-	// const [password, setPassword] = useState("")
+  const { register } = useContext(AuthContext)
+	const [fname, setFName] = useState("")
+  const [lname, setLName] = useState("")
+  const [email, setEmail] = useState("")
+	const [password, setPassword] = useState("")
 
-  // const handleEmailChange = (e) => {
-	// 	setEmail(e.target.value)
-	// }
+  const handleFirstNameChange = (e) => {
+		setFName(e.target.value)
+	}
 
-	// const handlePasswordChange = (e) => {
-	// 	console.log(password)
-	// 	setPassword(e.target.value)
-	// }
+  const handleLastNameChange = (e) => {
+		setLName(e.target.value)
+	}
 
-	// const handleRegister = (e) => {
-	// 	e.preventDefault()
-	// 	register(email, password)
-	// }
+  const handleEmailChange = (e) => {
+		setEmail(e.target.value)
+	}
+
+	const handlePasswordChange = (e) => {
+		console.log(password)
+		setPassword(e.target.value)
+	}
+
+	const handleRegister = (e) => {
+		e.preventDefault()
+		register(fname, lname, email, password)
+	}
 
 
   return (
@@ -31,10 +39,16 @@ function Register() {
         <h3>Welcome✌️</h3>
       <Row>
         <Col>
-          <Form.Control placeholder="First name" />
+          <Form.Control placeholder="First name"
+          value={fname}
+          onChange={handleFirstNameChange} />
+          
         </Col>
         <Col>
-          <Form.Control placeholder="Last name" />
+          <Form.Control placeholder="Last name" 
+           value={lname}
+           onChange={handleLastNameChange} 
+           />
         </Col>
       </Row>
 
@@ -44,8 +58,8 @@ function Register() {
         <Form.Control 
         type="email" 
         placeholder="Enter email" 
-        // value={email}
-        // onChange={handleEmailChange}
+        value={email}
+        onChange={handleEmailChange}
         />
         
         <Form.Text className="text-muted">
@@ -59,8 +73,8 @@ function Register() {
         <Form.Control 
         type="password" 
         placeholder="Password"
-        // value={password}
-        // onChange={handlePasswordChange} 
+        value={password}
+        onChange={handlePasswordChange} 
         />
 
         <Form.Text className="text-muted">
@@ -72,7 +86,7 @@ function Register() {
       <Button 
       variant="primary" 
       type="submit" 
-      // onClick={handleRegister}
+      onClick={handleRegister}
       >
         Register
       </Button>{' '}

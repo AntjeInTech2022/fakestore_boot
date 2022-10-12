@@ -42,7 +42,8 @@ const App = () => {
   useEffect(
     () => onSnapshot(collection (db,"test"), (snapshot) => 
       // console.log(snapshot.docs.map(doc => doc.data()))
-      setTest(snapshot.docs.map(doc => doc.data()))
+      setTest(snapshot.docs.map(doc => ({...doc.data(), id:doc.id})
+      ))
       ),[]);
   
 

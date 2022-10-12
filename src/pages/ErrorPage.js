@@ -1,7 +1,7 @@
 
 import {useNavigate} from 'react-router-dom';
 import {Alert, Placeholder, Button, Figure} from 'react-bootstrap';
-import "../images/404.png";
+// import "../images/404.png";
 
 
 function ErrorPage() {
