@@ -3,6 +3,8 @@ import Form from 'react-bootstrap/Form';
 import {useNavigate} from 'react-router-dom';
 import {useState } from 'react'
 import Placeholder from 'react-bootstrap/Placeholder';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import {UserAuth} from '../context/authContext2'
 // import { AuthContext } from '../context/authContext';
 
 
@@ -10,23 +12,34 @@ function Login() {
   const [key, setKey] = useState(true);
   let navigate = useNavigate();
 
+
+
   // const { login } = useContext(AuthContext)
-	// const [email, setEmail] = useState("")
-	// const [password, setPassword] = useState("")
+const [email, setEmail] = useState('')
+const [password, setPassword] = useState('')
+const [error, setError] = useState('')
+const {createUser} = UserAuth()
 
-	// const handleEmailChange = (e) => {
-	// 	setEmail(e.target.value)
-	// }
+	const handleEmailChange = (e) => {
+		setEmail(e.target.value)
+	}
 
-	// const handlePasswordChange = (e) => {
-	// 	console.log(password)
-	// 	setPassword(e.target.value)
-	// }
+	const handlePasswordChange = (e) => {
+		console.log(password)
+		setPassword(e.target.value)
+	}
 
-	// const handleLogin = (e) => {
-	// 	e.preventDefault()
-	// 	login(email, password)
-	// }
+	const handleSubmit =  async () => {
+		e.preventDefault()
+    setError('')
+    try{
+        await createUser(email, password)
+    }catch(e){
+      setError(e.message)
+      console.log(e.message)
+    }
+		// login(email, password)
+	}
 
   return (
     
@@ -39,7 +52,7 @@ function Login() {
         type="email" 
         placeholder="Enter email" 
         // value={email}
-        // onChange={handleEmailChange}
+        onChange={handleEmailChange}
         />
 
         <Form.Text className="text-muted">
@@ -55,7 +68,7 @@ function Login() {
         type="password" 
         placeholder="Password" 
         // value={password}
-        // onChange={handlePasswordChange}
+        onChange={handlePasswordChange}
         />
 
         <Form.Text className="text-muted">
@@ -67,9 +80,9 @@ function Login() {
         <Form.Check type="checkbox" label="Check me out" disabled/>
       </Form.Group> */}
       <div className="d-grid gap-2">
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" onChange={handleSubmit}>
         Login
-      </Button>{' '}
+      </Button>
       </div>
       <Form.Text className="text-muted">
        Forgot password?
