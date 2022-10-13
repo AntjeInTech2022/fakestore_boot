@@ -64,7 +64,6 @@ const navigate = useNavigate();
         <Form.Control 
         type="email" 
         placeholder="Enter email" 
-        // value={email}
         onChange={handleEmailChange}
         />
         
@@ -79,7 +78,6 @@ const navigate = useNavigate();
         <Form.Control 
         type="password" 
         placeholder="Password"
-        // value={password}
         onChange={handlePasswordChange} 
         />
 

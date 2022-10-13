@@ -34,6 +34,7 @@ import { AuthContextProvider } from './context/authContext';
 // import {onSnapshot, collection} from "@firebase/firestore";
 // import db from "./firebase";
 import { AuthContextProvider2 } from './context/authContext2';
+import ProtectedRoute from './utilities/protectedRoute';
 
 const App = () => {
 
@@ -55,11 +56,10 @@ const App = () => {
     <AuthContextProvider> 
     <AuthContextProvider2> 
     <div className='App'>
-    {/* <UserNameContext.Provider value="Test User"> */}
+
       <NavOffCanvas/>
       <NavContext/>
-      {/* </UserNameContext.Provider> */}
-      {/* <ContainerFluid/> */}
+   
       <div className="container mb-3">
       {/* <TabFun/>  */}
       <Routes>
@@ -72,9 +72,11 @@ const App = () => {
 
          <Route path='/login' element={<Login/>}/>
          <Route path='/register' element={<Register/>}/>
-         {/* <Route path='/profile' element={<UserProfile/>}/> */}
+      
          <Route path='/chat' element={<ViewChat/>}/>
-         <Route path='/account' element={<AccountView/>}/>
+         
+         <Route path='/account' element={<ProtectedRoute><AccountView/></ProtectedRoute>}/>
+
          <Route path='/alert' element={<LoginRequiredAlert/>}/>
         <Route path="*" element={<ErrorPage/>}/>
       </Routes>

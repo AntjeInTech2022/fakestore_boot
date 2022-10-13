@@ -1,46 +1,49 @@
 import {useNavigate} from 'react-router-dom';
 import {useState } from 'react'
 import {Placeholder,Button, Form} from 'react-bootstrap';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 import {UserAuth} from '../context/authContext2'
 // import { AuthContext } from '../context/authContext';
 
 
 function Login() {
-  const [key, setKey] = useState(true);
-  let navigate = useNavigate();
+
+  
+  
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+  const {signIn} = UserAuth();
+
+const handleLogin =  async (event) => {
+  event.preventDefault();
+  setError('')
+  try{
+      await signIn (email, password);
+      console.log('User logged in successfully')
+      navigate('/account');
+  }catch(error){
+    setError(error.message)
+    console.log(error.message)
+  }
+}
 
 
-
-  // const { login } = useContext(AuthContext)
-const [email, setEmail] = useState('')
-const [password, setPassword] = useState('')
-const [error, setError] = useState('')
-const {createUser} = UserAuth()
-
-	const handleEmailChange = (e) => {
+	const handleEmail = (e) => {
 		setEmail(e.target.value)
 	}
 
-	const handlePasswordChange = (e) => {
+	const handlePassword = (e) => {
 		console.log(password)
 		setPassword(e.target.value)
 	}
 
-	// const handleSubmit =  async () => {
-	// 	e.preventDefault()
-  //   setError('')
-  //   try{
-  //       await createUser(email, password)
-  //   }catch(e){
-  //     setError(e.message)
-  //     console.log(e.message)
-  //   }
-	// }
+
 
   return (
     
-    <Form onSelect={(k) => setKey(k)}>
+
+      <Form>
       <h3>Welcome back ✌️</h3>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
@@ -48,8 +51,7 @@ const {createUser} = UserAuth()
         <Form.Control 
         type="email" 
         placeholder="Enter email" 
-        // value={email}
-        onChange={handleEmailChange}
+        onChange={handleEmail}
         />
 
         <Form.Text className="text-muted">
@@ -64,8 +66,7 @@ const {createUser} = UserAuth()
         <Form.Control 
         type="password" 
         placeholder="Password" 
-        // value={password}
-        onChange={handlePasswordChange}
+        onChange={handlePassword}
         />
 
         <Form.Text className="text-muted">
@@ -73,14 +74,14 @@ const {createUser} = UserAuth()
         
         </Form.Text>
       </Form.Group>
-      {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" disabled/>
-      </Form.Group> */}
+  
       <div className="d-grid gap-2">
-      {/* <Button variant="primary" type="submit" onChange={handleSubmit}>
+      <Button variant="primary" type="submit" onChange={handleLogin}>
         Login
-      </Button> */}
+      </Button>
       </div>
+
+
       <Form.Text className="text-muted">
        Forgot password?
         </Form.Text>

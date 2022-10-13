@@ -1,10 +1,10 @@
 import { createContext, useContext, useEffect, useState} from "react";
 import {
     createUserWithEmailAndPassword, 
-    signInWithEmailAndPassword,signOut, 
+    signInWithEmailAndPassword,
+    signOut,
     onAuthStateChanged
 } from "firebase/auth"
-
 import {auth} from "./firebase"
 
 const UserContext = createContext();
@@ -13,7 +13,11 @@ export const AuthContextProvider2 = ({children}) => {
     const [user, setUser] = useState({}); // ({}) <- is an object
     
     const createUser = (email, password) => {
-        return createUserWithEmailAndPassword(auth,email, password)
+        return createUserWithEmailAndPassword(auth, email, password)
+    };
+
+    const signIn = (email, password) => {
+        return signInWithEmailAndPassword(auth, email, password)
     };
 
     const logout = () => {
@@ -31,7 +35,7 @@ export const AuthContextProvider2 = ({children}) => {
     }, [])
 
     return(
-        <UserContext.Provider value={{createUser, user, logout}}>
+        <UserContext.Provider value={{createUser, user, logout, signIn}}>
             {children}
         </UserContext.Provider>
     )
