@@ -1,8 +1,6 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import {useNavigate} from 'react-router-dom';
 import {useState } from 'react'
-import Placeholder from 'react-bootstrap/Placeholder';
+import {Placeholder,Button, Form} from 'react-bootstrap';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import {UserAuth} from '../context/authContext2'
 // import { AuthContext } from '../context/authContext';

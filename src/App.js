@@ -19,7 +19,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import LoginRequiredAlert from './pages/LoginRequired';
 import ViewChat from './pages/Chat';
-//import UserProfile from './pages/UserProfile';
+import AccountView from './pages/AccountView';
+
 
 // testing
 import BannerMen from './components/Banner/BannerMen';
@@ -73,6 +74,7 @@ const App = () => {
          <Route path='/register' element={<Register/>}/>
          {/* <Route path='/profile' element={<UserProfile/>}/> */}
          <Route path='/chat' element={<ViewChat/>}/>
+         <Route path='/account' element={<AccountView/>}/>
          <Route path='/alert' element={<LoginRequiredAlert/>}/>
         <Route path="*" element={<ErrorPage/>}/>
       </Routes>

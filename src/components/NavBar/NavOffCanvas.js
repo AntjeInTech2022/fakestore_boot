@@ -37,7 +37,7 @@ function NavOffCanvas() {
             {/* Signed in as: <a href="/login">{user}</a>  */}
           </Navbar.Text>
                   <Nav.Link href="/login">Login / Register</Nav.Link>
-                  <Nav.Link href="/alert">Your Account</Nav.Link>
+                  <Nav.Link href="/account">Your Account</Nav.Link>
                   {/* <Nav.Link href="/alert"> Warenkorb <BsCart/></Nav.Link> */}
                   {/* <Nav.Link href="/alert"> Saved items <BsBookmark/></Nav.Link>  */}
                   {/* <Nav.Link href="/chat">Chat </Nav.Link> */}

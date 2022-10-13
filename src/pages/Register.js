@@ -1,5 +1,5 @@
 import {Col, Form, Row, Button} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/authContext';
 import {useState, useContext} from 'react'
 
@@ -15,6 +15,7 @@ const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
 const [error, setError] = useState('')
 const {createUser} = UserAuth()
+const navigate = useNavigate();
 
 	const handleEmailChange = (e) => {
 		setEmail(e.target.value)
@@ -30,6 +31,7 @@ const {createUser} = UserAuth()
     setError('')
     try{
         await createUser(email, password);
+        navigate('/account')
     }catch(e){
       setError(e.message)
       console.log(e.message)
