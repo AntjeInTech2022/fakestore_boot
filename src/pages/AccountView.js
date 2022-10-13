@@ -8,10 +8,10 @@ function AccountView() {
     const {user, logout} = UserAuth();
     const navigate = useNavigate();
 
-    const handleLogout = async () => {
+    const handleLogout = async() => {
         try {
-            await logout()
-            navigate('/')
+            await logout(user);
+            navigate('/');
             console.log('User logged out')
         } catch (e) {
             console.log(e.message)
@@ -23,7 +23,7 @@ function AccountView() {
         <hr/>
         <p>User email: {user && user.email}</p>
         
-    <Button onClick={handleLogout} variant="outline-primary" type="submit">Logout</Button>
+    <Button onClick={handleLogout} variant="outline-primary" type="submit">Sign out</Button>
     </div>
   )
 }
