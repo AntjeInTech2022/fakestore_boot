@@ -1,11 +1,9 @@
-import {Col, Form, Row, Button} from 'react-bootstrap';
+import {Form, Button} from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/authContext';
 import {useState, useContext} from 'react'
 
 // FIREBASE
-import {onSnapshot, collection, setDoc, doc} from "@firebase/firestore";
-import db from "../firebase";
+import { AuthContext } from '../context/authContext';
 import {UserAuth} from '../context/authContext2'
 
 
@@ -27,14 +25,16 @@ const navigate = useNavigate();
 	}
 
 	const handleRegister =  async (e) => {
-		e.preventDefault()
+		e.preventDefault() // so that page does not reload
     setError('')
     try{
         await createUser(email, password);
+        console.log('new user created successfully')
         navigate('/account')
-    }catch(e){
-      setError(e.message)
-      console.log(e.message)
+        setIsLoggedIn(true)
+    }catch(error){
+      setError(error.message)
+      console.log(error.message)
     }
 
 	};

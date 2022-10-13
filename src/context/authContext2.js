@@ -9,8 +9,7 @@ import {auth} from "../firebase"
 const UserContext = createContext();
 
 export const AuthContextProvider2 = ({children}) => {
-    const [user, setUser] = useState({});
-    // ({}) <- is an object
+    const [user, setUser] = useState({}); // ({}) <- is an object
     
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth,email, password)
