@@ -31,7 +31,7 @@ const navigate = useNavigate();
         await createUser(email, password);
         console.log('new user created successfully')
         navigate('/account')
-        setIsLoggedIn(true)
+        // setIsLoggedIn(true)
     }catch(error){
       setError(error.message)
       console.log(error.message)
