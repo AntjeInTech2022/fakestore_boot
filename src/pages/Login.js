@@ -1,25 +1,22 @@
 import {useNavigate} from 'react-router-dom';
-import {useState } from 'react'
+import {useState, useContext } from 'react'
 import {Placeholder,Button, Form} from 'react-bootstrap';
-import {UserAuth} from '../context/authContext2'
-// import { AuthContext } from '../context/authContext';
+import { AuthContext } from '../context/authContext';
 
 
 function Login() {
 
-  
-  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  const {signIn} = UserAuth();
+  const {logIn} = useContext(AuthContext)
 
 const handleLogin =  async (event) => {
   event.preventDefault();
   setError('')
   try{
-      await signIn (email, password);
+      await logIn (email, password);
       console.log('User logged in successfully')
       navigate('/account');
   }catch(error){

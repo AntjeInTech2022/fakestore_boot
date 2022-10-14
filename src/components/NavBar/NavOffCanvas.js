@@ -1,4 +1,5 @@
 import {Container, Nav, Navbar,Button, Offcanvas} from 'react-bootstrap';
+import {useNavigate} from 'react-router-dom';
 import { AuthContext } from "../../context/authContext";
 import {useContext} from "react";
 // import "../../App.css";
@@ -6,14 +7,12 @@ import {useContext} from "react";
 
 function NavOffCanvas() {
 
-  const {user, setUser } = useContext(AuthContext)
+  const {user, setUser} = useContext(AuthContext)
+  const navigate = useNavigate();
 
-  const login = () => {
-    setUser({name:"Tester"});
-    console.log('user logged in')
-  }
+ 
 
-  const logout = () => {
+  const logOut = () => {
     setUser(null);
     console.log('user logged out')
   }
@@ -46,13 +45,14 @@ function NavOffCanvas() {
                 <Navbar.Text>
             {/* Signed in as: <a href="/login">{user}</a>  */}
           </Navbar.Text>
-                  <Nav.Link href="/register">Register</Nav.Link>
+                 
                   {user ? (
-        <Button onClick={logout}>Logout</Button>
+        <Button onClick={logOut}>Logout</Button>
       ): (
-        <Button onClick={login}>Login</Button>
+        <Button onClick={()=>navigate("/login")}>Login</Button>
       )
       }
+                  <Nav.Link href="/register">Register</Nav.Link>
                   <Nav.Link href="/account">Your Account</Nav.Link>
                   {/* <Nav.Link href="/alert"> Warenkorb <BsCart/></Nav.Link> */}
                   {/* <Nav.Link href="/alert"> Saved items <BsBookmark/></Nav.Link>  */}

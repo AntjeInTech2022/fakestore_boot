@@ -11,7 +11,7 @@ import { AuthContext } from '../context/authContext';
 function Register() {
 
   // states
-const [name, setName] = useState('')
+const [displayName, setName] = useState('')
 const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
 const [error, setError] = useState('')
@@ -20,9 +20,7 @@ const [error, setError] = useState('')
 const {createUser} = useContext(AuthContext)
 const navigate = useNavigate();
 
-const handleName = (e) => {
-  setName(e.target.value)
-}
+
 
 	const handleEmailChange = (e) => {
 		setEmail(e.target.value)
@@ -55,10 +53,7 @@ const handleName = (e) => {
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
 
-      <Form.Label className="Label">Choose a user name</Form.Label>
-          <Form.Control placeholder="User name"
-          value={name}
-          onChange={handleName} />
+     
 
         <Form.Label className="Label">Enter your email address</Form.Label>
         <Form.Control 

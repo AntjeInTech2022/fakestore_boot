@@ -18,27 +18,55 @@ export const AuthContextProvider = (props) => {
   const [user, setUser] = useState(null)
   console.log('anybody loged in?', user)
 
+  // REGISTRATION
   const createUser = (email, password) => {
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
-      console.log('user',user)
+      console.log('new user is',user)
       // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log('createUser error',errorMessage)
-    });
-  }
+    })};
+  
+
+  // LOGIN
+  const logIn = (email, password) => {
+  signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log('who logedin in?',user)
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log('login error',errorMessage)
+  })};
+
+ // UPDATE PROFILE
+//  const updateProfile = (email, password) => {
+// updateProfile(auth.currentUser, {
+//   displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
+// }).then(() => {
+//   // Profile updated!
+//   // ...
+// }).catch((error) => {
+//   // An error occurred
+//   // ...
+// })};
  
 
   // const [isLoggedIn, setIsLoggedIn] = useState(false)
   // console.log('is user logged in?', isLoggedIn)
 
   // const testUser = {
-  //   user_name: "Tester",
+  //   displyName: "Tester",
   //   email: "tester@test.com"}
 
   // const handleSwitchOnOff = () => {
@@ -50,7 +78,7 @@ export const AuthContextProvider = (props) => {
   // 4. return the provider with its value and inject children component
 
   return <AuthContext.Provider 
-  value={{ user, setUser, createUser }}>
+  value={{ user, setUser, createUser, logIn }}>
     {props.children}
     </AuthContext.Provider>;
 };
