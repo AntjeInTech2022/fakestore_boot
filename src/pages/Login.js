@@ -12,18 +12,24 @@ function Login() {
   const navigate = useNavigate();
   const {logIn} = useContext(AuthContext)
 
-const handleLogin =  async (event) => {
-  event.preventDefault();
-  setError('')
-  try{
-      await logIn (email, password);
-      console.log('User logged in successfully')
-      navigate('/account');
-  }catch(error){
-    setError(error.message)
-    console.log(error.message)
+  const handleLogin = () => {
+    logIn (email, password);
+    console.log('User logged in successfully')
+    navigate('/account');
   }
-}
+
+// const handleLogin =  async (event) => {
+//   event.preventDefault();
+//   setError('')
+//   try{
+//       await logIn (email, password);
+//       console.log('User logged in successfully')
+//       navigate('/account');
+//   }catch(error){
+//     setError(error.message)
+//     console.log(error.message)
+//   }
+// }
 
 
 	const handleEmail = (e) => {
@@ -49,6 +55,7 @@ const handleLogin =  async (event) => {
         type="email" 
         placeholder="Enter email" 
         onChange={handleEmail}
+        value={email}
         />
 
         <Form.Text className="text-muted">
@@ -61,7 +68,8 @@ const handleLogin =  async (event) => {
         <Form.Label>Password</Form.Label>
 
         <Form.Control 
-        type="password" 
+        // type="password" 
+        value={password}
         placeholder="Password" 
         onChange={handlePassword}
         />

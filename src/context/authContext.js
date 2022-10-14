@@ -40,7 +40,8 @@ export const AuthContextProvider = (props) => {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    console.log('who logedin in?',user)
+    console.log('who signed in?',user)
+    setUser(user)
     // ...
   })
   .catch((error) => {

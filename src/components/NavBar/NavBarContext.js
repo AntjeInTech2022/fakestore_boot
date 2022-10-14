@@ -1,17 +1,17 @@
+
 import Container from 'react-bootstrap/Container';
 import { Form, Navbar, Button } from 'react-bootstrap';
-
-
-// user context
+import {useNavigate} from 'react-router-dom';
+import { AuthContext } from "../../context/authContext";
 import {useContext} from "react";
-import { AuthContext, UserContext, UserAuth } from "../../context/authContext";
-
-
 
 
 function NavContext() {
 
-   const { isLoggedIn, handleSwitchOnOff, user, setUser } = useContext(AuthContext)
+  //  const { isLoggedIn, handleSwitchOnOff, user, setUser } = useContext(AuthContext)
+
+   const {user, setUser} = useContext(AuthContext)
+
 
   
   // const login = () => {
@@ -29,13 +29,15 @@ function NavContext() {
     <Navbar>
       <Container>
       <Form>
-      <Form.Check 
+
+      
+      {/* <Form.Check 
         type="switch"
         id="custom-switch"
         label="Test login on / off"
         value={isLoggedIn}
         onChange={handleSwitchOnOff}
-      />
+      /> */}
       </Form>
     
         <Navbar.Toggle /> 
@@ -43,9 +45,9 @@ function NavContext() {
           <Navbar.Text>
 {/* && if */}
 {/* ?: if else */}
-            {isLoggedIn&&
-             `Signed in as: ${user.displayName}`
-            }
+            {/* {isLoggedIn&&
+             `Signed in as: ${user.email}`
+            } */}
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>

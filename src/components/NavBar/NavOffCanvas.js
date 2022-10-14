@@ -27,6 +27,16 @@ function NavOffCanvas() {
           <Container fluid="md">
          
             <Navbar.Brand href="/" className='fs-3'>Fake Store</Navbar.Brand>
+    
+    <div>
+    {user ? (
+        <Button onClick={logOut}>Logout</Button>
+      ): (
+        <Button onClick={()=>navigate("/login")}>Login</Button>
+      )
+      }
+    </div>
+            
             
 
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
@@ -45,13 +55,6 @@ function NavOffCanvas() {
                 <Navbar.Text>
             {/* Signed in as: <a href="/login">{user}</a>  */}
           </Navbar.Text>
-                 
-                  {user ? (
-        <Button onClick={logOut}>Logout</Button>
-      ): (
-        <Button onClick={()=>navigate("/login")}>Login</Button>
-      )
-      }
                   <Nav.Link href="/register">Register</Nav.Link>
                   <Nav.Link href="/account">Your Account</Nav.Link>
                   {/* <Nav.Link href="/alert"> Warenkorb <BsCart/></Nav.Link> */}

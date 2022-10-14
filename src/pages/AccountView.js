@@ -32,7 +32,7 @@ function AccountView() {
           <Form.Control placeholder="User name"
           value={displayName}
           onChange={handleName} /> */}
-        <p>User name: {user && user.name}</p>
+        {/* <p>User name: {user && user.name}</p> */}
         <p>User email: {user && user.email}</p>
         
     <Button onClick={handleLogout} variant="outline-primary" type="submit">Sign out</Button>
