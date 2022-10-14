@@ -8,35 +8,32 @@ import {useContext} from "react";
 
 function NavContext() {
 
-  //  const { isLoggedIn, handleSwitchOnOff, user, setUser } = useContext(AuthContext)
 
-   const {user, setUser} = useContext(AuthContext)
+   const {handleSwitchOnOff} = useContext(AuthContext)
 
-
-  
 
 
   return (
     <Navbar>
       <Container>
+       {/* show if there is none signed in:  if (!user) */}
       <Form>
       <Form.Check 
         type="switch"
         id="custom-switch"
         label="Guest login"
-        // value={isLoggedIn}
-        // onChange={handleSwitchOnOff}
+        onChange={handleSwitchOnOff}
       />
       </Form>
     
         <Navbar.Toggle /> 
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-{/* && if */}
-{/* ?: if else */}
-            {user &&
+{/* var && means if is true */}
+{/* var? : if else */}
+            {/* {user &&
              `Signed in as: ${user.email}`
-            }
+            } */}
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>

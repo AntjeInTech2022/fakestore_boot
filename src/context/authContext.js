@@ -55,7 +55,7 @@ export const AuthContextProvider = (props) => {
    const loginStatus = () => {
    onAuthStateChanged(auth, (user) => {
     if (user) {
-      console.log('loginStatus',user);
+      // console.log('loginStatus',user);
       setUser(user) // register and login at the same time
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
@@ -77,6 +77,7 @@ export const AuthContextProvider = (props) => {
   const logOut = () => {
     signOut(auth).then(() => {
       // Sign-out successful.
+      console.log('Sign-out successful')
       setUser(null) //client logout
     }).catch((error) => {
       // An error happened.
@@ -84,16 +85,41 @@ export const AuthContextProvider = (props) => {
     });
   }
  
-  // const handleSwitchOnOff = () => {
-  //   	setIsLoggedIn(!isLoggedIn)
-  //     setUser(testUser) }
-      //!isLoggedIn = reverting the state
+  // TEST USER
+  const guest = {
+  email: "guest@fakestore.com",
+  password: "fakeguest"}
+
+
+const handleSwitchOnOff = () => {
+
+  //IF there is no user signed in
+  if (!user) {
+    return(
+      signInWithEmailAndPassword(auth, guest.email, guest.password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log('A guest has signed in',user)
+        setUser(user)
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log('login error',errorMessage)
+      }
+    ///ELSE if there is a user signed in
+   ))}
+  }
+
+ 
 
     
   // 4. return the provider with its value and inject children component
 
   return <AuthContext.Provider 
-  value={{ user, setUser, createUser, logIn, logOut }}>
+  value={{ user, setUser, createUser, logIn, logOut, handleSwitchOnOff }}>
     {props.children}
     </AuthContext.Provider>;
 };
