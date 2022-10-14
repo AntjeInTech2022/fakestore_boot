@@ -8,13 +8,10 @@ import {
 import {auth} from "./firebase"
 
 // 1. Create Context / Store
-
 export const AuthContext = createContext();
 
 
 // 2. Create the provider
-// <MyContext.Provider value={/* some value */}>
-
 export const AuthContextProvider = (props) => {
 
   // 3.  state and function

@@ -1,4 +1,5 @@
-import {Form, Button} from 'react-bootstrap';
+import {Form, Button, Row, Col} from 'react-bootstrap';
+
 import { Link, useNavigate } from 'react-router-dom';
 import {useState, useContext} from 'react'
 
@@ -9,11 +10,16 @@ import {UserAuth} from '../context/authContext2'
 
 function Register() {
 
+const [name, setUserName] = useState('')
 const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
 const [error, setError] = useState('')
 const {createUser} = UserAuth()
 const navigate = useNavigate();
+
+const handleUserName = (e) => {
+  setUserName(e.target.value)
+}
 
 	const handleEmailChange = (e) => {
 		setEmail(e.target.value)
@@ -43,24 +49,15 @@ const navigate = useNavigate();
   return (
     <Form>
         <h3>Welcome✌️</h3>
-      {/* <Row>
-        <Col>
-          <Form.Control placeholder="First name"
-          value={fname}
-          onChange={handleFirstNameChange} />
-          
-        </Col>
-        <Col>
-          <Form.Control placeholder="Last name" 
-           value={lname}
-           onChange={handleLastNameChange} 
-           />
-        </Col>
-      </Row> */}
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
 
-        <Form.Label className="Label">Email address</Form.Label>
+      <Form.Label className="Label">Choose a user name</Form.Label>
+          <Form.Control placeholder="User name"
+          value={name}
+          onChange={handleUserName} />
+
+        <Form.Label className="Label">Enter your email address</Form.Label>
         <Form.Control 
         type="email" 
         placeholder="Enter email" 
@@ -73,8 +70,7 @@ const navigate = useNavigate();
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-
+        <Form.Label>Choose a password</Form.Label>
         <Form.Control 
         type="password" 
         placeholder="Password"
