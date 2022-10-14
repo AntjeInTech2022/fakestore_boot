@@ -70,7 +70,7 @@ const App = () => {
          <Route path='/login' element={<Login/>}/>
          <Route path='/register' element={<Register/>}/>
       
-         <Route path='/chat' element={<ViewChat/>}/>
+         <Route path='/chat' element={<ProtectedRoute><ViewChat/></ProtectedRoute>}/>
          
          <Route path='/account' element={<ProtectedRoute><AccountView/></ProtectedRoute>}/>
 
