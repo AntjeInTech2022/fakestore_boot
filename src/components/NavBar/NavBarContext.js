@@ -14,26 +14,19 @@ function NavContext() {
 
 
   
-  // const login = () => {
-  //   setUser({displayName:"Tester"});
-  //   console.log('user logged in')
-  // }
-
 
 
   return (
     <Navbar>
       <Container>
       <Form>
-
-      
-      {/* <Form.Check 
+      <Form.Check 
         type="switch"
         id="custom-switch"
-        label="Test login on / off"
-        value={isLoggedIn}
-        onChange={handleSwitchOnOff}
-      /> */}
+        label="Guest login"
+        // value={isLoggedIn}
+        // onChange={handleSwitchOnOff}
+      />
       </Form>
     
         <Navbar.Toggle /> 

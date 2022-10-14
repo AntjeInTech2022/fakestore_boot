@@ -54,7 +54,9 @@ function NavOffCanvas() {
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                 <Navbar.Text>
-            {/* Signed in as: <a href="/login">{user}</a>  */}
+                {user &&
+             `Signed in as: ${user.email}`
+            }
           </Navbar.Text>
                   <Nav.Link href="/register">Register</Nav.Link>
                   <Nav.Link href="/account">Your Account</Nav.Link>

@@ -83,32 +83,11 @@ export const AuthContextProvider = (props) => {
       console.log('sign out error',error)
     });
   }
-
-
- // UPDATE PROFILE
-//  const updateProfile = (email, password) => {
-// updateProfile(auth.currentUser, {
-//   displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
-// }).then(() => {
-//   // Profile updated!
-//   // ...
-// }).catch((error) => {
-//   // An error occurred
-//   // ...
-// })};
  
-
-  // const [isLoggedIn, setIsLoggedIn] = useState(false)
-  // console.log('is user logged in?', isLoggedIn)
-
-  // const testUser = {
-  //   displyName: "Tester",
-  //   email: "tester@test.com"}
-
   // const handleSwitchOnOff = () => {
   //   	setIsLoggedIn(!isLoggedIn)
   //     setUser(testUser) }
-      // !isLoggedIn = reverting the state
+      //!isLoggedIn = reverting the state
 
     
   // 4. return the provider with its value and inject children component
