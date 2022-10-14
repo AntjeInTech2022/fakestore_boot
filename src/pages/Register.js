@@ -85,7 +85,6 @@ const navigate = useNavigate();
       <div className="d-grid gap-2">
       <Button 
       variant="primary" 
-      type="submit" 
       onClick={handleRegister}
       >
         Register

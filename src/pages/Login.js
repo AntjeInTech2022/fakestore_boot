@@ -81,7 +81,7 @@ const handleLogin =  async (event) => {
       </Form.Group>
   
       <div className="d-grid gap-2">
-      <Button variant="primary" type="submit" onChange={handleLogin}>
+      <Button variant="primary" onClick={handleLogin}>
         Login
       </Button>
       </div>

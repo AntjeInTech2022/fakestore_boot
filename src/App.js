@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 //import TabFun from './components/TabBar/Tabs.js';
 import Footer from './components/Footer/Footer.js';
 import NavOffCanvas from './components/NavBar/NavOffCanvas';
+import NavContext from './components/NavBar/NavBarContext';
 import ContainerFluid from './components/Banner/Banner';
 
 // PAGES
@@ -22,19 +23,15 @@ import ViewChat from './pages/Chat';
 import AccountView from './pages/AccountView';
 
 
-// testing
-import BannerMen from './components/Banner/BannerMen';
-import NavContext from './components/NavBar/NavBarContext';
-
 //context
 import {ProductsContextProvider} from './context/dataContext';
 import { AuthContextProvider } from './context/authContext';
 
+
 // FIREBASE
 // import {onSnapshot, collection} from "@firebase/firestore";
 // import db from "./firebase";
-// import { AuthContextProvider2 } from './context/authContext2';
-// import ProtectedRoute from './utilities/protectedRoute';
+import ProtectedRoute from './utilities/protectedRoute';
 
 const App = () => {
 
@@ -54,7 +51,7 @@ const App = () => {
     <Router>
     <ProductsContextProvider>
     <AuthContextProvider> 
-    {/* <AuthContextProvider2>  */}
+
     <div className='App'>
 
       <NavOffCanvas/>
@@ -67,7 +64,7 @@ const App = () => {
           <Route path='/product/:id' element={<ProductDetails/>}/> 
          
          <Route path='/women' element={<WomenCat/>}/> 
-        <Route path='/men' element={<><BannerMen/><MenCat/></>}/>
+        <Route path='/men' element={<MenCat/>}/>
         <Route path='/jewelery' element={<JeweleryCat/>}/>
 
          <Route path='/login' element={<Login/>}/>
@@ -75,7 +72,7 @@ const App = () => {
       
          <Route path='/chat' element={<ViewChat/>}/>
          
-         <Route path='/account' element={<AccountView/>}/>
+         <Route path='/account' element={<ProtectedRoute><AccountView/></ProtectedRoute>}/>
 
          <Route path='/alert' element={<LoginRequiredAlert/>}/>
 
@@ -86,7 +83,7 @@ const App = () => {
 
       <Footer/>  
     </div>
-    {/* </AuthContextProvider2>  */}
+
     </AuthContextProvider>
     
  </ProductsContextProvider>

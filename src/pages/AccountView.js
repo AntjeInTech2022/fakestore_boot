@@ -35,7 +35,7 @@ function AccountView() {
         {/* <p>User name: {user && user.name}</p> */}
         <p>User email: {user && user.email}</p>
         
-    <Button onClick={handleLogout} variant="outline-primary" type="submit">Sign out</Button>
+    <Button onClick={handleLogout} variant="outline-primary">Sign out</Button>
     </div>
   )
 }
