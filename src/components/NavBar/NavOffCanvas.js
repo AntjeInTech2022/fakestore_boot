@@ -7,12 +7,13 @@ import {useContext} from "react";
 
 function NavOffCanvas() {
 
-  const {user, setUser} = useContext(AuthContext)
+  const {user, setUser, logOut} = useContext(AuthContext)
   const navigate = useNavigate();
 
  
 
-  const logOut = () => {
+  const handleLogout = () => {
+    logOut()
     setUser(null);
     console.log('user logged out')
   }
@@ -30,7 +31,7 @@ function NavOffCanvas() {
     
     <div>
     {user ? (
-        <Button onClick={logOut}>Logout</Button>
+        <Button onClick={handleLogout}>Logout</Button>
       ): (
         <Button onClick={()=>navigate("/login")}>Login</Button>
       )

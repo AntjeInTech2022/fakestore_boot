@@ -12,24 +12,24 @@ function Login() {
   const navigate = useNavigate();
   const {logIn} = useContext(AuthContext)
 
-  const handleLogin = () => {
-    logIn (email, password);
-    console.log('User logged in successfully')
-    navigate('/account');
-  }
+  // const handleLogin = () => {
+  //   logIn (email, password);
+  //   console.log('User logged in successfully')
+  //   navigate('/account');
+  // }
 
-// const handleLogin =  async (event) => {
-//   event.preventDefault();
-//   setError('')
-//   try{
-//       await logIn (email, password);
-//       console.log('User logged in successfully')
-//       navigate('/account');
-//   }catch(error){
-//     setError(error.message)
-//     console.log(error.message)
-//   }
-// }
+const handleLogin =  async (event) => {
+  event.preventDefault();
+  setError('')
+  try{
+      await logIn (email, password);
+      console.log('User logged in successfully')
+      navigate('/account');
+  }catch(error){
+    setError(error.message)
+    console.log(error.message)
+  }
+}
 
 
 	const handleEmail = (e) => {

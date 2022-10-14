@@ -16,7 +16,7 @@ export const AuthContextProvider = (props) => {
 
   // 3.  states and functions
   const [user, setUser] = useState(null)
-  console.log('anybody loged in?', user)
+  
 
   // REGISTRATION
   const createUser = (email, password) => {
@@ -50,6 +50,41 @@ export const AuthContextProvider = (props) => {
     console.log('login error',errorMessage)
   })};
 
+ 
+   // Get the currently signed-in user
+   const loginStatus = () => {
+   onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log('loginStatus',user);
+      setUser(user) // register and login at the same time
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      const uid = user.uid;
+      // ...
+    } else {
+      setUser(null)
+      // User is signed out
+      // ...
+    }
+  })};
+
+
+  useEffect(() => {
+    loginStatus();
+  },[]);
+
+  // LOGOUT
+  const logOut = () => {
+    signOut(auth).then(() => {
+      // Sign-out successful.
+      setUser(null) //client logout
+    }).catch((error) => {
+      // An error happened.
+      console.log('sign out error',error)
+    });
+  }
+
+
  // UPDATE PROFILE
 //  const updateProfile = (email, password) => {
 // updateProfile(auth.currentUser, {
@@ -79,7 +114,7 @@ export const AuthContextProvider = (props) => {
   // 4. return the provider with its value and inject children component
 
   return <AuthContext.Provider 
-  value={{ user, setUser, createUser, logIn }}>
+  value={{ user, setUser, createUser, logIn, logOut }}>
     {props.children}
     </AuthContext.Provider>;
 };

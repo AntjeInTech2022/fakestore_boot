@@ -19,10 +19,6 @@ function NavContext() {
   //   console.log('user logged in')
   // }
 
-  const logout = () => {
-    setUser(null);
-    console.log('user logged out')
-  }
 
 
   return (
@@ -45,9 +41,9 @@ function NavContext() {
           <Navbar.Text>
 {/* && if */}
 {/* ?: if else */}
-            {/* {isLoggedIn&&
+            {user &&
              `Signed in as: ${user.email}`
-            } */}
+            }
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>
