@@ -33,8 +33,8 @@ import { AuthContextProvider } from './context/authContext';
 // FIREBASE
 // import {onSnapshot, collection} from "@firebase/firestore";
 // import db from "./firebase";
-import { AuthContextProvider2 } from './context/authContext2';
-import ProtectedRoute from './utilities/protectedRoute';
+// import { AuthContextProvider2 } from './context/authContext2';
+// import ProtectedRoute from './utilities/protectedRoute';
 
 const App = () => {
 
@@ -54,7 +54,7 @@ const App = () => {
     <Router>
     <ProductsContextProvider>
     <AuthContextProvider> 
-    <AuthContextProvider2> 
+    {/* <AuthContextProvider2>  */}
     <div className='App'>
 
       <NavOffCanvas/>
@@ -75,12 +75,10 @@ const App = () => {
       
          <Route path='/chat' element={<ViewChat/>}/>
          
-         <Route path='/account' element={
-         <ProtectedRoute>
-          <AccountView/>
-          </ProtectedRoute>}/>
+         <Route path='/account' element={<AccountView/>}/>
 
          <Route path='/alert' element={<LoginRequiredAlert/>}/>
+
         <Route path="*" element={<ErrorPage/>}/>
       </Routes>
       </div>
@@ -88,7 +86,7 @@ const App = () => {
 
       <Footer/>  
     </div>
-    </AuthContextProvider2> 
+    {/* </AuthContextProvider2>  */}
     </AuthContextProvider>
     
  </ProductsContextProvider>

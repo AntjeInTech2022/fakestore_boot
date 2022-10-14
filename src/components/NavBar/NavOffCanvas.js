@@ -46,7 +46,7 @@ function NavOffCanvas() {
                 <Navbar.Text>
             {/* Signed in as: <a href="/login">{user}</a>  */}
           </Navbar.Text>
-                  {/* <Nav.Link href="/login">Login / Register</Nav.Link> */}
+                  <Nav.Link href="/register">Register</Nav.Link>
                   {user ? (
         <Button onClick={logout}>Logout</Button>
       ): (

@@ -1,24 +1,27 @@
-import {Form, Button, Row, Col} from 'react-bootstrap';
+import {Form, Button} from 'react-bootstrap';
 
 import { Link, useNavigate } from 'react-router-dom';
 import {useState, useContext} from 'react'
 
 // FIREBASE
 import { AuthContext } from '../context/authContext';
-import {UserAuth} from '../context/authContext2'
+// import {UserAuth} from '../context/authContext2'
 
 
 function Register() {
 
-const [name, setUserName] = useState('')
+  // states
+const [name, setName] = useState('')
 const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
 const [error, setError] = useState('')
-const {createUser} = UserAuth()
+
+ // functions
+const {createUser} = useContext(AuthContext)
 const navigate = useNavigate();
 
-const handleUserName = (e) => {
-  setUserName(e.target.value)
+const handleName = (e) => {
+  setName(e.target.value)
 }
 
 	const handleEmailChange = (e) => {
@@ -55,7 +58,7 @@ const handleUserName = (e) => {
       <Form.Label className="Label">Choose a user name</Form.Label>
           <Form.Control placeholder="User name"
           value={name}
-          onChange={handleUserName} />
+          onChange={handleName} />
 
         <Form.Label className="Label">Enter your email address</Form.Label>
         <Form.Control 
