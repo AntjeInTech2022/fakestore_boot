@@ -1,12 +1,14 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
+import {
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged
+} from "firebase/auth"
+import {auth} from "./firebase"
 
-const testUser = {
-  fname: "Tester",
-  lname: "Faker",
-  email: "tester@test.com"}
+// 1. Create Context / Store
 
-// 1. Create Context
-// const MyContext = React.createContext(defaultValue);
 export const AuthContext = createContext();
 
 
@@ -19,16 +21,24 @@ export const AuthContextProvider = (props) => {
   const [user, setUser] = useState()
   console.log('who is testing?', user)
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  console.log('is user logged in?', isLoggedIn)
+  // const [isLoggedIn, setIsLoggedIn] = useState(false)
+  // console.log('is user logged in?', isLoggedIn)
 
-  const handleSwitchOnOff = () => {
-    	setIsLoggedIn(!isLoggedIn)
-      setUser(testUser)
+
+  // const testUser = {
+  //   user_name: "Tester",
+  //   email: "tester@test.com"}
+
+  // const handleSwitchOnOff = () => {
+  //   	setIsLoggedIn(!isLoggedIn)
+  //     setUser(testUser) }
       // !isLoggedIn = reverting the state
- }
+
 
   // 4. return the provider with its value and inject children component
 
-  return <AuthContext.Provider value={{ user, isLoggedIn, handleSwitchOnOff }}>{props.children}</AuthContext.Provider>;
+  return <AuthContext.Provider 
+  value={{ user, setUser }}>
+    {props.children}
+    </AuthContext.Provider>;
 };

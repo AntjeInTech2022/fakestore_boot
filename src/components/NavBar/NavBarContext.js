@@ -1,16 +1,27 @@
 import Container from 'react-bootstrap/Container';
-import { Form, Navbar } from 'react-bootstrap';
+import { Form, Navbar, Button } from 'react-bootstrap';
 
 
 // user context
 import {useContext} from "react";
-import { AuthContext } from "../../context/authContext";
+import { AuthContext, UserContext, UserAuth } from "../../context/authContext";
+
 
 
 
 function NavContext() {
 
-  const { isLoggedIn, handleSwitchOnOff, user } = useContext(AuthContext)
+   const { isLoggedIn, handleSwitchOnOff, user, setUser } = useContext(AuthContext)
+  // const { isLoggedIn, handleSwitchOnOff, user } = useContext(UserAuth)
+  const login = () => {
+    setUser({name:"Tester"});
+    console.log('user logged in')
+  }
+
+  const logout = () => {
+    setUser(null);
+    console.log('user logged out')
+  }
 
 
   return (
@@ -25,13 +36,14 @@ function NavContext() {
         onChange={handleSwitchOnOff}
       />
       </Form>
+    
         <Navbar.Toggle /> 
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
 {/* && if */}
 {/* ?: if else */}
             {isLoggedIn&&
-             `Signed in as: ${user.fname}`
+             `Signed in as: ${user.user_name}`
             }
           </Navbar.Text>
         </Navbar.Collapse>

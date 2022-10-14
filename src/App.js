@@ -75,7 +75,10 @@ const App = () => {
       
          <Route path='/chat' element={<ViewChat/>}/>
          
-         <Route path='/account' element={<ProtectedRoute><AccountView/></ProtectedRoute>}/>
+         <Route path='/account' element={
+         <ProtectedRoute>
+          <AccountView/>
+          </ProtectedRoute>}/>
 
          <Route path='/alert' element={<LoginRequiredAlert/>}/>
         <Route path="*" element={<ErrorPage/>}/>
