@@ -6,12 +6,12 @@ import {useNavigate} from 'react-router-dom';
 
 function AccountView() {
     
-    const {user, logout} = useContext(AuthContext)
+    const {user, logOut} = useContext(AuthContext)
     const navigate = useNavigate();
 
     const handleLogout = async() => {
         try {
-            await logout(user);
+            await logOut(user);
             navigate('/');
             console.log('User logged out')
         } catch (e) {

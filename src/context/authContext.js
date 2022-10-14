@@ -19,7 +19,7 @@ export const AuthContextProvider = (props) => {
   console.log('anybody loged in?', user)
 
   const createUser = (email, password) => {
-    signInWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;

@@ -64,6 +64,7 @@ const handleName = (e) => {
         <Form.Control 
         type="email" 
         placeholder="Enter email" 
+        value={email}
         onChange={handleEmailChange}
         />
         
@@ -77,6 +78,7 @@ const handleName = (e) => {
         <Form.Control 
         type="password" 
         placeholder="Password"
+        value={password}
         onChange={handlePasswordChange} 
         />
 
