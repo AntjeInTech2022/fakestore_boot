@@ -96,6 +96,8 @@ const handleSwitchOnOff = () => {
   //IF there is no user signed in
   if (!user) {
     return(
+      // logIn(guest.email, guest.password),
+      // console.log('A guest has signed in')
       signInWithEmailAndPassword(auth, guest.email, guest.password)
       .then((userCredential) => {
         // Signed in 
@@ -109,8 +111,9 @@ const handleSwitchOnOff = () => {
         const errorMessage = error.message;
         console.log('login error',errorMessage)
       }
-    ///ELSE if there is a user signed in
-   ))}
+    //ELSE if there is a user signed in
+     ))
+    }
   }
 
  
