@@ -2,6 +2,7 @@ import {useNavigate} from 'react-router-dom';
 import {useState, useContext } from 'react'
 import {Placeholder,Button, Form} from 'react-bootstrap';
 import { AuthContext } from '../context/authContext';
+import {useAuth} from '../context/authContext';
 
 
 function Login() {
@@ -12,11 +13,6 @@ function Login() {
   const navigate = useNavigate();
   const {logIn} = useContext(AuthContext)
 
-  // const handleLogin = () => {
-  //   logIn (email, password);
-  //   console.log('User logged in successfully')
-  //   navigate('/account');
-  // }
 
 const handleLogin =  async (event) => {
   event.preventDefault();
@@ -25,6 +21,7 @@ const handleLogin =  async (event) => {
       await logIn (email, password);
       console.log('User logged in successfully')
       navigate('/account');
+      
   }catch(error){
     setError(error.message)
     console.log(error.message)

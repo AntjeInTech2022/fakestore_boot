@@ -1,9 +1,9 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import {
   createUserWithEmailAndPassword, 
   signInWithEmailAndPassword,
   signOut,
-  onAuthStateChanged
+  onAuthStateChanged,
 } from "firebase/auth"
 import {auth} from "./firebase"
 
@@ -54,6 +54,7 @@ export const AuthContextProvider = (props) => {
    // Get the currently signed-in user
    const loginStatus = () => {
    onAuthStateChanged(auth, (user) => {
+    console.log('user status changed:', user)
     if (user) {
       // console.log('loginStatus',user);
       setUser(user) // register and login at the same time
@@ -88,10 +89,12 @@ export const AuthContextProvider = (props) => {
   // TEST USER
   const guest = {
   email: "guest@fakestore.com",
-  password: "fakeguest"}
+  password: "fakeguest"};
 
+  
 
 const handleSwitchOnOff = () => {
+
 
   //IF there is no user signed in
   if (!user) {
@@ -126,3 +129,4 @@ const handleSwitchOnOff = () => {
     {props.children}
     </AuthContext.Provider>;
 };
+
