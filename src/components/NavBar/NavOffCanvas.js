@@ -58,8 +58,11 @@ function NavOffCanvas() {
              `Signed in as: ${user.email}`
             }
           </Navbar.Text>
-                  <Nav.Link href="/register">Register</Nav.Link>
-                  <Nav.Link href="/account">Your Account</Nav.Link>
+          {user ?
+          <Nav.Link href="/account">Your Account</Nav.Link>
+          :
+          <Nav.Link href="/register">Register</Nav.Link> }
+       
                   {/* <Nav.Link href="/alert"> Warenkorb <BsCart/></Nav.Link> */}
                   {/* <Nav.Link href="/alert"> Saved items <BsBookmark/></Nav.Link>  */}
                   {/* <Nav.Link href="/chat">Chat </Nav.Link> */}

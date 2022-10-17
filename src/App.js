@@ -30,22 +30,13 @@ import { AuthContextProvider } from './context/authContext';
 
 // FIREBASE
 // import {onSnapshot, collection} from "@firebase/firestore";
-// import db from "./firebase";
+import db from './context/firebase.js';
 import ProtectedRoute from './utilities/protectedRoute';
 
 const App = () => {
 
-  // firestore
-  // const [test,setTest] = useState([]);
-  // console.log('firestore',test)
+  console.log('db', db) // ok
 
-  // useEffect(
-  //   () => onSnapshot(collection (db,"test"), (snapshot) => 
-  //     // console.log(snapshot.docs.map(doc => doc.data()))
-  //     setTest(snapshot.docs.map(doc => ({...doc.data(), id:doc.id})
-  //     ))
-  //     ),[]);
-  
 
   return (
     <Router>
@@ -70,7 +61,7 @@ const App = () => {
          <Route path='/login' element={<Login/>}/>
          <Route path='/register' element={<Register/>}/>
       
-         <Route path='/chat' element={<ProtectedRoute><ViewChat/></ProtectedRoute>}/>
+         <Route path='/chat' element={<ViewChat/>}/>
          
          <Route path='/account' element={<ProtectedRoute><AccountView/></ProtectedRoute>}/>
 

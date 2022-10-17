@@ -1,9 +1,13 @@
 import {Container, Nav, Navbar, Button, Badge} from 'react-bootstrap';
 import {BsCartPlus,BsGithub, BsBookmark, BsChat} from "react-icons/bs";
+import {useNavigate} from 'react-router-dom';
 import "../../App.css";
 
 
 function Footer() {
+
+  const navigate = useNavigate()
+
   return (
     <>
       <Navbar bg="dark" variant="dark" fixed="bottom">
@@ -24,7 +28,7 @@ function Footer() {
                 <span className="visually-hidden">items in cart</span> */}
             </Button>
 
-                <Button variant="dark">
+                <Button onClick={()=>navigate("/chat")} variant="dark">
                  <BsChat className='IconFooter'/> 
                 </Button>
 
