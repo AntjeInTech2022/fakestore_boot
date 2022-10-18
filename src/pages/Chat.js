@@ -1,15 +1,16 @@
 import {React, useContext, useState, useEffect} from 'react'
 import { AuthContext } from "../context/authContext";
-import { collection, addDoc, getDocs } from "firebase/firestore"; 
+import { collection, addDoc, getDocs, query, where, onSnapshot  } from "firebase/firestore"; 
 import {db} from "../context/firebase"
 
 
 
 function ViewChat() {
     
-    const {user, setUser, logOut} = useContext(AuthContext);
-    const [message, setMessage] =useState("")
-    console.log('user', user)
+    const {user} = useContext(AuthContext);
+    const [message, setMessage] = useState("");
+    const [textMessages, setTextMessages] = useState(null);
+    // console.log('user', user)
     const handleMessage = (e) => {
         setMessage(e.target.value);
     };
@@ -43,7 +44,7 @@ useEffect(() => {
     try {
         const docRef = await addDoc(collection(db, "chat"), messageObj);
         console.log("Document written with ID: ", docRef.id);
- 
+        readMessages();
       } catch (e) {
         console.error("Error adding document: ", e);
       }
@@ -51,24 +52,48 @@ useEffect(() => {
 
     //READ MESSAGES
     const readMessages = async () => {
-    const querySnapshot = await getDocs(collection(db, "chat"));
-    querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data()}`);
-    }); }
+      const q = query(collection(db, "chat"));
+      const unsubscribe = onSnapshot(q, (querySnapshot) => {
+        const messages = [];
+        querySnapshot.forEach((doc) => {
+            messages.push(doc.data());
+        });
+        setTextMessages(messages);
+      });
+    // const querySnapshot = await getDocs(collection(db, "chat"));
+    // const messages = [];
+    // querySnapshot.forEach((doc) => {
+    //   // console.log(`${doc.id} => ${doc.data()}`);
+    //   console.log(doc.id);
+    //   console.log(doc.data());
+    //   messages.push(doc.data())
+    // }); 
+    // setTextMessage(messages);
+  };
 
     useEffect(() => {
-      readMessages()
-      }, [])
+      readMessages();
+      }, []);
 
 
 
 	return (
         
         <div>
+          {textMessages && 
+            textMessages.map((text) => (
+            <div>
+              {/* ERROR: Problem with toString: */}
+              {/* <p>Date: {text.date.toString()}</p> */}
+              {/* <p>Date: {text.date}</p> */}
+              <p>Sender: {text.user}</p> 
+              <p>Message: {text.text}</p>
+            </div>
+          ))}
         <input type="text" value={message} onChange={handleMessage}/>
-        <button onClick={sendMessage}>Send</button>
+        <button onClick={sendMessage}>Send message</button>
         </div>
-	)
-}
+	);
+};
 
 export default ViewChat

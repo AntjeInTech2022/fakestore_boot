@@ -7,6 +7,7 @@ import '../App.css';
 
 //context
 import { ProductsContext } from '../context/dataContext';
+import WishlistBTN from '../components/add2WishlistBTN';
 
 
 
@@ -60,28 +61,25 @@ function AllProducts() {
               <Card.Text className="text-truncate">{product.description}</Card.Text>
               <Button onClick={()=>navigate(`/product/${product.id}`)} variant="danger">Show more</Button>
               
-              <OverlayTrigger
+              {/* <OverlayTrigger
                 placement="top"
-                // delay={{ show: 250, hide: 400 }}
-                overlay={renderTooltipBookmark}>
-                <Button variant="successwhite"><BsBookmark className='bookmark'/></Button>
-              </OverlayTrigger>
+                overlay={renderTooltipBookmark}> */}
+                {/* <Button onClick={add2Wishlist} variant="successwhite"><BsBookmark className='bookmark'/></Button> */}
+             <WishlistBTN/>
+               {/* </OverlayTrigger>  */}
 
                 <OverlayTrigger
                 placement="top"
-                // delay={{ show: 250, hide: 400 }}
+              
                 overlay={renderTooltipCart}>
                 <Button variant="white"><BsCartPlus className="BsCartPlus"/></Button>
               </OverlayTrigger>
               
-            {/* <Link to={`/product/${product.id}`}>Show /product/${product.id}</Link>  */}
+       
             </Card.Body>
-            {/* <Card.Footer>
-          <small className="text-muted"> Rating: {product.rating.rate}</small>
-        </Card.Footer> */}
+
           </Card>
-         
-          {/* </Link> */}
+     
          </Col>
           
       ))}
