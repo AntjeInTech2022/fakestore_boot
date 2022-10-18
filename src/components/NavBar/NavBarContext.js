@@ -6,9 +6,10 @@ import { AuthContext } from "../../context/authContext";
 import {useContext} from "react";
 
 
+
 function NavContext() {
 
-
+   const {user} = useContext(AuthContext)
    const {handleSwitchOnOff} = useContext(AuthContext)
 
 
@@ -17,6 +18,7 @@ function NavContext() {
     <Navbar>
       <Container>
        {/* show if there is none signed in:  if (!user) */}
+       {!user &&
       <Form>
       <Form.Check 
         type="switch"
@@ -25,7 +27,7 @@ function NavContext() {
         onChange={handleSwitchOnOff}
       />
       </Form>
-    
+    }
         <Navbar.Toggle /> 
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>

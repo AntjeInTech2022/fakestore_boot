@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  updateProfile
 } from "firebase/auth"
 import {auth} from "./firebase"
 
@@ -91,9 +92,8 @@ export const AuthContextProvider = (props) => {
   email: "guest@fakestore.com",
   password: "fakeguest"};
 
-  
 
-const handleSwitchOnOff = () => {
+  const handleSwitchOnOff = () => {
 
 
   //IF there is no user signed in
@@ -113,13 +113,13 @@ const handleSwitchOnOff = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log('login error',errorMessage)
-      }
-    //ELSE if there is a user signed in
-     ))
+      })
+     )
     }
   }
 
- 
+ // 
+
 
     
   // 4. return the provider with its value and inject children component

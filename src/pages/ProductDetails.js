@@ -73,8 +73,16 @@ function ProductDetails() {
     </Form.Select>
     </>
        <Button variant="danger">Add to cart</Button><BsBookmark className='bookmark'/>
-              <BsCartPlus className="BsCartPlus"/> 
+              <BsCartPlus className="BsCartPlus"/>
+    <Placeholder xs={12} bg="white" />
+    <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+        {/* <Form.Label>Leave a product review</Form.Label> */}
+        <Form.Control as="textarea" rows={3} placeholder="Leave a product review"/>
+    </Form.Group>
+    <Button variant="outline-primary">Submit review</Button>
+
     </Card.Body>
+    
      {/* <Card.Footer className="text-muted">Product rating: {product.rating.rate} / 5</Card.Footer> */}
   </Card>
 

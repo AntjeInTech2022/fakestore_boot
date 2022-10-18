@@ -23,6 +23,8 @@ function AccountView() {
     <div>Your Fake Store Account
         <hr/>
         <p>User email: {user && user.email}</p>
+        <hr/>
+        <p>Update your profile:</p>
         
     <Button onClick={handleLogout} variant="outline-primary">Sign out</Button>
     </div>
