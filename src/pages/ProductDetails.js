@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { React, useEffect, useState, useContext } from "react";
 import {Button, Placeholder} from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { useParams, useNavigate } from "react-router-dom";
@@ -8,18 +8,15 @@ import Stack from 'react-bootstrap/Stack';
 import Figure from 'react-bootstrap/Figure';
 import { BsBookmark, BsCartPlus } from "react-icons/bs";
 import Form from 'react-bootstrap/Form';
-
-
+import { AuthContext } from "../context/authContext";
 import '../App.css';
 
 function ProductDetails() {
   
+  // Data Fetching
     let { id } = useParams();
     let api = `https://fakestoreapi.com/products/${id}`;
   
-  // console.log(id)
-  
-
   const [product, setProduct] = useState();
 
   useEffect(() => {
@@ -34,6 +31,23 @@ function ProductDetails() {
     // Button routing
     let navigate = useNavigate();
 
+     // Product Review
+    const {user} = useContext(AuthContext);
+    const [comment, setComment] =useState("")
+
+    const handleComment = (e) => {
+      setComment(e.target.value);
+  };
+
+  const sendComment = async() => {
+  //what do we want to store? text + time + user
+  const commentObj = {
+      text: comment,
+      date: new Date(), //creates the current date
+      user: user.email,
+  };
+  console.log("commentObj", commentObj); //ok
+
   return (
 
      product ?
@@ -42,6 +56,7 @@ function ProductDetails() {
 <Stack gap={3}> 
 
 <div className="closebtn_div">
+
 <CloseButton onClick={()=>navigate("/")}/>
 </div>
 
@@ -53,10 +68,8 @@ function ProductDetails() {
         alt="171x180"
         src={product.image} 
       />
+
     </Figure>
-    {/* <Figure.Caption>
-    <BsBookmark className='bookmark'/>
-      </Figure.Caption> */}
       </div>
       <div>
       <Card key={product.id}>
@@ -73,17 +86,21 @@ function ProductDetails() {
     </Form.Select>
     </>
        <Button variant="danger">Add to cart</Button><BsBookmark className='bookmark'/>
-              <BsCartPlus className="BsCartPlus"/>
-    <Placeholder xs={12} bg="white" />
-    <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-        {/* <Form.Label>Leave a product review</Form.Label> */}
-        <Form.Control as="textarea" rows={3} placeholder="Leave a product review"/>
-    </Form.Group>
-    <Button variant="outline-primary">Submit review</Button>
+       <BsCartPlus className="BsCartPlus"/>
 
-    </Card.Body>
+    <Placeholder xs={12} bg="white" />
+
+    <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
     
-     {/* <Card.Footer className="text-muted">Product rating: {product.rating.rate} / 5</Card.Footer> */}
+        <Form.Control as="textarea" rows={3} placeholder="Leave a product review" 
+        type="text" 
+        value={comment} 
+        onChange={handleComment}/>
+    </Form.Group>
+
+    <Button onClick={sendComment} variant="outline-primary">Submit review</Button>
+   
+    </Card.Body>    
   </Card>
 
   <p aria-hidden="true">
@@ -98,39 +115,8 @@ function ProductDetails() {
    
     
     </Stack>
-</Container>:
-
-  //    <Container fluid="md">
-  //    <Row>
-  //      <Col key={product.id}> 
-  //      <Card.Body>
-  //      <Card.Img src={product.image} />
-  //   </Card.Body>
-  //   </Col>
-  //      <Col><Card key={product.id}>
-  //   <Card.Body>
-  //     <Card.Title>{product.title}</Card.Title>
-  //     <Card.Subtitle className="mb-2 text-muted">{product.price} €</Card.Subtitle>
-  //     <Card.Text>{product.description}</Card.Text>
-  //     <Button variant="primary">Add to cart</Button>
-  //   </Card.Body>
-  //   <Card.Footer className="text-muted">Product rating: {product.rating.rate}</Card.Footer>
-  // </Card></Col>
-  //    </Row>
-  //  </Container>:
-
-  //   <Card key={product.id} style={{ width: '18rem' }}>
-  //   {/* <Card.Img top width="100%" variant="top" src={product.image} /> */}
-  //   <Card.Body>
-  //     <Card.Title>{product.title}</Card.Title>
-  //     <Card.Subtitle className="mb-2 text-muted">{product.price} €</Card.Subtitle>
-  //     <Card.Text>{product.description}</Card.Text>
-  //     <Button variant="primary">Add to cart</Button>
-  //   </Card.Body>
-  //   <Card.Footer className="text-muted">Product rating: {product.rating.rate}</Card.Footer>
-  // </Card>:
-  <p>not found</p>
+</Container>: <p>not found</p>
   );
-}
+}}
 
 export default ProductDetails;

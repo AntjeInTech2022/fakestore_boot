@@ -1,7 +1,8 @@
 import {Container, Nav, Navbar,Button, Offcanvas} from 'react-bootstrap';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, Link} from 'react-router-dom';
 import { AuthContext } from "../../context/authContext";
 import {useContext} from "react";
+
 // import "../../App.css";
 
 
@@ -59,7 +60,7 @@ function NavOffCanvas() {
             }
           </Navbar.Text>
           {user ?
-          <Nav.Link href="/account">Your Account</Nav.Link>
+          <Nav.Link  ><Link to="/account">Your Account</Link></Nav.Link>
           :
           <Nav.Link href="/register">Register</Nav.Link> }
        

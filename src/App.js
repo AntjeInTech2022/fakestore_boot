@@ -30,12 +30,12 @@ import { AuthContextProvider } from './context/authContext';
 
 // FIREBASE
 // import {onSnapshot, collection} from "@firebase/firestore";
-import db from './context/firebase.js';
+
 import ProtectedRoute from './utilities/protectedRoute';
 
 const App = () => {
 
-  console.log('db', db) // ok
+  
 
 
   return (

@@ -6,7 +6,7 @@ import {
   onAuthStateChanged,
   updateProfile
 } from "firebase/auth"
-import {auth} from "./firebase"
+import {auth, db} from "./firebase"
 
 // 1. Create Context / Store
 export const AuthContext = createContext();
@@ -25,6 +25,7 @@ export const AuthContextProvider = (props) => {
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
+      setUser(user)
       console.log('new user is',user)
       // ...
     })
@@ -55,8 +56,9 @@ export const AuthContextProvider = (props) => {
    // Get the currently signed-in user
    const loginStatus = () => {
    onAuthStateChanged(auth, (user) => {
-    console.log('user status changed:', user)
+    
     if (user) {
+      console.log('user status changed:', user)
       // console.log('loginStatus',user);
       setUser(user) // register and login at the same time
       // User is signed in, see docs for a list of available properties
@@ -69,6 +71,15 @@ export const AuthContextProvider = (props) => {
       // ...
     }
   })};
+
+  // Detect auth state
+// onAuthStateChanged(auth, user => {
+//   if(user !== null) {
+//     console.log('logged in')
+//   } else {
+//     console.log('no user')
+//   }
+// });
 
 
   useEffect(() => {
@@ -123,6 +134,7 @@ export const AuthContextProvider = (props) => {
 
     
   // 4. return the provider with its value and inject children component
+  console.log('A guest has signed in',user)
 
   return <AuthContext.Provider 
   value={{ user, setUser, createUser, logIn, logOut, handleSwitchOnOff }}>

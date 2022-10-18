@@ -8,9 +8,10 @@ import { getAuth } from "firebase/auth";
 
 
 const ProtectedRoute = ({ children }) => {
-  // const {user} = useContext(AuthContext)
-  const auth = getAuth();
-  const user = auth.currentUser;
+  const {user} = useContext(AuthContext)
+  // const auth = getAuth();
+  // const user = auth.currentUser;
+  console.log('user',)
 
   if (user === null) {
   // if (!user) {

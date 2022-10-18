@@ -1,4 +1,4 @@
-import {React, useContext, useState} from 'react'
+import {React, useContext, useState, useEffect} from 'react'
 import { AuthContext } from "../context/authContext";
 import { collection, addDoc, getDocs } from "firebase/firestore"; 
 import {db} from "../context/firebase"
@@ -9,10 +9,19 @@ function ViewChat() {
     
     const {user, setUser, logOut} = useContext(AuthContext);
     const [message, setMessage] =useState("")
-    
+    console.log('user', user)
     const handleMessage = (e) => {
         setMessage(e.target.value);
     };
+const getMessages = async () => {
+  console.log('db', db)
+
+  const querySnapshot = await getDocs(collection(db, "chat"));
+querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  console.log(doc.id, " => ", doc.data());
+});
+}
 
     const sendMessage = async() => {
     //what do we want to store? text + time + user
@@ -22,7 +31,6 @@ function ViewChat() {
         user: user.email,
     };
     console.log("messageObj", messageObj); //ok
-
     // Cloud Firestore creates collections and documents implicitly the first time you add data 
     // to the document. You do not need to explicitly create collections or documents.
     try {
@@ -41,6 +49,9 @@ function ViewChat() {
     // querySnapshot.forEach((doc) => {
     //   console.log(`${doc.id} => ${doc.data()}`);
     // });
+useEffect(() => {
+getMessages()
+}, [])
 
 	return (
         
