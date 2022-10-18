@@ -3,15 +3,11 @@ import {useNavigate, Link} from 'react-router-dom';
 import { AuthContext } from "../../context/authContext";
 import {useContext} from "react";
 
-// import "../../App.css";
-
-
 function NavOffCanvas() {
 
   const {user, setUser, logOut} = useContext(AuthContext)
   const navigate = useNavigate();
 
- 
 
   const handleLogout = () => {
     logOut()
@@ -27,9 +23,8 @@ function NavOffCanvas() {
       {['md'].map((expand) => (
         <Navbar key={expand} variant="dark" bg="dark" expand={expand} className="mb-3">
           <Container fluid="md">
-         
-            <Navbar.Brand href="/" className='fs-3'>Fake Store</Navbar.Brand>
-    
+            <Navbar.Brand className='fs-3'><Link className="text-link" to="/">Fake Store</Link></Navbar.Brand>
+            
     <div>
     {user ? (
         <Button onClick={handleLogout}>Logout</Button>
@@ -60,16 +55,11 @@ function NavOffCanvas() {
             }
           </Navbar.Text>
           {user ?
-          <Nav.Link  ><Link to="/account">Your Account</Link></Nav.Link>
-          :
-          <Nav.Link href="/register">Register</Nav.Link> }
-       
-                  {/* <Nav.Link href="/alert"> Warenkorb <BsCart/></Nav.Link> */}
-                  {/* <Nav.Link href="/alert"> Saved items <BsBookmark/></Nav.Link>  */}
-                  {/* <Nav.Link href="/chat">Chat </Nav.Link> */}
-                  <Nav.Link href="#action2">About</Nav.Link>
-                  {/* <Nav.Link href="https://github.com/AntjeInTech2022/fakestore_boot" target="_blank"> Github <BsGithub/></Nav.Link>
-                  <Nav.Link href="https://fakestoreapi.com/docs" target="_blank">API</Nav.Link> */}
+          <Nav.Link><Link className="text-link" to="/account">Your Account</Link></Nav.Link>
+          :<Nav.Link><Link className="text-link" to="/register">Register</Link></Nav.Link> }
+          <Nav.Link><Link  className="text-link" to="/about">About</Link></Nav.Link>
+          
+                  
                 </Nav>
                 
               </Offcanvas.Body>

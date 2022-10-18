@@ -13,16 +13,23 @@ function ViewChat() {
     const handleMessage = (e) => {
         setMessage(e.target.value);
     };
-const getMessages = async () => {
+
+    //GET MESSAGES
+  const getMessages = async () => {
   console.log('db', db)
 
   const querySnapshot = await getDocs(collection(db, "chat"));
-querySnapshot.forEach((doc) => {
+  querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
   console.log(doc.id, " => ", doc.data());
 });
 }
+useEffect(() => {
+  getMessages()
+  }, [])
 
+
+    //SEND MESSAGES
     const sendMessage = async() => {
     //what do we want to store? text + time + user
     const messageObj = {
@@ -42,16 +49,18 @@ querySnapshot.forEach((doc) => {
       }
     };
 
-    // const readMessages = () => {
+    //READ MESSAGES
+    const readMessages = async () => {
+    const querySnapshot = await getDocs(collection(db, "chat"));
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data()}`);
+    }); }
 
-    // }
-    // const querySnapshot = await getDocs(collection(db, "users"));
-    // querySnapshot.forEach((doc) => {
-    //   console.log(`${doc.id} => ${doc.data()}`);
-    // });
-useEffect(() => {
-getMessages()
-}, [])
+    useEffect(() => {
+      readMessages()
+      }, [])
+
+
 
 	return (
         

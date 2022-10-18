@@ -1,14 +1,8 @@
-import { React, useEffect, useState, useContext } from "react";
-import {Button, Placeholder} from "react-bootstrap";
-import Card from "react-bootstrap/Card";
+import { React, useEffect, useState} from "react";
+import {Button, Placeholder, Form, Stack,Figure, Card, Container, CloseButton} from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
-import Container from 'react-bootstrap/Container';
-import CloseButton from 'react-bootstrap/CloseButton';
-import Stack from 'react-bootstrap/Stack';
-import Figure from 'react-bootstrap/Figure';
 import { BsBookmark, BsCartPlus } from "react-icons/bs";
-import Form from 'react-bootstrap/Form';
-import { AuthContext } from "../context/authContext";
+import ProductReview from "../components/ProductReview";
 import '../App.css';
 
 function ProductDetails() {
@@ -31,22 +25,8 @@ function ProductDetails() {
     // Button routing
     let navigate = useNavigate();
 
-     // Product Review
-    const {user} = useContext(AuthContext);
-    const [comment, setComment] =useState("")
 
-    const handleComment = (e) => {
-      setComment(e.target.value);
-  };
 
-  const sendComment = async() => {
-  //what do we want to store? text + time + user
-  const commentObj = {
-      text: comment,
-      date: new Date(), //creates the current date
-      user: user.email,
-  };
-  console.log("commentObj", commentObj); //ok
 
   return (
 
@@ -89,17 +69,8 @@ function ProductDetails() {
        <BsCartPlus className="BsCartPlus"/>
 
     <Placeholder xs={12} bg="white" />
-
-    <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-    
-        <Form.Control as="textarea" rows={3} placeholder="Leave a product review" 
-        type="text" 
-        value={comment} 
-        onChange={handleComment}/>
-    </Form.Group>
-
-    <Button onClick={sendComment} variant="outline-primary">Submit review</Button>
-   
+ <ProductReview/>
+ 
     </Card.Body>    
   </Card>
 
@@ -117,6 +88,6 @@ function ProductDetails() {
     </Stack>
 </Container>: <p>not found</p>
   );
-}}
+}
 
 export default ProductDetails;
