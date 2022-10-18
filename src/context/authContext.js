@@ -4,7 +4,6 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-  updateProfile
 } from "firebase/auth"
 import {auth, db} from "./firebase"
 

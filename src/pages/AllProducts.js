@@ -31,11 +31,11 @@ function AllProducts() {
     let navigate = useNavigate();
 
   // Tooltips
-    const renderTooltipBookmark = (props) => (
-      <Tooltip id="button-tooltip1" {...props}>
-        Save item to favorites
-      </Tooltip>
-    );
+    // const renderTooltipBookmark = (props) => (
+    //   <Tooltip id="button-tooltip1" {...props}>
+    //     Save item to favorites
+    //   </Tooltip>
+    // );
 
     const renderTooltipCart = (props) => (
       <Tooltip id="button-tooltip2" {...props}>
@@ -65,7 +65,7 @@ function AllProducts() {
                 placement="top"
                 overlay={renderTooltipBookmark}> */}
                 {/* <Button onClick={add2Wishlist} variant="successwhite"><BsBookmark className='bookmark'/></Button> */}
-             <WishlistBTN/>
+             <WishlistBTN product={product}/>
                {/* </OverlayTrigger>  */}
 
                 <OverlayTrigger
