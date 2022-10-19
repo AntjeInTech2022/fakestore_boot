@@ -35,10 +35,12 @@ const navigate = useNavigate();
 		e.preventDefault() // so that page does not reload
     setError('')
     try{
-        await createUser(email, password);
+
+        const success = await createUser(email, password);
         console.log('new user created successfully')
-        navigate('/account')
-        // setIsLoggedIn(true)
+        if (success === true) {
+          navigate('/account')
+        }
     }catch(error){
       setError(error.message)
       console.log(error.message)

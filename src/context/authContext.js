@@ -6,6 +6,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth"
 import {auth, db} from "./firebase"
+import { doc, setDoc } from "firebase/firestore"; 
 
 // 1. Create Context / Store
 export const AuthContext = createContext();
@@ -20,18 +21,22 @@ export const AuthContextProvider = (props) => {
 
   // REGISTRATION
   const createUser = (email, password) => {
-    createUserWithEmailAndPassword(auth, email, password)
+    return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
+      const userDocRef = doc(db, "users", user.uid);
+      setDoc(userDocRef, {wishlist:[]})
       setUser(user)
       console.log('new user is',user)
       // ...
+      return true
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log('createUser error',errorMessage)
+      return false
     })};
   
 
