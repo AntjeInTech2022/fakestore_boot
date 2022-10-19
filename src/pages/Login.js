@@ -28,7 +28,6 @@ const handleLogin =  async (event) => {
   }
 }
 
-
 	const handleEmail = (e) => {
 		setEmail(e.target.value)
 	}
