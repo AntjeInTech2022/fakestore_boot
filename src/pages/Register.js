@@ -1,5 +1,4 @@
 import {Form, Button} from 'react-bootstrap';
-
 import { Link, useNavigate } from 'react-router-dom';
 import {useState, useContext} from 'react'
 
@@ -11,7 +10,7 @@ import { AuthContext } from '../context/authContext';
 function Register() {
 
   // states
-const [displayName, setName] = useState('')
+
 const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
 const [error, setError] = useState('')

@@ -130,7 +130,19 @@ export const AuthContextProvider = (props) => {
     }
   }
 
- // 
+  const updateProfile = (name, photo) => {
+    updateProfile(user, {
+      displayName: {name}, photoURL: {photo}
+    }).then(() => {
+      // Profile updated!
+      // ...
+    }).catch((error) => {
+      // An error occurred
+      // ...
+    });
+
+
+  }
 
 
     
@@ -138,7 +150,7 @@ export const AuthContextProvider = (props) => {
   console.log('A guest has signed in',user)
 
   return <AuthContext.Provider 
-  value={{ user, setUser, createUser, logIn, logOut, handleSwitchOnOff }}>
+  value={{ user, setUser, createUser, logIn, logOut, handleSwitchOnOff, updateProfile }}>
     {props.children}
     </AuthContext.Provider>;
 };
