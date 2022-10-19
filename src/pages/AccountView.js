@@ -3,6 +3,7 @@ import {React,useContext, useState} from 'react'
 import { AuthContext } from '../context/authContext';
 import {Button, Form} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
+import ReadWishlist from '../components/readWishlist';
 
 function AccountView() {
     
@@ -25,7 +26,10 @@ function AccountView() {
         <p>User email: {user && user.email}</p>
         <hr/>
         <p>Update your profile:</p>
-        
+        <hr/>
+        <p>Saved items:</p>
+        {/* <ReadWishlist/> */}
+
     <Button onClick={handleLogout} variant="outline-primary">Sign out</Button>
     </div>
   )

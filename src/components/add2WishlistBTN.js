@@ -1,9 +1,10 @@
 import { React, useState, useContext, useEffect } from "react";
 import {Button,OverlayTrigger,Tooltip} from "react-bootstrap";
 import { BsBookmark } from "react-icons/bs";
-import { doc, setDoc } from "firebase/firestore"; 
+import { doc, setDoc, updateDoc, arrayUnion } from "firebase/firestore"; 
 import {db} from "../context/firebase";
 import { AuthContext } from "../context/authContext";
+
 
 
 
@@ -19,22 +20,19 @@ function WishlistBTN({product}) {
   const {user} = useContext(AuthContext)
 
   const add2Wishlist = async () => {
-    //what do we want to store? product_id + time + user
+    //what do we want to store? 
     const wishListObj = {
-        item: product.id,
+        id: product.id,
         title: product.title,
-        date: new Date(), //creates the current date
-        // user: user.email,
     };
     console.log("wishListObj", wishListObj); //ok
+
     try {
-        // setDoc
-        // + update data 
-        //+ id=user.id, 
-        // create emty wishlist for evrey user after registration
-        // Add a new document in collection "wishlist":
-        // https://firebase.google.com/docs/firestore/manage-data/add-data?authuser=0
-        await setDoc(doc(db, "wishlist", user.uid), wishListObj);
+        const wishlistRef = doc(db, "users", user.uid);
+        //Add a new item to the "wishlist" array field.
+        await updateDoc(wishlistRef, {
+            wishlist: arrayUnion({wishListObj})
+        });
 
       } catch (e) {
         console.error("Error adding document: ", e);
