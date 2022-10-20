@@ -1,6 +1,8 @@
 import {Form, Button} from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import {useState, useContext} from 'react'
+import { FcGoogle} from "react-icons/fc";
+import '../App.css';
 
 // FIREBASE
 import { AuthContext } from '../context/authContext';
@@ -16,10 +18,24 @@ const [password, setPassword] = useState('')
 const [error, setError] = useState('')
 
  // functions
-const {createUser} = useContext(AuthContext)
+const {createUser,signInWithGoogle} = useContext(AuthContext)
 const navigate = useNavigate();
 
-
+const handleGoogleSignIn =  async (event) => {
+  event.preventDefault();
+  setError('')
+  try{
+    const success =  await signInWithGoogle ();
+      console.log('Google user logged in successfully')
+      if (success === true) {
+        navigate('/account')
+      }
+      
+  }catch(error){
+    setError(error.message)
+    console.log(error.message)
+  }
+}
 
 	const handleEmailChange = (e) => {
 		setEmail(e.target.value)
@@ -45,6 +61,8 @@ const navigate = useNavigate();
       console.log(error.message)
     }
 
+
+    
 	};
 
 
@@ -53,9 +71,6 @@ const navigate = useNavigate();
         <h3>Welcome✌️</h3>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
-
-     
-
         <Form.Label className="Label">Enter your email address</Form.Label>
         <Form.Control 
         type="email" 
@@ -94,6 +109,13 @@ const navigate = useNavigate();
       <Form.Text className="text-muted">
         Already have an account? <Link to="/login">Login here. </Link>
         </Form.Text>
+        <hr></hr>
+        <div className="d-grid gap-2">
+        <Form.Label>Or use your Google account to sign in:</Form.Label>
+      <Button variant="outline-primary" onClick={handleGoogleSignIn}>
+          Sign in with <FcGoogle/>oogle
+      </Button>
+      </div>
     </Form>
   );
 };

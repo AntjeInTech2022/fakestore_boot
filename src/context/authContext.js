@@ -31,6 +31,8 @@ export const AuthContextProvider = (props) => {
     const token = credential.accessToken;
     // The signed-in user info.
     const user = result.user;
+    setUser(user)
+    return true
     // ...
   }).catch((error) => {
     // Handle Errors here.
@@ -40,6 +42,7 @@ export const AuthContextProvider = (props) => {
     const email = error.customData.email;
     // The AuthCredential type that was used.
     const credential = GoogleAuthProvider.credentialFromError(error);
+    return false
     // ...
   });
 };
@@ -75,12 +78,14 @@ export const AuthContextProvider = (props) => {
     const user = userCredential.user;
     console.log('who signed in?',user)
     setUser(user)
+    return true
     // ...
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
     console.log('login error',errorMessage)
+    return false
   })};
 
  

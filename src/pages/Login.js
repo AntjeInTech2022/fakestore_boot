@@ -23,9 +23,11 @@ function Login() {
     event.preventDefault();
     setError('')
     try{
-        await signInWithGoogle ();
-        console.log('User logged in successfully')
-        navigate('/account');
+      const success =  await signInWithGoogle ();
+      console.log('Google user logged in successfully')
+      if (success === true) {
+        navigate('/account')
+      }
         
     }catch(error){
       setError(error.message)
@@ -38,9 +40,11 @@ const handleLogin =  async (event) => {
   event.preventDefault();
   setError('')
   try{
-      await logIn (email, password);
+    const success = await logIn (email, password);
       console.log('User logged in successfully')
-      navigate('/account');
+      if (success === true) {
+        navigate('/account')
+      }
       
   }catch(error){
     setError(error.message)
