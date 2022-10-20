@@ -38,6 +38,15 @@
   margin: 10px; 
 }
 
+.BsTrashBTN{
+  margin-left: 10px;
+}
+
+
+.BsTrash{
+  font-size: 20px;
+}
+
 .BsCartPlus{
   font-size: 25px;
   /* margin: 10px;  */

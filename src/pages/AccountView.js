@@ -67,10 +67,14 @@ function AccountView() {
       </Button>
       </div>
         <hr/>
-        <p>Saved items:</p>
+        <h4>Saved Items</h4>
         <ReadWishlist/>
-
-    <Button onClick={handleLogout} variant="outline-primary">Sign out</Button>
+        <p aria-hidden="true">
+          <Placeholder xs={12} bg="white" />
+          <Placeholder xs={12} bg="white" />
+          <Placeholder xs={12} bg="white" />
+        </p>
+    {/* <Button onClick={handleLogout} variant="outline-primary">Sign out</Button> */}
     </div>
   )
 }

@@ -31,7 +31,7 @@ function WishlistBTN({product}) {
         const wishlistRef = doc(db, "users", user.uid);
         //Add a new item to the "wishlist" array field.
         await updateDoc(wishlistRef, {
-            wishlist: arrayUnion({wishListObj})
+            wishlist: arrayUnion(wishListObj)
         });
 
       } catch (e) {

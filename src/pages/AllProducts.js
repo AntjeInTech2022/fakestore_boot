@@ -52,34 +52,20 @@ function AllProducts() {
         <Col key={product.id} >
           {/* <Link className='text-link' to={`/product/${product.id}`}> */}
           <Card>
-         {/* <Card.Header as="h6" > */}
-          {/* </Card.Header>  */}
             <Card.Img className="Image" variant="top" src={product.image} />
             <Card.Body>
               <Card.Title>{product.title}</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">{product.price} €</Card.Subtitle>
               <Card.Text className="text-truncate">{product.description}</Card.Text>
               <Button onClick={()=>navigate(`/product/${product.id}`)} variant="danger">Show more</Button>
-              
-              {/* <OverlayTrigger
-                placement="top"
-                overlay={renderTooltipBookmark}> */}
-                {/* <Button onClick={add2Wishlist} variant="successwhite"><BsBookmark className='bookmark'/></Button> */}
-             <WishlistBTN product={product}/>
-               {/* </OverlayTrigger>  */}
-
+              <WishlistBTN product={product}/>
                 <OverlayTrigger
                 placement="top"
-              
                 overlay={renderTooltipCart}>
                 <Button variant="white"><BsCartPlus className="BsCartPlus"/></Button>
               </OverlayTrigger>
-              
-       
             </Card.Body>
-
           </Card>
-     
          </Col>
           
       ))}
