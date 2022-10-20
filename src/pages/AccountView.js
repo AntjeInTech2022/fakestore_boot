@@ -68,7 +68,7 @@ function AccountView() {
       </div>
         <hr/>
         <p>Saved items:</p>
-        {/* <ReadWishlist/> */}
+        <ReadWishlist/>
 
     <Button onClick={handleLogout} variant="outline-primary">Sign out</Button>
     </div>

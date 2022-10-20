@@ -1,42 +1,53 @@
-import {React, useContext}  from 'react'
+import {React, useContext, useState, useEffect}  from 'react'
 import { doc, collection, query, where, getDocs, collectionGroup, getDoc } from "firebase/firestore";
 import {db} from "../context/firebase";
 import { AuthContext } from "../context/authContext";
 import { Col, Row} from 'react-bootstrap';
 
-function ReadWishlist({product}) {
+// https://firebase.google.com/docs/firestore/query-data/queries?authuser=0&hl=en#collection-group-query
+// https://firebase.google.com/docs/firestore/data-model#hierarchical-data
+// https://stackoverflow.com/questions/46639058/firebase-cloud-firestore-invalid-collection-reference-collection-references-m
+
+function ReadWishlist({products}) {
 
     const {user} = useContext(AuthContext)
+    const [items, setItems] = useState('') 
+    
 
-// Get all documents in a collection:
-const q = query(collection(db, "users", user.uid, 'wishlist'), where(user.uid, "==", user.id));
+  //FETCH Wishlist items from firestore
+  const getItems = async () => {
 
-const querySnapshot = getDocs(q);
+   
+
+// Query wishlist
+const collectionReference = collection(db,"users",user.uid,"wishlist")
+const q = query(collectionReference, where(user.uid, "==", user.uid))
+
+const querySnapshot = await getDocs(q);
+const items = [];
 querySnapshot.forEach((doc) => {
+  items.push(doc.data());
   console.log(doc.id, " => ", doc.data());
 });
+setItems(items);
+}
 
-// Collection Group: requires an index
-// https://firebase.google.com/docs/firestore/query-data/queries?authuser=0&hl=en#collection-group-query
-
-// const items = query(collectionGroup(db, 'wishlist'), where(user.uid, '==',  user.uid));
-// const querySnapshot = getDocs(items);
-// querySnapshot.forEach((doc) => {
-//     console.log(doc.id, ' => ', doc.data());
-// });
+useEffect(() => {
+  getItems()
+  }, [])
 
 
 
-//   return (
-//     <Row>
-//   {items && items.map((item, i) => (
-//           <Col key={item.id}>
-//           <p>Product id: {item.id}</p>
-//           <p>Product title: {item.title}</p>
-//           </Col>
-//         ))}
-//     </Row> 
-//   )
+  // return (
+  //   <Row>
+  // {items && items.map((item, i) => (
+  //         <Col key={item.id}>
+  //         <p>Product id: {item.id}</p>
+  //         <p>Product title: {item.title}</p>
+  //         </Col>
+  //       ))}
+  //   </Row> 
+  // )
 }
 
 export default ReadWishlist;
