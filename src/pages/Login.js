@@ -2,7 +2,13 @@ import {useNavigate} from 'react-router-dom';
 import {useState, useContext } from 'react'
 import {Placeholder,Button, Form} from 'react-bootstrap';
 import { AuthContext } from '../context/authContext';
+import { BsGoogle} from "react-icons/bs";
+import { FcGoogle} from "react-icons/fc";
+import '../App.css';
+
 import {useAuth} from '../context/authContext';
+
+
 
 
 function Login() {
@@ -11,7 +17,21 @@ function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  const {logIn} = useContext(AuthContext)
+  const {logIn, signInWithGoogle} = useContext(AuthContext)
+
+  const handleGoogleSignIn =  async (event) => {
+    event.preventDefault();
+    setError('')
+    try{
+        await signInWithGoogle ();
+        console.log('User logged in successfully')
+        navigate('/account');
+        
+    }catch(error){
+      setError(error.message)
+      console.log(error.message)
+    }
+  }
 
 
 const handleLogin =  async (event) => {
@@ -54,10 +74,10 @@ const handleLogin =  async (event) => {
         value={email}
         />
 
-        <Form.Text className="text-muted">
+        {/* <Form.Text className="text-muted">
         Demo email: fake@fakestore.com
         
-        </Form.Text>
+        </Form.Text> */}
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -70,10 +90,10 @@ const handleLogin =  async (event) => {
         onChange={handlePassword}
         />
 
-        <Form.Text className="text-muted">
+        {/* <Form.Text className="text-muted">
         Demo pw: 123456
         
-        </Form.Text>
+        </Form.Text> */}
       </Form.Group>
   
       <div className="d-grid gap-2">
@@ -82,11 +102,16 @@ const handleLogin =  async (event) => {
       </Button>
       </div>
 
-
       <Form.Text className="text-muted">
        Forgot password?
         </Form.Text>
       <hr></hr>
+      <div className="d-grid gap-2">
+      <Button variant="outline-primary" onClick={handleGoogleSignIn}>
+          Sign in with <FcGoogle/>oogle
+      </Button>
+      <hr></hr>
+      </div>
       <Placeholder xs={12} bg="white" />
         <h6>New here?</h6>
         <div className="d-grid gap-2">  

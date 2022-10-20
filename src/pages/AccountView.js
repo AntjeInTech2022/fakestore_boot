@@ -50,7 +50,7 @@ function AccountView() {
     <div> <h3>Your account</h3>
         <hr/>
         <p>Email: {user && user.email}</p>
-        <p>Username: {user && user.name}</p>
+        <p>Username: {user && user.displayName}</p>
         <hr/>
         <Form.Label className="Label">Enter your username</Form.Label>
         <Form.Control 

@@ -4,6 +4,8 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  GoogleAuthProvider, 
+  signInWithPopup
 } from "firebase/auth"
 import {auth, db} from "./firebase"
 import { doc, setDoc } from "firebase/firestore"; 
@@ -18,6 +20,31 @@ export const AuthContextProvider = (props) => {
   // 3.  states and functions
   const [user, setUser] = useState(null)
   
+ // GOOGLE AUTH
+ const provider = new GoogleAuthProvider();
+
+ const signInWithGoogle = () => {
+  signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
+};
+
+
 
   // REGISTRATION
   const createUser = (email, password) => {
@@ -150,7 +177,7 @@ export const AuthContextProvider = (props) => {
   console.log('A guest has signed in',user)
 
   return <AuthContext.Provider 
-  value={{ user, setUser, createUser, logIn, logOut, handleSwitchOnOff, updateProfile }}>
+  value={{ user, setUser, createUser, logIn, logOut, handleSwitchOnOff, updateProfile, signInWithGoogle }}>
     {props.children}
     </AuthContext.Provider>;
 };
