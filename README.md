@@ -1,8 +1,5 @@
 # About
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-This website was developed as part of the Code Academy Berlin Full-stack Web Developer Bootcamp. The project consisted in building a free-of-choice Single Page Application with React JS using Firebase to create a login feature and to store information into a database.
+This project was part of the Code Academy Berlin Full-Stack Web Developer Bootcamp. The project consisted in building a free-of-choice Single Page Application with React JS using Firebase to create a login feature and to store information into a database.
 
 - API used: https://fakestoreapi.com/
 - CSS framework used: Bootstrap React

@@ -1,4 +1,4 @@
-import {Container, Nav, Navbar,Button, Offcanvas} from 'react-bootstrap';
+import {Container, Nav, Navbar,Button, Offcanvas, Accordion} from 'react-bootstrap';
 import {useNavigate, Link} from 'react-router-dom';
 import { AuthContext } from "../../context/authContext";
 import {useContext} from "react";
@@ -57,6 +57,8 @@ function NavOffCanvas() {
           {user ?
           <Nav.Link><Link className="text-link" to="/account">Your Account</Link></Nav.Link>
           :<Nav.Link><Link className="text-link" to="/register">Register</Link></Nav.Link> }
+
+
           <Nav.Link><Link  className="text-link" to="/about">About</Link></Nav.Link>
           
                   

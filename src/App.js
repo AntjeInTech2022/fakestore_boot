@@ -20,6 +20,7 @@ import Register from './pages/Register';
 import LoginRequiredAlert from './pages/LoginRequired';
 import ViewChat from './pages/Chat';
 import AccountView from './pages/AccountView';
+import About from './pages/About';
 
 
 //context
@@ -56,6 +57,7 @@ const App = () => {
 
          <Route path='/login' element={<Login/>}/>
          <Route path='/register' element={<Register/>}/>
+         <Route path='/about' element={<About/>}/>
       
          <Route path='/chat' element={<ProtectedRoute><ViewChat/></ProtectedRoute>}/>
          
