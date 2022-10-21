@@ -8,7 +8,6 @@ import Footer from './components/Footer/Footer.js';
 import NavOffCanvas from './components/NavBar/NavOffCanvas';
 import NavContext from './components/NavBar/NavBarContext';
 import ContainerFluid from './components/Banner/Banner';
-
 // PAGES
 import WomenCat from './pages/WomenCategory';
 import MenCat from './pages/MenCategory';
