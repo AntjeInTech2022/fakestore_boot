@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from 'react-bootstrap'
+import {Placeholder} from 'react-bootstrap'
 
 function About() {
   return (
@@ -31,6 +31,11 @@ function About() {
 <li>Protected Routes</li>
 <li>Save favourites to a Wishlist (by writing, reading and deleting documents in Firestore)</li>
 </ul>
+<p aria-hidden="true">
+          <Placeholder xs={12} bg="white" />
+          <Placeholder xs={12} bg="white" />
+          <Placeholder xs={12} bg="white" />
+        </p>
 
 
 
