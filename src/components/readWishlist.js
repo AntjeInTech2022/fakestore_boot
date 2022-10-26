@@ -76,7 +76,7 @@ useEffect(() => {
           <Card.Subtitle className="mb-2 text-muted">{product.price} €</Card.Subtitle>
           <Card.Text>{product.description}</Card.Text>
           <Button variant="success">Add to shopping cart</Button>
-          <RemoveItemFromWishlistBTN product={product}/>
+          <RemoveItemFromWishlistBTN product={product} item={item}/>
           {/* <OverlayTrigger
                 placement="top"
                 overlay={renderTooltipCart}>

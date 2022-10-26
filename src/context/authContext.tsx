@@ -6,10 +6,12 @@ import {
   onAuthStateChanged,
   GoogleAuthProvider, 
   signInWithPopup,
-  updateProfile
+  updateProfile,
+  User
 } from "firebase/auth"
 import {auth, db} from "./firebase"
 import { doc, setDoc } from "firebase/firestore"; 
+
 
 // 1. Create Context / Store
 export const AuthContext = createContext({});
@@ -21,7 +23,7 @@ export const AuthContextProvider = (props: { children: string | number | boolean
 
   // 3.  states and functions
   // const [user, setUser] = useState(null)
-  const [user, setUser] = useState<intfUserData | null>(null);
+  const [user, setUser] = useState< User | null>(null);
   
   
  // GOOGLE AUTH

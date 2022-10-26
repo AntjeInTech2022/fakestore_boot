@@ -1,4 +1,4 @@
-import { React, useContext }  from 'react'
+import { useContext }  from 'react'
 import { doc, updateDoc, deleteField } from "firebase/firestore";
 import { Button, OverlayTrigger, Tooltip} from "react-bootstrap";
 import { BsTrash} from "react-icons/bs";
@@ -7,14 +7,15 @@ import { AuthContext } from "../context/authContext";
 
 
 // https://firebase.google.com/docs/firestore/manage-data/delete-data
-function RemoveItemFromWishlistBTN({ product }) {
+function RemoveItemFromWishlistBTN({ product, item }) {
 
   const {user} = useContext(AuthContext)
+ 
 
   const deleteItem = async () => {
 
-
     //which item do we want to remove from the wishlisz?
+    // how can I access the index or create a pid upon creation?
     const wishListObj = {
       id: product.id,
       title: product.title,
@@ -26,6 +27,9 @@ function RemoveItemFromWishlistBTN({ product }) {
       wishlist: deleteField(wishListObj),
     });
   };
+
+  //2Do: FETCH updated Wishlist items from firestore
+  // move getItems to a authcontext.js
 
     // Tooltip
     const renderTooltipDelete = (props) => (

@@ -1,33 +1,28 @@
-//@Lucas use interface or type?
-interface intfApiData {
+import { Auth} from "firebase/auth";
+interface Product{
     id: string;
     title: string;
     description: string;
     category: string;
     image: string;
+    price: number; 
     rating: Array<{
        rate: number;
        count: number}>
 }
-//         "rating": {
-//             "rate": 3.9,
-//             "count": 120
 
-interface intfUserData {
-    auth: any;
-    uid: string;
-    displayName?: string;
-    email: string;
-    photoURL?: string; 
-    prevState?: null;   
-}
+type Products = Product[]
 
-type typeUser = {
-    auth: any,
-    uid: string,
-    displayName?: any,
-    email: string,
-    photoURL?: any, 
-    prevState?: any,  
-  };
+// interface User {
+//     auth: Auth;
+//     uid: string;
+//     displayName?: string;
+//     email: string;
+//     photoURL?: string; 
+//     prevState?: null;   
+// }
+
+
+
+
   

@@ -1,9 +1,13 @@
 // 1. Import hook
 import { createContext, useState, useEffect, JSXElementConstructor, ReactElement, ReactFragment, ReactPortal } from "react";
+import { Products } from "../@types";
 
 // 2. Create Context / Store
 
-export const ProductsContext = createContext({});
+interface ProductsContext {
+  products: Products | null
+}
+export const ProductsContext = createContext <ProductsContext>({products: null});
 
 
 // 3. Create provider
@@ -12,8 +16,8 @@ export const ProductsContextProvider = (props: { children: string | number | boo
   let api: string = `https://fakestoreapi.com/products`;
 
   // const [products, setProducts] = useState(null);
-  const [products, setProducts] = useState<intfApiData[]>([]);
-  // useState<any | null>(null); ???
+  const [products, setProducts] = useState<Products|null >(null);
+  
 
   useEffect(() => {
     (async function () {

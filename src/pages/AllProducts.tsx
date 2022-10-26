@@ -1,8 +1,8 @@
-import {useEffect, useState, useContext } from 'react'
+import {useContext, RefAttributes } from 'react'
 
-import { Button, OverlayTrigger, Tooltip, Card, Col, Row, Placeholder } from 'react-bootstrap';
+import { Button, OverlayTrigger, Tooltip, Card, Col, Row, Placeholder, TooltipProps } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'
-import { BsBookmark, BsCartPlus  } from "react-icons/bs";
+import { BsCartPlus  } from "react-icons/bs";
 import '../App.css';
 
 //context
@@ -12,6 +12,8 @@ import WishlistBTN from '../components/add2WishlistBTN';
 
 
 function AllProducts() {
+
+  // type:
   const { products } = useContext(ProductsContext)
 
   // Fetch data
@@ -37,7 +39,7 @@ function AllProducts() {
     //   </Tooltip>
     // );
 
-    const renderTooltipCart = (props) => (
+    const renderTooltipCart = (props: JSX.IntrinsicAttributes & TooltipProps & RefAttributes<HTMLDivElement>) => (
       <Tooltip id="button-tooltip2" {...props}>
         Add to cart
       </Tooltip>
