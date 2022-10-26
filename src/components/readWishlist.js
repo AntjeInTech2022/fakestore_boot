@@ -4,7 +4,8 @@ import {db} from "../context/firebase";
 import { AuthContext } from "../context/authContext";
 import { ProductsContext } from "../context/dataContext";
 import { Col, Row, Button, Card, OverlayTrigger, Tooltip, Placeholder}  from 'react-bootstrap';
-import { BsTrash} from "react-icons/bs";
+// import { BsTrash} from "react-icons/bs";
+import RemoveItemFromWishlistBTN from '../components/removeItemFromWishlistBTN';
 import '../App.css';
 
 // https://firebase.google.com/docs/firestore/query-data/queries?authuser=0&hl=en#collection-group-query
@@ -20,7 +21,6 @@ function ReadWishlist() {
 
   //FETCH Wishlist items from firestore
 const getItems = async () => {
-
 
 const docRef = doc(db, "users", user.uid);
 const docSnap = await getDoc(docRef);
@@ -54,11 +54,11 @@ useEffect(() => {
         return product
   };
 
-  const renderTooltipCart = (props) => (
-    <Tooltip id="button-tooltip2" {...props}>
-      Remove from saved items
-    </Tooltip>
-  );
+  // const renderTooltipCart = (props) => (
+  //   <Tooltip id="button-tooltip2" {...props}>
+  //     Remove from saved items
+  //   </Tooltip>
+  // );
   
 
 
@@ -66,11 +66,7 @@ useEffect(() => {
     <Row xs={1} md={4} className="g-4">
   {items && items.map((item, i) => {
    const product = getProductById(item.id)
-  //  return (<Col key={item.id}>
-  //   {/* <p>Product id: {item.id}</p> */}
-  //   <p>Product title: {product.title}</p>
-  //   <p>Price: {product.price}</p>
-  //   </Col>)
+
     return (
       <Col key={item.id} >
       <Card>
@@ -80,11 +76,12 @@ useEffect(() => {
           <Card.Subtitle className="mb-2 text-muted">{product.price} €</Card.Subtitle>
           <Card.Text>{product.description}</Card.Text>
           <Button variant="success">Add to shopping cart</Button>
-          <OverlayTrigger
+          <RemoveItemFromWishlistBTN product={product}/>
+          {/* <OverlayTrigger
                 placement="top"
                 overlay={renderTooltipCart}>
                 <Button variant="danger" className="BsTrashBTN"><BsTrash className="BsTrash"/></Button>
-              </OverlayTrigger>
+              </OverlayTrigger> */}
         </Card.Body>
       </Card>
      </Col>

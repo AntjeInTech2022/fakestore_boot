@@ -1,5 +1,5 @@
 //@Lucas use interface or type?
-interface IApiData {
+interface intfApiData {
     id: string;
     title: string;
     description: string;

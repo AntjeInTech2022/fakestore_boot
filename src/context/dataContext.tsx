@@ -12,7 +12,7 @@ export const ProductsContextProvider = (props: { children: string | number | boo
   let api: string = `https://fakestoreapi.com/products`;
 
   // const [products, setProducts] = useState(null);
-  const [products, setProducts] = useState<IApiData[]>([]);
+  const [products, setProducts] = useState<intfApiData[]>([]);
   // useState<any | null>(null); ???
 
   useEffect(() => {
