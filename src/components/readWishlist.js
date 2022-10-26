@@ -15,11 +15,12 @@ import '../App.css';
 function ReadWishlist() {
 
     const {user} = useContext(AuthContext)
-    const {products} = useContext(ProductsContext)
-    const [items, setItems] = useState(null) 
+  const {products} = useContext(ProductsContext)
+  const [items, setItems] = useState(null) 
     
 
-  //FETCH Wishlist items from firestore
+// //FETCH Wishlist items from firestore
+// move getItems to a authcontext.js -> didn't work
 const getItems = async () => {
 
 const docRef = doc(db, "users", user.uid);
@@ -39,10 +40,7 @@ if (docSnap.exists()) {
 
 }
 
-// 2 DOs:
-// move getItems to a authcontext.js
-// or create a local state wishlist
-
+// Update if there is a change in the wishlist:
 useEffect(() => {
   user && getItems()
   }, [user])
@@ -87,6 +85,7 @@ useEffect(() => {
      </Col>
     )
   })} 
+  {/* ELSE */}
      <p aria-hidden="true">
           <Placeholder xs={12} bg="white" />
         </p>

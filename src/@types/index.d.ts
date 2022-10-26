@@ -13,14 +13,18 @@ interface Product{
 
 type Products = Product[]
 
-// interface User {
-//     auth: Auth;
-//     uid: string;
-//     displayName?: string;
-//     email: string;
-//     photoURL?: string; 
-//     prevState?: null;   
-// }
+interface ProductsContext {
+    products: Products | null
+  }
+
+interface User {
+    auth: Auth;
+    uid: string;
+    displayName?:  string | null;
+    email: string;
+    photoURL?:  string | null; 
+    prevState?: null;   
+}
 
 
 

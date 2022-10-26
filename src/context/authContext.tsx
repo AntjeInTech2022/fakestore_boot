@@ -10,7 +10,8 @@ import {
   User
 } from "firebase/auth"
 import {auth, db} from "./firebase"
-import { doc, setDoc } from "firebase/firestore"; 
+import { doc, getDoc, setDoc } from "firebase/firestore"; 
+import { Products } from "../@types";
 
 
 // 1. Create Context / Store
@@ -57,25 +58,23 @@ export const AuthContextProvider = (props: { children: string | number | boolean
 
 
   // REGISTRATION
-  const createUser = (email: string, password: string) => {
-    return createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+  const createUser = async (email: string, password: string) => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       // Signed in 
       // const user = userCredential.user;
       const user: any = userCredential.user;
       const userDocRef = doc(db, "users", user.uid);
-      setDoc(userDocRef, {wishlist:[]})
-      setUser(user)
-      console.log('new user is',user)
-      // ...
-      return true
-    })
-    .catch((error) => {
+      setDoc(userDocRef, { wishlist: [] });
+      setUser(user);
+      console.log('new user is', user);
+      return true;
+    } catch (error: any) {
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.log('createUser error',errorMessage)
-      return false
-    })};
+      console.log('createUser error', errorMessage);
+      return false;
+    }};
   
 
   // LOGIN
@@ -113,6 +112,10 @@ export const AuthContextProvider = (props: { children: string | number | boolean
     }
   })};
 
+  useEffect(() => {
+    loginStatus();
+  },[]);
+
   // Detect auth state
 // onAuthStateChanged(auth, user => {
 //   if(user !== null) {
@@ -121,11 +124,6 @@ export const AuthContextProvider = (props: { children: string | number | boolean
 //     console.log('no user')
 //   }
 // });
-
-
-  useEffect(() => {
-    loginStatus();
-  },[]);
 
   // LOGOUT
   const logOut = () => {
@@ -146,8 +144,6 @@ export const AuthContextProvider = (props: { children: string | number | boolean
 
 
   const handleSwitchOnOff = () => {
-
-
   //IF there is no user signed in
   if (!user) {
     return(
@@ -170,27 +166,67 @@ export const AuthContextProvider = (props: { children: string | number | boolean
     }
   }
 
+//FETCH Wishlist items from firestore
+    // const [products, setProducts] = useState<Products|null >(null);
+    // const [items, setItems] = useState(null) 
+    
+  //   const getItems = async () => {
 
-   // UPDATE PROFILE
-  // const updateProfile = (name: string, photo: string) => {
-  //   updateProfile(user, {
-  //     displayName: {name}, photoURL: {photo}
-  //   }).then(() => {
-  //     // Profile updated!
-      // ...
-    // }).catch((error) => {
-      // An error occurred
-      // ...
-    // });
-
-
+  //   if (user) {
+  //   const docRef = doc(db, "users", user.uid);
+  //   const docSnap = await getDoc(docRef);
+    
+  //     if (docSnap.exists()) {
+  //       const {wishlist} =  docSnap.data();
+  //       console.log("wishlist:", wishlist);
+  //       setItems(wishlist);
+  //     } else {
+  //       // doc.data() will be undefined in this case
+  //       console.log("No such document!");
+  //       const userDocRef = doc(db, "users", user.uid);
+  //       setDoc(userDocRef, {wishlist:[]})
+  //     }
+  //  }
   // }
 
+   // UPDATE USER NAME
+   const updateName = (name: string | null) => {
+    
+    if (user !== null) {
+    updateProfile(user, {
+      displayName: name,
+    }).then(() => {
+      // Profile updated!
+      console.log('username updated to',user.displayName)
+      // ...
+    }).catch((error) => {
+      // An error occurred
+      // ...
+    });
+  }
+}
+
+
+  
+  
+
+  // Get a user's provider-specific profile information
+  const showUserInfoInConsole = () => {
+  if (user !== null) {
+    user.providerData.forEach((profile) => {
+      console.log("Sign-in provider: " + profile.providerId);
+      console.log("  Provider-specific UID: " + profile.uid);
+      console.log("  Name: " + profile.displayName);
+      console.log("  Email: " + profile.email);
+      console.log("  Photo URL: " + profile.photoURL);
+    });
+  }
+}
+
+
   // 4. return the provider with its value and inject children component
-
-
   return <AuthContext.Provider 
-  value={{ user, setUser, createUser, logIn, logOut, handleSwitchOnOff, updateProfile, signInWithGoogle }}>
+  value={{ user, setUser, createUser, logIn, logOut, handleSwitchOnOff, updateName, signInWithGoogle, showUserInfoInConsole}}>
     {props.children}
     </AuthContext.Provider>;
 };

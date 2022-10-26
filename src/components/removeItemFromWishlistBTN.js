@@ -1,4 +1,4 @@
-import { useContext }  from 'react'
+import { useContext, useEffect }  from 'react'
 import { doc, updateDoc, deleteField } from "firebase/firestore";
 import { Button, OverlayTrigger, Tooltip} from "react-bootstrap";
 import { BsTrash} from "react-icons/bs";
@@ -9,7 +9,7 @@ import { AuthContext } from "../context/authContext";
 // https://firebase.google.com/docs/firestore/manage-data/delete-data
 function RemoveItemFromWishlistBTN({ product, item }) {
 
-  const {user} = useContext(AuthContext)
+  const {user, getItems} = useContext(AuthContext)
  
 
   const deleteItem = async () => {
@@ -28,8 +28,10 @@ function RemoveItemFromWishlistBTN({ product, item }) {
     });
   };
 
-  //2Do: FETCH updated Wishlist items from firestore
-  // move getItems to a authcontext.js
+//2DO: Update if there is a change in the wishlist:
+  // useEffect(() => {
+  //   user && getItems()
+  //   }, [user])
 
     // Tooltip
     const renderTooltipDelete = (props) => (

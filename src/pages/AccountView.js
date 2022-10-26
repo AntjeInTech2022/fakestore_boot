@@ -1,4 +1,4 @@
-import {React,useContext, useState} from 'react'
+import {useEffect,useContext, useState} from 'react'
 // import { UserAuth } from '../context/authContext2';
 import { AuthContext } from '../context/authContext';
 import {Button, Form, Placeholder} from 'react-bootstrap';
@@ -8,51 +8,55 @@ import ReadWishlist from '../components/readWishlist';
 
 function AccountView() {
     
-    const {user, logOut, updateProfile} = useContext(AuthContext)
+    const {user, logOut, showUserInfoInConsole, updateName} = useContext(AuthContext)
     const navigate = useNavigate();
     const [name, setName] = useState('');
+    const [error, setError] = useState('')
     // const [photo, setPhoto] = useState('');
-    // const [error, setError] = useState('')
 
-
-
-    const handleLogout = async() => {
-        try {
-            await logOut(user);
-            navigate('/');
-            console.log('User logged out')
-        } catch (e) {
-            console.log(e.message)
-        }
-    }
+    // const handleLogout = async() => {
+    //     try {
+    //         await logOut(user);
+    //         navigate('/');
+    //         console.log('User logged out')
+    //     } catch (e) {
+    //         console.log(e.message)
+    //     }
+    // }
 
     const handleName = (e) => {
         setName(e.target.value)
     }
 
 
-    // const handleUpdate =  async (event) => {
-    //     event.preventDefault();
-    //     setError('')
-    //     try{
-    //         await updateProfile(name);
-    //         console.log('new username is',name)
-    //     }catch(error){
-    //       setError(error.message)
-    //       console.log(error.message)
-    //     }
-    //   }
-      
+    const handleNameUpdate =  async (event) => {
+      event.preventDefault();
+      setError('')
+      try{
+        await updateName(name);
+        console.log('User has submitted username')
+        setName(name)
           
+      }catch(error){
+        setError(error.message)
+        console.log(error.message)
+      }
+    }
+      
+    //2DO: add render component 'UserName':
+    // <p>Username: {user && user.displayName}</p>
+    useEffect(() => {
+      updateName();
+    },[name]);
       
 
   return (
     <div> <h3>Your account</h3>
         <hr/>
         <p>Email: {user && user.email}</p>
-        <p>Username: {user && user.displayName}</p>
         <hr/>
-        <Form.Label className="Label">Enter your username</Form.Label>
+        <p>Username: {user && user.displayName}</p>
+        <Form.Label className="Label">Enter / change your username</Form.Label>
         <Form.Control 
         type="text" 
         placeholder="Enter username" 
@@ -61,9 +65,12 @@ function AccountView() {
         />
         <div className="d-grid gap-2">
         <Placeholder xs={12} bg="white" />
-      {/* <Button variant="primary" onClick={handleUpdate}> */}
-      <Button variant="primary">
-        Add username
+      <Button variant="outline-primary" onClick={handleNameUpdate}>
+      Submit username 
+      </Button>
+      <hr/>
+      <Button onClick={showUserInfoInConsole} variant="outline-primary">
+      Show my profile information in console.log 
       </Button>
       </div>
         <hr/>
