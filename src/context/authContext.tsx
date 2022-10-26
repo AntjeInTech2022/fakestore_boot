@@ -1,24 +1,28 @@
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useState, useEffect, useContext, JSXElementConstructor, ReactElement, ReactFragment, ReactPortal } from "react";
 import {
   createUserWithEmailAndPassword, 
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
   GoogleAuthProvider, 
-  signInWithPopup
+  signInWithPopup,
+  updateProfile
 } from "firebase/auth"
 import {auth, db} from "./firebase"
 import { doc, setDoc } from "firebase/firestore"; 
 
 // 1. Create Context / Store
-export const AuthContext = createContext();
+export const AuthContext = createContext({});
 
 
 // 2. Create the provider
-export const AuthContextProvider = (props) => {
+export const AuthContextProvider = (props: { children: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => {
+// export const AuthContextProvider = (props) => {
 
   // 3.  states and functions
-  const [user, setUser] = useState(null)
+  // const [user, setUser] = useState(null)
+  const [user, setUser] = useState<intfUserData | null>(null);
+  
   
  // GOOGLE AUTH
  const provider = new GoogleAuthProvider();
@@ -27,10 +31,11 @@ export const AuthContextProvider = (props) => {
   signInWithPopup(auth, provider)
   .then((result) => {
     // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const credential: any = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
     // The signed-in user info.
-    const user = result.user;
+    const user: any= result.user;
+    // const user = result.user;
     setUser(user)
     return true
     // ...
@@ -50,11 +55,12 @@ export const AuthContextProvider = (props) => {
 
 
   // REGISTRATION
-  const createUser = (email, password) => {
+  const createUser = (email: string, password: string) => {
     return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in 
-      const user = userCredential.user;
+      // const user = userCredential.user;
+      const user: any = userCredential.user;
       const userDocRef = doc(db, "users", user.uid);
       setDoc(userDocRef, {wishlist:[]})
       setUser(user)
@@ -71,11 +77,11 @@ export const AuthContextProvider = (props) => {
   
 
   // LOGIN
-  const logIn = (email, password) => {
+  const logIn = (email: string, password: string) => {
   signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
-    const user = userCredential.user;
+    const user: any = userCredential.user;
     console.log('who signed in?',user)
     setUser(user)
     return true
@@ -91,7 +97,7 @@ export const AuthContextProvider = (props) => {
  
    // Get the currently signed-in user
    const loginStatus = () => {
-   onAuthStateChanged(auth, (user) => {
+   onAuthStateChanged(auth, (user: any) => {
     
     if (user) {
       console.log('user status changed:', user)
@@ -148,7 +154,7 @@ export const AuthContextProvider = (props) => {
       signInWithEmailAndPassword(auth, guest.email, guest.password)
       .then((userCredential) => {
         // Signed in 
-        const user = userCredential.user;
+        const user: any = userCredential.user;
         console.log('A guest has signed in',user)
         setUser(user)
         // ...
@@ -162,24 +168,24 @@ export const AuthContextProvider = (props) => {
     }
   }
 
-  const updateProfile = (name, photo) => {
-    updateProfile(user, {
-      displayName: {name}, photoURL: {photo}
-    }).then(() => {
-      // Profile updated!
+
+   // UPDATE PROFILE
+  // const updateProfile = (name: string, photo: string) => {
+  //   updateProfile(user, {
+  //     displayName: {name}, photoURL: {photo}
+  //   }).then(() => {
+  //     // Profile updated!
       // ...
-    }).catch((error) => {
+    // }).catch((error) => {
       // An error occurred
       // ...
-    });
+    // });
 
 
-  }
+  // }
 
-
-    
   // 4. return the provider with its value and inject children component
-  console.log('A guest has signed in',user)
+
 
   return <AuthContext.Provider 
   value={{ user, setUser, createUser, logIn, logOut, handleSwitchOnOff, updateProfile, signInWithGoogle }}>
