@@ -1,4 +1,5 @@
 import { useContext, RefAttributes } from "react";
+import { formatCurrency } from "../utilities/formatCurrency";
 
 import {
   Button,
@@ -73,7 +74,7 @@ function AllProducts() {
               <Card.Body>
                 <Card.Title>{product.title}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
-                  {product.price} €
+                  {formatCurrency(product.price)}
                 </Card.Subtitle>
                 <Card.Text className="text-truncate">
                   {product.description}
