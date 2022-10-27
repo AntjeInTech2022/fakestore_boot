@@ -2,29 +2,33 @@
   text-align: center;
 } */
 
-.closebtn_div{
+.shoppingCartBTN {
+  background-color: white;
+  margin-left: 5px;
+}
+
+.closebtn_div {
   display: flex;
-  justify-content: end
-  ;
+  justify-content: end;
 }
 
 /* .ContainerFooter{
   padding-top: 5%;
 } */
 
-.Image{
+.Image {
   margin-top: 5%;
   margin-bottom: 5%;
   margin-left: 5%;
   height: auto;
-  width: 250px; 
+  width: 250px;
 }
 
-.imageDiv{
+.imageDiv {
   align-items: center;
 }
 
-.NavTxt{
+.NavTxt {
   text-align: center;
 }
 
@@ -35,48 +39,45 @@
 
 .bookmark {
   font-size: 25px;
-  margin: 10px; 
+  margin: 10px;
 }
 
-.FcGoogle{
+.FcGoogle {
   font-size: 20px;
 }
 
-.BsTrashBTN{
+.BsTrashBTN {
   margin-left: 10px;
 }
 
-
-.BsTrash{
+.BsTrash {
   font-size: 20px;
 }
 
-.BsCartPlus{
+.BsCartPlus {
   font-size: 25px;
   /* margin: 10px;  */
 }
-.IconFooter{
+.IconFooter {
   font-size: 25px;
-  margin: 5px; 
+  margin: 5px;
 }
 
-
 .SelectSize {
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
 .Label {
-  margin-top: 10px; 
+  margin-top: 10px;
 }
 
-
 .badge {
-    /* display: flex;
+  /* display: flex;
     flex: justify-content-end; */
-    margin-bottom: 20px;
-    /* padding: 11px 10px 10px; */
-    text-transform: uppercase;
-    /* display: inline-block; */
+  margin-bottom: 20px;
+  /* padding: 11px 10px 10px; */
+  text-transform: uppercase;
+  /* display: inline-block; */
 }
 
 .card-header {
@@ -90,4 +91,3 @@
   margin-bottom: 0;
   padding: 0; */
 }
-
