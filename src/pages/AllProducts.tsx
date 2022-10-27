@@ -1,6 +1,5 @@
 import { useContext, RefAttributes } from "react";
 import { formatCurrency } from "../utilities/formatCurrency";
-
 import {
   Button,
   OverlayTrigger,
@@ -12,16 +11,24 @@ import {
   TooltipProps,
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { BsCartPlus } from "react-icons/bs";
+import { BsCartPlus, BsTrash } from "react-icons/bs";
 import "../App.css";
 
 //context
 import { ProductsContext } from "../context/dataContext";
 import WishlistBTN from "../components/add2WishlistBTN";
+import { useShoppingCart } from "../context/shoppingCartContext";
 
 function AllProducts() {
-  // type:
   const { products } = useContext(ProductsContext);
+  // const {
+  //   getItemQuantity,
+  //   increaseCartQuantity,
+  //   decreaseCartQuantity,
+  //   removeFromCart,
+  // } = useShoppingCart();
+  // ERROR:
+  // const quantity = getItemQuantity({id});
 
   // Fetch data
   //   let api = `https://fakestoreapi.com/products`;
@@ -63,7 +70,7 @@ function AllProducts() {
         products.map((product, i) => (
           <Col key={product.id}>
             {/* <Link className='text-link' to={`/product/${product.id}`}> */}
-            <Card>
+            <Card className="h-100">
               <Card.Img
                 // className="Image"
                 height="400px"
@@ -79,16 +86,45 @@ function AllProducts() {
                 <Card.Text className="text-truncate">
                   {product.description}
                 </Card.Text>
+                {/* <div className="mt-auto"> */}
+                {/* If qty is null show add to cart btn ELSE: */}
+                {/* {quantity === 0 ? (
+                    <OverlayTrigger placement="top" overlay={renderTooltipCart}>
+                      <Button variant="white">
+                        <BsCartPlus className="bookmark" />
+                      </Button>
+                    </OverlayTrigger>
+                  ) : ( */}
+                {/* //ELSE */}
+                {/* <>
+                      <div
+                        className="d-flex align-items-center flex-row"
+                        style={{ gap: ".5rem" }}
+                      >
+                        <Button>-</Button>
+                        <Button>+</Button>
+                        <div>
+                          <span className="fs-3">{quantity} </span>
+                          items in cart
+                        </div>
+                        <Button variant="danger" className="BsTrashBTN">
+                          <BsTrash className="BsTrash" />
+                        </Button>
+                      </div>
+                    </>
+                  )}
+                </div> */}
                 <Button
+                  // className="w-100"
                   onClick={() => navigate(`/product/${product.id}`)}
-                  variant="danger"
+                  variant="outline-primary"
                 >
                   Show more
                 </Button>
                 <WishlistBTN product={product} />
                 <OverlayTrigger placement="top" overlay={renderTooltipCart}>
                   <Button variant="white">
-                    <BsCartPlus className="BsCartPlus" />
+                    <BsCartPlus className="bookmark" />
                   </Button>
                 </OverlayTrigger>
               </Card.Body>
