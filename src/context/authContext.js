@@ -1,12 +1,4 @@
-import {
-  createContext,
-  useState,
-  useEffect,
-  JSXElementConstructor,
-  ReactElement,
-  ReactFragment,
-  ReactPortal,
-} from "react";
+import { createContext, useState, useEffect } from "react";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -15,7 +7,6 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   updateProfile,
-  User,
 } from "firebase/auth";
 import { auth, db } from "./firebase";
 import { doc, setDoc } from "firebase/firestore";
@@ -24,22 +15,9 @@ import { doc, setDoc } from "firebase/firestore";
 export const AuthContext = createContext({});
 
 // 2. Create the provider
-export const AuthContextProvider = (props: {
-  children:
-    | string
-    | number
-    | boolean
-    | ReactElement<any, string | JSXElementConstructor<any>>
-    | ReactFragment
-    | ReactPortal
-    | null
-    | undefined;
-}) => {
-  // export const AuthContextProvider = (props) => {
-
+export const AuthContextProvider = (props) => {
   // 3.  states and functions
-  // const [user, setUser] = useState(null)
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState(null);
 
   // GOOGLE AUTH
   const provider = new GoogleAuthProvider();
@@ -48,10 +26,10 @@ export const AuthContextProvider = (props: {
     signInWithPopup(auth, provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential: any = GoogleAuthProvider.credentialFromResult(result);
+        const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         // The signed-in user info.
-        const user: any = result.user;
+        const user = result.user;
         // const user = result.user;
         setUser(user);
         return true;
@@ -71,7 +49,7 @@ export const AuthContextProvider = (props: {
   };
 
   // REGISTRATION
-  const createUser = async (email: string, password: string) => {
+  const createUser = async (email, password) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -80,13 +58,13 @@ export const AuthContextProvider = (props: {
       );
       // Signed in
       // const user = userCredential.user;
-      const user: any = userCredential.user;
+      const user = userCredential.user;
       const userDocRef = doc(db, "users", user.uid);
       setDoc(userDocRef, { wishlist: [] });
       setUser(user);
       console.log("new user is", user);
       return true;
-    } catch (error: any) {
+    } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log("createUser error", errorMessage);
@@ -95,11 +73,11 @@ export const AuthContextProvider = (props: {
   };
 
   // LOGIN
-  const logIn = (email: string, password: string) => {
+  const logIn = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-        const user: any = userCredential.user;
+        const user = userCredential.user;
         console.log("who signed in?", user);
         setUser(user);
         return true;
@@ -115,7 +93,7 @@ export const AuthContextProvider = (props: {
 
   // Get the currently signed-in user
   const loginStatus = () => {
-    onAuthStateChanged(auth, (user: any) => {
+    onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log("user status changed:", user);
         setUser(user); // register and login at the same time
@@ -171,7 +149,7 @@ export const AuthContextProvider = (props: {
         signInWithEmailAndPassword(auth, guest.email, guest.password)
           .then((userCredential) => {
             // Signed in
-            const user: any = userCredential.user;
+            const user = userCredential.user;
             console.log("A guest has signed in", user);
             setUser(user);
             // ...
@@ -209,7 +187,7 @@ export const AuthContextProvider = (props: {
   // }
 
   // UPDATE USER NAME
-  const updateName = (name: string | null) => {
+  const updateName = (name) => {
     if (user !== null) {
       updateProfile(user, {
         displayName: name,

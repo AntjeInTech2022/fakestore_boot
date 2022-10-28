@@ -41,7 +41,10 @@ function NavOffCanvas() {
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-                <Nav className="justify-content-end flex-grow-1 pe-3">
+                <Nav
+                  className="justify-content-end flex-grow-1 pe-3"
+                  style={{ gap: ".5rem" }}
+                >
                   <Navbar.Text>
                     {user && `Signed in as: ${user.email}`}
                   </Navbar.Text>

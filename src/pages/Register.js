@@ -1,6 +1,6 @@
 import { Form, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useState, useContext, SetStateAction } from "react";
 import { FcGoogle } from "react-icons/fc";
 import "../App.css";
 
@@ -15,6 +15,7 @@ function Register() {
   const [error, setError] = useState("");
 
   // functions
+  // TS2339: Property 'createUser' does not exist on type '{}'.
   const { createUser, signInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
 
